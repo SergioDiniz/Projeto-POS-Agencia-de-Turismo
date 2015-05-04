@@ -1,0 +1,6 @@
+beans\Gerente.class
+beans\EnderecoHotel.class
+beans\Hospede.class
+beans\Quarto.class
+beans\Reserva.class
+beans\Hotel.class
