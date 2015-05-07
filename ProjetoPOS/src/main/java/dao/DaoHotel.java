@@ -5,8 +5,7 @@
  */
 package dao;
 
-import beans.Hospede;
-import beans.Quarto;
+import beans.Hotel;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -15,54 +14,47 @@ import javax.persistence.Query;
 
 /**
  *
- * @author SergioD
+ * @author Diego Alves
  */
 @Stateless
-public class DaoHospede {
+public class DaoHotel {
+    
     @PersistenceContext(unitName = "jdbc/ProjetoPOS")
     private EntityManager em;
 
-    public boolean salvar(Hospede hospede){
-        
+    public boolean salvar(Hotel hotel) {
+
         try {
-            em.persist(hospede);
+            em.persist(hotel);
             return true;
         } catch (Exception e) {
             e.getMessage();
             return false;
-        }       
+        }
     }
-    
-    public Hospede buscarHospede(String cpf) {
-        Hospede hospede;
+
+    public Hotel buscarQuarto(int numero) {
+        Hotel hospede;
         try {
-            hospede = em.find(Hospede.class, cpf);
+            hospede = em.find(Hotel.class, numero);
             return hospede;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
-    
-    public boolean atualizar(Hospede hospede){
-        
+
+    public List<Hotel> buscarTodos(String cidade) {
+        List<Hotel> hoteis;
         try {
-            em.merge(hospede);
-            return true;
+            Query query = em.createQuery("select h from Hotel h  where h.enderecoHotel.cidade = :cidade");
+            query.setParameter(cidade, "cidade");
+            hoteis = query.getResultList();
+            return hoteis;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
-        }       
+        }
+        return null;
     }
-    
-    public boolean remover(Hospede hospede){
-        
-        try {
-            em.remove(em.merge(hospede));
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }       
-    } 
+
 }

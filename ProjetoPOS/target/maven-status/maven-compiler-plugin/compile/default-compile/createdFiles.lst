@@ -1,6 +1,8 @@
 beans\Gerente.class
+beans\Reserva.class
+dao\DaoHospede.class
 beans\EnderecoHotel.class
 beans\Hospede.class
 beans\Quarto.class
-beans\Reserva.class
 beans\Hotel.class
+main\main.class

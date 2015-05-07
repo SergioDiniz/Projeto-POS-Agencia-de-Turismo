@@ -5,7 +5,6 @@
  */
 package dao;
 
-import beans.Hospede;
 import beans.Quarto;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -15,54 +14,68 @@ import javax.persistence.Query;
 
 /**
  *
- * @author SergioD
+ * @author Diego Alves
  */
 @Stateless
-public class DaoHospede {
+public class DaoQuarto {
+
     @PersistenceContext(unitName = "jdbc/ProjetoPOS")
     private EntityManager em;
 
-    public boolean salvar(Hospede hospede){
-        
+    public boolean salvar(Quarto quarto) {
+
         try {
-            em.persist(hospede);
+            em.persist(quarto);
             return true;
         } catch (Exception e) {
             e.getMessage();
             return false;
-        }       
+        }
     }
-    
-    public Hospede buscarHospede(String cpf) {
-        Hospede hospede;
+
+    public Quarto buscarQuarto(int numero) {
+        Quarto hospede;
         try {
-            hospede = em.find(Hospede.class, cpf);
+            hospede = em.find(Quarto.class, numero);
             return hospede;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
-    
-    public boolean atualizar(Hospede hospede){
-        
+
+    public List<Quarto> buscarTodos() {
+        List<Quarto> quartos;
         try {
-            em.merge(hospede);
-            return true;
+            Query query = em.createQuery("select q from Quarto q  where q.disponivel = true");
+            quartos = query.getResultList();
+            return quartos;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
-        }       
+        }
+        return null;
     }
-    
-    public boolean remover(Hospede hospede){
-        
+
+    public boolean atualizar(Quarto quarto) {
+
         try {
-            em.remove(em.merge(hospede));
+            em.merge(quarto);
             return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
-        }       
-    } 
+        }
+    }
+
+    public boolean remover(Quarto quarto) {
+
+        try {
+            em.remove(em.merge(quarto));
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }
