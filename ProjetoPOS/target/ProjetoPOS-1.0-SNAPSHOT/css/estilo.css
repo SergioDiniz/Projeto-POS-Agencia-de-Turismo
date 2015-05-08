@@ -32,6 +32,20 @@ body{
     color: #000 !important;
 }
 
+#posicao-modal{
+    position: fixed; 
+    top: 50%; 
+    margin-top: -175px; 
+    left: 50%; 
+    margin-left: -300px
+}
+
+.btn-sair,
+.btn-sair:hover{
+    color: #fff;
+
+}
+
 
 
 

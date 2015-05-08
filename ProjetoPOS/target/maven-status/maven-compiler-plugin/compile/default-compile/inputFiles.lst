@@ -4,9 +4,11 @@ D:\Sergio\Documentos\ADS\P6\POS\Projeto 1\Projeto-POS-Agencia-de-Turismo\Projeto
 D:\Sergio\Documentos\ADS\P6\POS\Projeto 1\Projeto-POS-Agencia-de-Turismo\ProjetoPOS\src\main\java\dao\DaoGerente.java
 D:\Sergio\Documentos\ADS\P6\POS\Projeto 1\Projeto-POS-Agencia-de-Turismo\ProjetoPOS\src\main\java\beans\EnderecoHotel.java
 D:\Sergio\Documentos\ADS\P6\POS\Projeto 1\Projeto-POS-Agencia-de-Turismo\ProjetoPOS\src\main\java\beans\Gerente.java
-D:\Sergio\Documentos\ADS\P6\POS\Projeto 1\Projeto-POS-Agencia-de-Turismo\ProjetoPOS\src\main\java\beans\Reserva.java
-D:\Sergio\Documentos\ADS\P6\POS\Projeto 1\Projeto-POS-Agencia-de-Turismo\ProjetoPOS\src\main\java\main\main.java
 D:\Sergio\Documentos\ADS\P6\POS\Projeto 1\Projeto-POS-Agencia-de-Turismo\ProjetoPOS\src\main\java\dao\DaoHotel.java
+D:\Sergio\Documentos\ADS\P6\POS\Projeto 1\Projeto-POS-Agencia-de-Turismo\ProjetoPOS\src\main\java\controle\ControladorHospede.java
 D:\Sergio\Documentos\ADS\P6\POS\Projeto 1\Projeto-POS-Agencia-de-Turismo\ProjetoPOS\src\main\java\beans\Hotel.java
 D:\Sergio\Documentos\ADS\P6\POS\Projeto 1\Projeto-POS-Agencia-de-Turismo\ProjetoPOS\src\main\java\beans\Quarto.java
+D:\Sergio\Documentos\ADS\P6\POS\Projeto 1\Projeto-POS-Agencia-de-Turismo\ProjetoPOS\src\main\java\beans\Reserva.java
+D:\Sergio\Documentos\ADS\P6\POS\Projeto 1\Projeto-POS-Agencia-de-Turismo\ProjetoPOS\src\main\java\main\main.java
 D:\Sergio\Documentos\ADS\P6\POS\Projeto 1\Projeto-POS-Agencia-de-Turismo\ProjetoPOS\src\main\java\dao\DaoReserva.java
+D:\Sergio\Documentos\ADS\P6\POS\Projeto 1\Projeto-POS-Agencia-de-Turismo\ProjetoPOS\src\main\java\fachada\Fachada.java

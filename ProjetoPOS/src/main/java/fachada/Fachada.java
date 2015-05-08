@@ -5,13 +5,16 @@
  */
 package fachada;
 
+import beans.Hospede;
 import dao.DaoHospede;
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author SergioD
  */
+@Stateless
 public class Fachada {
     
     @EJB
@@ -20,7 +23,17 @@ public class Fachada {
     
     
     // Serviços do Hospede
+    public Hospede login(String email, String senha){
+        return daoHospede.login(email, senha);
+    }
     
+    public boolean salvarHospede(Hospede hospede) {
+        return daoHospede.salvar(hospede);
+    }
+    
+    public Hospede buscarHospede(String cpf){
+        return daoHospede.buscarHospede(cpf);
+    }
     
     //
     //

@@ -24,48 +24,65 @@
                     <div class="col-md-4">
                         <h1>Hoteis</h1>
                     </div>
-                    <div class="col-md-offset-6 col-md-2">
+                    <div class="col-md-8">
                         <div class="row">
-                            <div class="col-md-6 btn-entrar">
-                                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalLogin">
-                                    entrar
-                                </button>
+                            <div class="col-md-10 btn-entrar" align="right">
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <form jsf:id="form">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    <div align="center">
-                                                        <h3 class="modal-title" id="myModalLabel">login</h3>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="row">
-                                                        <div class="col-md-offset-2 col-md-8">
-                                                            <div class="form-group">
-                                                                <label for="email">email</label>
-                                                                <input type="email" id="email" class="form-control input-lg" placeholder="email"/>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="senha">senha</label>
-                                                                <input type="password" id="senha" class="form-control input-lg" placeholder="senha"/>
+                                <c:if test="#{controladorHospede.hospede.cpf == null}">
+                                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalLogin">
+                                        entrar
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" id="posicao-modal">
+                                            <div class="modal-content" align="left">
+                                                <h:form>
+                                                    <form jsf:id="form">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <div align="center">
+                                                                <h3 class="modal-title" id="myModalLabel">login</h3>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary btn-lg">login</button>
-                                                </div>
-                                            </form>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="col-md-offset-2 col-md-8">
+                                                                    <div class="form-group">
+                                                                        <label for="email">email</label>
+                                                                        <input type="email" id="email" class="form-control input-lg" placeholder="email" jsf:value="#{controladorHospede.hospede.email}" />
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="senha">senha</label>
+                                                                        <input type="password" id="senha" class="form-control input-lg" placeholder="senha" jsf:value="#{controladorHospede.hospede.senha}"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+
+                                                            <h:commandButton class="btn btn-primary btn-lg" value="login" action="#{controladorHospede.login()}"/>
+                                                        </div>
+                                                    </form>
+                                                </h:form>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+
+                                </c:if>
+
+                                <c:if test="#{controladorHospede.hospede.cpf != null}">
+                                    <h:form>
+                                        Bem-Vindo <b>#{controladorHospede.hospede.nome}</b>, 
+                                        <h:commandLink value="sair" action="#{controladorHospede.sair()}" class="btn-sair"/>
+                                    </h:form>
+                                </c:if>
+
+
+
 
                             </div>
-                            <dir class="col-md-6 btn-cad">
+                            <dir class="col-md-2 btn-cad">
                                 cadastrar
                             </dir>
                         </div>
@@ -181,42 +198,44 @@
                         <div align="center">
                             <label id="cadastre-se">Cadastre-se</label>
                         </div>
-                        <form>
+                        <h:form>
+                            <form jsf:id="form">
 
-                            <div class="col-md-3">
-                                <div class="form-group">
+                                <div class="col-md-3">
+                                    <div class="form-group">
 
-                                    <input type="email" class="form-control input-lg" placeholder="email"/>
+                                        <input type="email" class="form-control input-lg" placeholder="email" id="email" jsf:value="#{controladorHospede.hospedeCadastro.email}"/>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-2">
-                                <div class="form-group">
+                                <div class="col-md-2">
+                                    <div class="form-group">
 
-                                    <input type="password" class="form-control input-lg" placeholder="senha"/>
+                                        <input type="password" class="form-control input-lg" placeholder="senha" id="senha" jsf:value="#{controladorHospede.hospedeCadastro.senha}"/>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-2">
-                                <div class="form-group">
+                                <div class="col-md-2">
+                                    <div class="form-group">
 
-                                    <input type="text" class="form-control input-lg" placeholder="nome"/>
+                                        <input type="text" class="form-control input-lg" placeholder="nome" id="nome" jsf:value="#{controladorHospede.hospedeCadastro.nome}"/>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-2">
-                                <div class="form-group">
+                                <div class="col-md-2">
+                                    <div class="form-group">
 
-                                    <input type="text" class="form-control input-lg" placeholder="cpf"/>
+                                        <input type="text" class="form-control input-lg" placeholder="cpf" id="cpf" jsf:value="#{controladorHospede.hospedeCadastro.cpf}"/>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-2">
-                                <input type="submit" value="cadastar" class="btn btn-primary btn-lg"/>
-                            </div>
+                                <div class="col-md-2">
+                                    <h:commandButton value="cadastar" class="btn btn-primary btn-lg" action="#{controladorHospede.cadastro()}"/>
+                                </div>
 
 
-                        </form>
+                            </form>
+                        </h:form>
                     </div>
                 </div>
 
