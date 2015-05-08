@@ -57,6 +57,31 @@ body{
 }
 
 
+
+#cidades{
+    margin-top: 150px;
+    margin-bottom: 200px;
+}
+
+.btn-cidade button{
+    width: 100%;
+    border-radius: 0;
+}
+
+.btn-cidade img{
+    max-height: 150px;
+}
+
+.btn-cidade{
+    margin-left: -100px;
+
+}
+
+
+
+
+
+
 #cadastro{
     color: #fff;
     margin-top: 40px;
