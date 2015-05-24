@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="col-md-10 btn-entrar" align="right">
 
-                                <c:if test="#{controladorHospede.hospede.cpf == null}">
+                                <c:if test="#{controladorHospede.hospede.email == null}">
                                     <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalLogin">
                                         entrar
                                     </button>
@@ -71,7 +71,7 @@
 
                                 </c:if>
 
-                                <c:if test="#{controladorHospede.hospede.cpf != null}">
+                                <c:if test="#{controladorHospede.hospede.email != null}">
                                     <h:form>
                                         Bem-Vindo <b>#{controladorHospede.hospede.nome}</b>, 
                                         <h:commandLink value="sair" action="#{controladorHospede.sair()}" class="btn-sair"/>
@@ -208,26 +208,21 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-2">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control input-lg" placeholder="nome" id="nome" jsf:value="#{controladorHospede.hospedeCadastro.nome}"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-3">
                                     <div class="form-group">
 
                                         <input type="password" class="form-control input-lg" placeholder="senha" id="senha" jsf:value="#{controladorHospede.hospedeCadastro.senha}"/>
                                     </div>
                                 </div>
 
-                                <div class="col-md-2">
-                                    <div class="form-group">
-
-                                        <input type="text" class="form-control input-lg" placeholder="nome" id="nome" jsf:value="#{controladorHospede.hospedeCadastro.nome}"/>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="form-group">
-
-                                        <input type="text" class="form-control input-lg" placeholder="cpf" id="cpf" jsf:value="#{controladorHospede.hospedeCadastro.cpf}"/>
-                                    </div>
-                                </div>
+                                
 
                                 <div class="col-md-2">
                                     <h:commandButton value="cadastar" class="btn btn-primary btn-lg" action="#{controladorHospede.cadastro()}"/>
