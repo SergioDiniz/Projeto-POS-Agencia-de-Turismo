@@ -1,6 +1,7 @@
 package dao;
 
 import beans.Quarto;
+import interfaces.InterfaceDaoQuarto;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -12,7 +13,7 @@ import javax.persistence.Query;
  * @author Diego Alves
  */
 @Stateless
-public class DaoQuarto {
+public class DaoQuarto implements InterfaceDaoQuarto{
 
     @PersistenceContext(unitName = "jdbc/ProjetoPOS")
     private EntityManager em;
@@ -28,6 +29,7 @@ public class DaoQuarto {
         }
     }
 
+    @Override
     public Quarto buscarQuarto(int numero) {
         Quarto hospede;
         try {
@@ -39,6 +41,7 @@ public class DaoQuarto {
         return null;
     }
 
+    @Override
     public List<Quarto> buscarTodos() {
         List<Quarto> quartos;
         try {
@@ -51,6 +54,7 @@ public class DaoQuarto {
         return null;
     }
 
+    @Override
     public boolean atualizar(Quarto quarto) {
 
         try {
@@ -62,6 +66,7 @@ public class DaoQuarto {
         }
     }
 
+    @Override
     public boolean remover(Quarto quarto) {
 
         try {
@@ -72,5 +77,4 @@ public class DaoQuarto {
             return false;
         }
     }
-
 }
