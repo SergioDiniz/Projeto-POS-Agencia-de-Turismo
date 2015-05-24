@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fachada;
 
-import beans.Hospede;
-import beans.Hotel;
-import dao.DaoHospede;
-import dao.DaoHotel;
+import beans.*;
+import interfaces.*;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -21,10 +14,10 @@ import javax.ejb.Stateless;
 public class Fachada {
     
     @EJB
-    private DaoHospede daoHospede;
+    private InterfaceDaoHospede daoHospede;
     
     @EJB
-    private DaoHotel daoHotel;
+    private InterfaceDaoHotel daoHotel;
     
     // Serviços do Hospede
     public Hospede login(String email, String senha){

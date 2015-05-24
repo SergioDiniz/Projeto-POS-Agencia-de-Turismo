@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import beans.Hotel;
+import interfaces.InterfaceDaoHotel;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -17,11 +13,12 @@ import javax.persistence.Query;
  * @author Diego Alves
  */
 @Stateless
-public class DaoHotel {
+public class DaoHotel implements InterfaceDaoHotel{
 
     @PersistenceContext(unitName = "jdbc/ProjetoPOS")
     private EntityManager em;
 
+    @Override
     public boolean salvar(Hotel hotel) {
 
         try {
@@ -33,6 +30,7 @@ public class DaoHotel {
         }
     }
 
+    @Override
     public Hotel buscarQuarto(int numero) {
         Hotel hospede;
         try {
@@ -44,6 +42,7 @@ public class DaoHotel {
         return null;
     }
 
+    @Override
     public List<Hotel> buscarTodos(String cidade) {
         List<Hotel> hoteis;
         try {
@@ -57,6 +56,7 @@ public class DaoHotel {
         return null;
     }
 
+    @Override
     public List<Hotel> todosOsHoteis() {
         List<Hotel> hoteis;
         try {
@@ -68,5 +68,4 @@ public class DaoHotel {
         }
         return null;
     }
-
 }
