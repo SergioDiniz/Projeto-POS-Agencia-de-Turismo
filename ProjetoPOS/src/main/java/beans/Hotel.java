@@ -14,7 +14,7 @@ public class Hotel implements Serializable{
     
     @Id @Column(nullable = false)
     private int codigo;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String nome;
     @Embedded
     private EnderecoHotel enderecoHotel;
