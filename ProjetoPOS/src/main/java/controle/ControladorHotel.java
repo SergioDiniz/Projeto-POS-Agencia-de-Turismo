@@ -6,8 +6,8 @@
 package controle;
 
 import beans.EnderecoHotel;
+import beans.Gerente;
 import beans.Hotel;
-import beans.Quarto;
 import fachada.Fachada;
 import java.io.Serializable;
 import java.util.List;
@@ -16,7 +16,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.faces.view.facelets.FaceletContext;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -38,7 +37,9 @@ public class ControladorHotel implements Serializable {
     }
 
     public String cadastrarHotel() {
+        hotel.setGerente(new Gerente("Admin", "12345"));
         fachada.cadastrarHotel(hotel);
+        hotel = new Hotel();
         return null;
     }
     
