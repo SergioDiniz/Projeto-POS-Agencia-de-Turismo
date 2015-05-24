@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package beans;
 
 import java.io.Serializable;
@@ -19,21 +14,24 @@ public class Quarto implements Serializable{
     @Column(nullable = false)
     private String tipo;
     @Column(nullable = false)
-    private double preço;
+    private double preco;
     @Column(nullable = false)
     private int qtdHospede;
     private boolean disponivel;
     
     @ManyToOne
     private Hotel hotel;
+    
+    @OneToOne(mappedBy = "quarto")
+    private Reserva reserva;
 
     public Quarto() {
     }
 
-    public Quarto(int codigo, String tipo, double preço, int qtdHospede) {
+    public Quarto(int codigo, String tipo, double preco, int qtdHospede) {
         this.codigo = codigo;
         this.tipo = tipo;
-        this.preço = preço;
+        this.preco = preco;
         this.qtdHospede = qtdHospede;
     }
 
@@ -53,12 +51,12 @@ public class Quarto implements Serializable{
         this.tipo = tipo;
     }
 
-    public double getPreço() {
-        return preço;
+    public double getPreco() {
+        return preco;
     }
 
-    public void setPreço(double preço) {
-        this.preço = preço;
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 
     public int getQtdHospede() {
@@ -68,7 +66,28 @@ public class Quarto implements Serializable{
     public void setQtdHospede(int qtdHospede) {
         this.qtdHospede = qtdHospede;
     }
-    
-    
-    
+
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
 }

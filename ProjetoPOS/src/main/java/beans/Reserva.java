@@ -26,8 +26,8 @@ public class Reserva implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date dataReserva;
     
-    @OneToMany
-    private List<Quarto> quartos;
+    @OneToOne
+    private Quarto quarto;
     
     @ManyToOne
     private Hospede hospede;
@@ -35,11 +35,11 @@ public class Reserva implements Serializable{
     public Reserva() {
     }
 
-    public Reserva(Date dataEntrada, Date dataSaida, Date dataReserva, List<Quarto> quartos, Hospede hospede) {
+    public Reserva(Date dataEntrada, Date dataSaida, Date dataReserva, Quarto quarto, Hospede hospede) {
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
         this.dataReserva = dataReserva;
-        this.quartos = quartos;
+        this.quarto = quarto;
         this.hospede = hospede;
     }
 
@@ -75,13 +75,14 @@ public class Reserva implements Serializable{
         this.dataReserva = dataReserva;
     }
 
-    public List<Quarto> getQuartos() {
-        return quartos;
+    public Quarto getQuarto() {
+        return quarto;
     }
 
-    public void setQuartos(List<Quarto> quartos) {
-        this.quartos = quartos;
+    public void setQuarto(Quarto quarto) {
+        this.quarto = quarto;
     }
+
 
     public Hospede getHospede() {
         return hospede;
@@ -90,8 +91,4 @@ public class Reserva implements Serializable{
     public void setHospede(Hospede hospede) {
         this.hospede = hospede;
     }
-    
-    
-    
-    
 }
