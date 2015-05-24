@@ -34,10 +34,10 @@ public class DaoHospede {
         }
     }
 
-    public Hospede buscarHospede(String cpf) {
+    public Hospede buscarHospede(String email) {
         Hospede hospede;
         try {
-            hospede = em.find(Hospede.class, cpf);
+            hospede = em.find(Hospede.class, email);
             return hospede;
         } catch (Exception e) {
             e.printStackTrace();

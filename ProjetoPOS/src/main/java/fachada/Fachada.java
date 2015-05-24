@@ -35,8 +35,8 @@ public class Fachada {
         return daoHospede.salvar(hospede);
     }
     
-    public Hospede buscarHospede(String cpf){
-        return daoHospede.buscarHospede(cpf);
+    public Hospede buscarHospede(String email){
+        return daoHospede.buscarHospede(email);
     }
     
     //

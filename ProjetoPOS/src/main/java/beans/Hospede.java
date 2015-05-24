@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package beans;
 
 import java.io.Serializable;
@@ -15,12 +10,10 @@ import javax.persistence.*;
  */
 @Entity
 public class Hospede implements Serializable{
-    @Id @Column(nullable = false)
-    private String cpf;
     @Column(nullable = false)
     private String senha;
     @Column(nullable = false)
-    private String email;
+    @Id private String email;
     @Column(nullable = false)
     private String nome;
     
@@ -32,21 +25,13 @@ public class Hospede implements Serializable{
     public Hospede() {
     }
 
-    public Hospede(String cpf, String senha, String email, String nome) {
-        this.cpf = cpf;
+    public Hospede(String senha, String email, String nome) {
         this.senha = senha;
         this.email = email;
         this.nome = nome;
     }
     
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
 
     public String getSenha() {
         return senha;
@@ -71,7 +56,12 @@ public class Hospede implements Serializable{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
-    
+
+    public List<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(List<Reserva> reservas) {
+        this.reservas = reservas;
+    }
 }

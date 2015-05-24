@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package beans;
 
 import java.io.Serializable;
@@ -13,12 +8,13 @@ import javax.persistence.*;
  *
  * @author SergioD
  */
+
 @Entity
 public class Hotel implements Serializable{
     
     @Id @Column(nullable = false)
     private int codigo;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String nome;
     @Embedded
     private EnderecoHotel enderecoHotel;
@@ -26,9 +22,10 @@ public class Hotel implements Serializable{
     
     @OneToMany(mappedBy = "hotel")
     private List<Quarto> quartos;
-    
     @OneToOne
     private Gerente gerente;
+    @OneToOne(mappedBy = "hotel")
+    private Reserva reserva;
 
     public Hotel() {
     }
@@ -40,20 +37,15 @@ public class Hotel implements Serializable{
         this.gerente = gerente;
     }
 
+
     public Hotel(EnderecoHotel enderecoHotel) {
         this.enderecoHotel = enderecoHotel;
         this.gerente = new Gerente("admin", "123");
     }
 
-    
-    
-    
-    
     public EnderecoHotel getEnderecoHotel() {
         return enderecoHotel;
     }
-    
-    
     
     public void setEnderecoHotel(EnderecoHotel enderecoHotel) {
         this.enderecoHotel = enderecoHotel;
@@ -74,9 +66,28 @@ public class Hotel implements Serializable{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
-    
-    
-    
+
+    public List<Quarto> getQuartos() {
+        return quartos;
+    }
+
+    public void setQuartos(List<Quarto> quartos) {
+        this.quartos = quartos;
+    }
+
+    public Gerente getGerente() {
+        return gerente;
+    }
+
+    public void setGerente(Gerente gerente) {
+        this.gerente = gerente;
+    }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
 }

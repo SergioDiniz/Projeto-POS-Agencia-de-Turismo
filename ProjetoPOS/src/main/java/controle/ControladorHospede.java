@@ -53,7 +53,7 @@ public class ControladorHospede implements Serializable{
         System.out.println("cadastro");
         try {
             fachada.salvarHospede(hospedeCadastro);
-            this.hospede = fachada.buscarHospede(this.hospedeCadastro.getCpf());
+            this.hospede = fachada.buscarHospede(this.hospedeCadastro.getEmail());
             this.hospedeCadastro = new Hospede();
             System.out.println("cadastro sucesso");
             
