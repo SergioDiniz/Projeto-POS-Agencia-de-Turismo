@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package beans;
 
 import java.io.Serializable;
@@ -71,7 +66,12 @@ public class Hospede implements Serializable{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
-    
+
+    public List<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(List<Reserva> reservas) {
+        this.reservas = reservas;
+    }
 }

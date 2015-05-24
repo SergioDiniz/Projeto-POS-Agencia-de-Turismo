@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package beans;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -15,8 +9,8 @@ import javax.persistence.*;
  * @author SergioD
  */
 @Entity
-public class Reserva implements Serializable{
-    
+public class Reserva implements Serializable {
+
     @Id
     private int codigo;
     @Temporal(TemporalType.DATE)
@@ -25,22 +19,24 @@ public class Reserva implements Serializable{
     private Date dataSaida;
     @Temporal(TemporalType.DATE)
     private Date dataReserva;
-    
-    @OneToOne
-    private Quarto quarto;
-    
+
     @ManyToOne
     private Hospede hospede;
+    @OneToOne
+    private Hotel hotel;
+    @OneToOne
+    private Quarto quarto;
 
     public Reserva() {
     }
 
-    public Reserva(Date dataEntrada, Date dataSaida, Date dataReserva, Quarto quarto, Hospede hospede) {
+    public Reserva(Date dataEntrada, Date dataSaida, Date dataReserva, Quarto quarto, Hospede hospede, Hotel hotel) {
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
         this.dataReserva = dataReserva;
         this.quarto = quarto;
         this.hospede = hospede;
+        this.hotel = hotel;
     }
 
     public int getCodigo() {
@@ -83,12 +79,19 @@ public class Reserva implements Serializable{
         this.quarto = quarto;
     }
 
-
     public Hospede getHospede() {
         return hospede;
     }
 
     public void setHospede(Hospede hospede) {
         this.hospede = hospede;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
     }
 }
