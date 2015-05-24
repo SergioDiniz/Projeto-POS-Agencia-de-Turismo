@@ -6,7 +6,10 @@
 package fachada;
 
 import beans.Hospede;
+import beans.Hotel;
 import dao.DaoHospede;
+import dao.DaoHotel;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -20,7 +23,8 @@ public class Fachada {
     @EJB
     private DaoHospede daoHospede;
     
-    
+    @EJB
+    private DaoHotel daoHotel;
     
     // Serviços do Hospede
     public Hospede login(String email, String senha){
@@ -40,4 +44,19 @@ public class Fachada {
     //
     //
     
+    
+    // Serviços do Hotel
+    
+    public boolean cadastrarHotel(Hotel hotel){
+        return daoHotel.salvar(hotel);
+    }
+    
+    public List<Hotel> todosOsHoteis(){
+        return daoHotel.todosOsHoteis();
+    }
+    
+    //
+    //
+    //
+    //
 }

@@ -40,6 +40,11 @@ public class Hotel implements Serializable{
         this.gerente = gerente;
     }
 
+    public Hotel(EnderecoHotel enderecoHotel) {
+        this.enderecoHotel = enderecoHotel;
+        this.gerente = new Gerente("admin", "123");
+    }
+
     
     
     

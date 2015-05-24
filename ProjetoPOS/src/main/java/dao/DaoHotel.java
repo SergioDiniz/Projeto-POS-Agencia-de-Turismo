@@ -18,7 +18,7 @@ import javax.persistence.Query;
  */
 @Stateless
 public class DaoHotel {
-    
+
     @PersistenceContext(unitName = "jdbc/ProjetoPOS")
     private EntityManager em;
 
@@ -49,6 +49,18 @@ public class DaoHotel {
         try {
             Query query = em.createQuery("select h from Hotel h  where h.enderecoHotel.cidade = :cidade");
             query.setParameter(cidade, "cidade");
+            hoteis = query.getResultList();
+            return hoteis;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Hotel> todosOsHoteis() {
+        List<Hotel> hoteis;
+        try {
+            Query query = em.createQuery("select h from Hotel h");
             hoteis = query.getResultList();
             return hoteis;
         } catch (Exception e) {
