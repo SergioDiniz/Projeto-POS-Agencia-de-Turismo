@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controle;
 
 import beans.EnderecoHotel;
@@ -16,6 +11,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -31,7 +27,6 @@ public class ControladorHotel implements Serializable {
 
     private Hotel hotel;
 
-
     public ControladorHotel() {
         this.hotel = new Hotel(new EnderecoHotel());
     }
@@ -42,19 +37,20 @@ public class ControladorHotel implements Serializable {
         hotel = new Hotel();
         return null;
     }
-    
-    public List<Hotel> todosOsHoteis(){
+
+    public List<Hotel> todosOsHoteis() {
         return fachada.todosOsHoteis();
     }
 
-    
-    public String selectionarHotel(Hotel hotel){
+    public String selectionarHotel(Hotel hotel) {
+        this.hotel = hotel;
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
-        HttpSession session = (HttpSession) context.getContext();
-        return null;
+        HttpServletRequest request = (HttpServletRequest) context.getRequest();
+        HttpSession session = (HttpSession) context.getSession(false);
+        context.getSessionMap().put("hotel", hotel);
+        return "cadastrarQuarto?faces-redirect=true";
     }
-    
-    
+
     public Hotel getHotel() {
         return hotel;
     }

@@ -19,6 +19,9 @@ public class Fachada {
     @EJB
     private InterfaceDaoHotel daoHotel;
     
+    @EJB
+    private InterfaceDaoQuarto daoQuarto;
+    
     // Serviços do Hospede
     public Hospede login(String email, String senha){
         return daoHospede.login(email, senha);
@@ -52,4 +55,14 @@ public class Fachada {
     //
     //
     //
+    
+    
+    // Serviços do Quarto
+    public boolean salvarQuarto(Quarto quarto){
+        return daoQuarto.salvar(quarto);
+    }
+    
+    public Quarto buscarQuarto(int numero){
+        return daoQuarto.buscarQuarto(numero);
+    }
 }
