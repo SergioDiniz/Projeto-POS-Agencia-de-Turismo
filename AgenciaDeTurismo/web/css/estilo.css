@@ -1,0 +1,133 @@
+
+
+
+
+body{
+    margin: 0;
+    padding: 0;
+    margin-bottom: -11px;
+}
+
+.btn{
+    background-image: none;
+}
+
+
+
+.topo{
+    width: 100%;
+    background-color: #286090;
+    color: #fff;
+}
+
+.btn-entrar > button, .btn-entrar > button:hover, .btn-entrar > button:active,
+.btn-entrar > button:visited, .btn-entrar > button:focus{
+    color: #fff;
+    text-decoration: none;
+    padding: 0;
+}
+
+.btn-entrar, .btn-cad{
+    padding: 23px;
+    margin: 0;
+}
+
+#modalLogin{
+    color: #000 !important;
+}
+
+#posicao-modal{
+    position: fixed; 
+    top: 50%; 
+    margin-top: -175px; 
+    left: 50%; 
+    margin-left: -300px
+}
+
+.btn-sair,
+.btn-sair:hover{
+    color: #fff;
+
+}
+
+
+
+
+.conteudo{
+    padding-top: 7px;
+}
+
+
+#img-hotel{
+    background-image: url(../img/hotel.jpg);
+    background-size: 100%;
+    background-position: 0 650px;
+    width: 100%;
+    height: 500px;
+}
+
+
+#pesquisar-cidade{
+    width: 100%;
+    height: 150px;
+    color: #fff;
+    background-color: #286090;
+}
+
+
+
+#cidades{
+    margin-top: 150px;
+    margin-bottom: 200px;
+}
+
+.btn-cidade button{
+    width: 100%;
+    border-radius: 0;
+}
+
+.btn-cidade img{
+    max-height: 150px;
+}
+
+.btn-cidade{
+    margin-left: -100px;
+
+}
+
+
+
+
+
+
+#cadastro{
+    color: #fff;
+    margin-top: 40px;
+    width: 100%;
+    height: 250px;
+    background-image: url(../img/aviao.jpg);
+    background-size: 100%;
+    background-position: 0 650px;
+}
+
+.form-cadastro{
+    margin-top: 50px;
+    margin-left: 80px;
+}
+
+/*.form-cadastro input[type="submit"]{
+    margin-top: 25px;
+}*/
+
+#cadastre-se{
+    font-size: 25px;
+    padding-bottom: 50px;
+    margin-left: -80px;
+}
+
+#rodape{
+    width: 100%;
+    height: 100px;
+    background-color: #286090;
+    margin-bottom: 0;
+}

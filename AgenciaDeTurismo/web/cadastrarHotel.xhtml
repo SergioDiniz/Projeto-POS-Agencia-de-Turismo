@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css"/>
+        <link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+
+        <script type="text/javascript" src="js/jquery-2.1.3.js"/>
+        <script type="text/javascript" src="js/bootstrap.js"/>
+
+
+        <title>Agencia de Hoteis</title>
+
+    </h:head>
+    <h:body>
+
+        
+        
+        
+        <div class="container">
+            
+            <div class="col-md-3" style="padding-top: 70px;">
+                <ui:include src="menuadmin.xhtml"/>
+            </div>
+            
+            <div class="col-md-offset-1 col-md-6">
+                <h:form>
+                    <div class="form-group">
+                        <span>Codigo:</span>
+                        <h:inputText value="#{controladorHotel.hotel.codigo}" class="form-control input-lg"/>
+                    </div>
+                    <div class="form-group">
+                        <span>Nome:</span>
+                        <h:inputText value="#{controladorHotel.hotel.nome}" class="form-control input-lg"/>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <span>Cidade:</span>
+                                <h:inputText value="#{controladorHotel.hotel.enderecoHotel.cidade}" class="form-control input-lg"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <span>Estado</span>
+                                <h:inputText value="#{controladorHotel.hotel.enderecoHotel.estado}" class="form-control input-lg"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span>Rua:</span>
+                        <h:inputText value="#{controladorHotel.hotel.enderecoHotel.rua}" class="form-control input-lg"/>
+                    </div>
+                    <h:commandButton class="btn btn-primary btn-lg" value="cadastrar" action="#{controladorHotel.cadastrarHotel()}"/>
+                </h:form>
+            </div>
+        </div>
+
+    </h:body>
+</html>
+

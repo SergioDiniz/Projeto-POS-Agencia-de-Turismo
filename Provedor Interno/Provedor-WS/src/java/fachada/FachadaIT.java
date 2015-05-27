@@ -11,5 +11,5 @@ import javax.ejb.Remote;
 @Remote
 public interface FachadaIT {
     
-    public boolean salvarHospede(String email, String senha, String nome);
+    public boolean salvarHospede(Hospede hospede);
 }

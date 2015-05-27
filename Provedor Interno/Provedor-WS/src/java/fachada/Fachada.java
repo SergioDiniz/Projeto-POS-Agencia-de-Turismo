@@ -21,8 +21,7 @@ public class Fachada implements FachadaIT{
     }
     
     @Override
-    public boolean salvarHospede(String email, String senha, String nome) {
-        Hospede hospede = new Hospede(senha, email, nome);
+    public boolean salvarHospede(Hospede hospede) {
         return daoHospedeIT.salvar(hospede);
     }
 }
