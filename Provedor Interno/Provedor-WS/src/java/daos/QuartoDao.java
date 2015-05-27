@@ -1,7 +1,7 @@
-package dao;
+package daos;
 
 import beans.Quarto;
-import interfaces.InterfaceDaoQuarto;
+import interfaces.DaoQuartoIT;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -10,14 +10,15 @@ import javax.persistence.Query;
 
 /**
  *
- * @author Diego Alves
+ * @author Fatinha
  */
+
 @Stateless
-public class DaoQuarto implements InterfaceDaoQuarto{
-
-    @PersistenceContext(unitName = "jdbc/ProjetoPOS")
+public class QuartoDao implements DaoQuartoIT{
+    
+    @PersistenceContext(unitName = "Provedor-WSPU")
     private EntityManager em;
-
+    
     @Override
     public boolean salvar(Quarto quarto) {
 
