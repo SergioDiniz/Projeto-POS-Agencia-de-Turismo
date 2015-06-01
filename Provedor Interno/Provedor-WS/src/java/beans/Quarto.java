@@ -15,8 +15,9 @@ import javax.persistence.OneToOne;
 @Entity
 public class Quarto implements Serializable{
     
+    
     @Id @Column(nullable = false)
-    private int codigo;
+    private int numero;
     @Column(nullable = false)
     private String tipo;
     @Column(nullable = false)
@@ -34,19 +35,19 @@ public class Quarto implements Serializable{
     public Quarto() {
     }
 
-    public Quarto(int codigo, String tipo, double preco, int qtdHospede) {
-        this.codigo = codigo;
+    public Quarto(int numero, String tipo, double preco, int qtdHospede) {
+        this.numero = numero;
         this.tipo = tipo;
         this.preco = preco;
         this.qtdHospede = qtdHospede;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getNumero() {
+        return numero;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     public String getTipo() {

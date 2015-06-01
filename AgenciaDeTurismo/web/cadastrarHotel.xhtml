@@ -19,15 +19,15 @@
     </h:head>
     <h:body>
 
-        
-        
-        
+
+
+
         <div class="container">
-            
+
             <div class="col-md-3" style="padding-top: 70px;">
                 <ui:include src="menuadmin.xhtml"/>
             </div>
-            
+
             <div class="col-md-offset-1 col-md-6">
                 <h:form>
                     <div class="form-group">
@@ -42,21 +42,26 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <span>Cidade:</span>
-                                <h:inputText value="#{controladorHotel.hotel.enderecoHotel.cidade}" class="form-control input-lg"/>
+                                <h:inputText value="#{controladorHotel.enderecoHotel.cidade}" class="form-control input-lg"/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <span>Estado</span>
-                                <h:inputText value="#{controladorHotel.hotel.enderecoHotel.estado}" class="form-control input-lg"/>
+                                <h:inputText value="#{controladorHotel.enderecoHotel.estado}" class="form-control input-lg"/>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <span>Rua:</span>
-                        <h:inputText value="#{controladorHotel.hotel.enderecoHotel.rua}" class="form-control input-lg"/>
+                        <h:inputText value="#{controladorHotel.enderecoHotel.rua}" class="form-control input-lg"/>
                     </div>
-                    <h:commandButton class="btn btn-primary btn-lg" value="cadastrar" action="#{controladorHotel.cadastrarHotel()}"/>
+
+                    <h:commandButton class="btn btn-primary btn-lg btnCadastrar" value="Cadastrar" action="#{controladorHotel.cadastrarHotel()}"/>
+                    <h:commandButton class="btn btn-primary btn-lg btnCadastrar" value="Consultar" action="#{controladorHotel.buscarHotel()}"/>
+                    <h:commandButton class="btn btn-primary btn-lg btnCadastrar" value="Atualizar" action="#{controladorHotel.atualizarHotel()}"/>
+                    <h:commandButton class="btn btn-primary btn-lg btnCadastrar" value="Remover" action="#{controladorHotel.removerHotel()}"/>
+
                 </h:form>
             </div>
         </div>

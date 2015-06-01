@@ -12,13 +12,12 @@ import javax.persistence.Query;
  *
  * @author Fatinha
  */
-
 @Stateless
-public class HotelDao implements DaoHotelIT{
-    
+public class HotelDao implements DaoHotelIT {
+
     @PersistenceContext(unitName = "Provedor-WSPU")
     private EntityManager em;
-    
+
     @Override
     public boolean salvar(Hotel hotel) {
 
@@ -32,29 +31,31 @@ public class HotelDao implements DaoHotelIT{
     }
 
     @Override
-    public Hotel buscarQuarto(int numero) {
-        Hotel hospede;
+    public Hotel buscarHotel(int numero) {
+        Hotel hotel;
         try {
-            hospede = em.find(Hotel.class, numero);
-            return hospede;
+            hotel = em.find(Hotel.class, numero);
+            hotel.getQuartos().size();
+            return hotel;
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     @Override
-    public List<Hotel> buscarTodos(String cidade) {
+    public List<Hotel> buscarTodosCidade(String cidade) {
         List<Hotel> hoteis;
         try {
             Query query = em.createQuery("select h from Hotel h  where h.enderecoHotel.cidade = :cidade");
             query.setParameter(cidade, "cidade");
             hoteis = query.getResultList();
+            hoteis.size();
             return hoteis;
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     @Override
@@ -63,11 +64,37 @@ public class HotelDao implements DaoHotelIT{
         try {
             Query query = em.createQuery("select h from Hotel h");
             hoteis = query.getResultList();
+            
+            for(Hotel h: hoteis){
+                h.getQuartos().size();
+            }
+            
             return hoteis;
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
+    @Override
+    public boolean atualizarHotel(Hotel hotel) {
+
+        try {
+            em.merge(hotel);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
+    @Override
+    public boolean removerHotel(Hotel hotel){
+        
+        try{
+            em.remove(em.merge(hotel));
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
 }

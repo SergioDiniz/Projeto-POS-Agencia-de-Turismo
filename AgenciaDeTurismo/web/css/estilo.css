@@ -12,7 +12,9 @@ body{
     background-image: none;
 }
 
-
+.btnCadastrar{
+    margin: 0.6em;
+}
 
 .topo{
     width: 100%;

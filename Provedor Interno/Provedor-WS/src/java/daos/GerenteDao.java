@@ -28,8 +28,8 @@ public class GerenteDao implements DaoGerenteIT{
             return gerente;
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
     
     public boolean atualizar(Gerente gerente){

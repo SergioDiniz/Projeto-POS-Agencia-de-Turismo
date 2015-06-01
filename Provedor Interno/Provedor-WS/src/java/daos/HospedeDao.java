@@ -33,8 +33,8 @@ public class HospedeDao implements DaoHospedeIT{
             return hospede;
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     @Override
@@ -71,10 +71,11 @@ public class HospedeDao implements DaoHospedeIT{
         List<Hospede> h = query.getResultList();
 
         if (h.size() > 0) {
+            h.get(0).getReservas().size();
             return h.get(0);
+        }else{
+            return null;
         }
-
-        return null;
-
     }
+    
 }

@@ -14,9 +14,13 @@ public interface DaoHotelIT {
     
     public boolean salvar(Hotel hotel);
 
-    public Hotel buscarQuarto(int numero);
+    public Hotel buscarHotel(int numero);
 
-    public List<Hotel> buscarTodos(String cidade);
+    public List<Hotel> buscarTodosCidade(String cidade);
 
     public List<Hotel> todosOsHoteis();
+    
+    public boolean atualizarHotel(Hotel hotel);
+    
+    public boolean removerHotel(Hotel hotel);
 }
