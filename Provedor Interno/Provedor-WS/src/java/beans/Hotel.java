@@ -2,6 +2,7 @@ package beans;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -25,12 +26,14 @@ public class Hotel implements Serializable{
     private EnderecoHotel enderecoHotel;
     
     
-    @OneToMany(mappedBy = "hotel")
+    @OneToMany
     private List<Quarto> quartos;
+    
     @OneToOne
     private Gerente gerente;
+    
     @OneToOne(mappedBy = "hotel")
-    private Reserva reserva;
+    private ReservaHotel reserva;
 
     public Hotel() {
     }
@@ -88,11 +91,11 @@ public class Hotel implements Serializable{
         this.gerente = gerente;
     }
 
-    public Reserva getReserva() {
+    public ReservaHotel getReserva() {
         return reserva;
     }
 
-    public void setReserva(Reserva reserva) {
+    public void setReserva(ReservaHotel reserva) {
         this.reserva = reserva;
     }
 }

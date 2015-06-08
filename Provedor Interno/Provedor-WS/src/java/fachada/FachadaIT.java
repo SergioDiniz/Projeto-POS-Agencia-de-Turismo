@@ -1,9 +1,6 @@
 package fachada;
 
-import beans.Gerente;
-import beans.Hospede;
-import beans.Hotel;
-import beans.Quarto;
+import beans.*;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -62,7 +59,13 @@ public interface FachadaIT {
     //
     //
     //Servicoe do Administrador
-    public Gerente buscarGerente(String email, String senha);
+    public Gerente buscarGerente(String email);
     
     public boolean atualizarGerente(Gerente gerente);
+    
+    //
+    //
+    //
+    //Servicos da reserva
+    public boolean salvarReservaHotel(ReservaHotel reservaHotel);
 }

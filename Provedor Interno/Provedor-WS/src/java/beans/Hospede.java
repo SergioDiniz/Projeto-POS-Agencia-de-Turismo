@@ -24,7 +24,7 @@ public class Hospede implements Serializable{
     
     
     @OneToMany(mappedBy = "hospede")
-    private List<Reserva> reservas;
+    private List<ReservaHotel> reservas;
     
     
     public Hospede() {
@@ -60,11 +60,11 @@ public class Hospede implements Serializable{
         this.nome = nome;
     }
 
-    public List<Reserva> getReservas() {
+    public List<ReservaHotel> getReservas() {
         return reservas;
     }
 
-    public void setReservas(List<Reserva> reservas) {
+    public void setReservas(List<ReservaHotel> reservas) {
         this.reservas = reservas;
     }
 }

@@ -4,7 +4,6 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 /**
@@ -26,11 +25,8 @@ public class Quarto implements Serializable{
     private int qtdHospede;
     private boolean disponivel;
     
-    @ManyToOne
-    private Hotel hotel;
-    
     @OneToOne(mappedBy = "quarto")
-    private Reserva reserva;
+    private ReservaHotel reserva;
 
     public Quarto() {
     }
@@ -74,7 +70,7 @@ public class Quarto implements Serializable{
         this.qtdHospede = qtdHospede;
     }
 
-    public boolean isDisponivel() {
+    public boolean getDisponivel() {
         return disponivel;
     }
 
@@ -82,19 +78,11 @@ public class Quarto implements Serializable{
         this.disponivel = disponivel;
     }
 
-    public Hotel getHotel() {
-        return hotel;
-    }
-
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
-    }
-
-    public Reserva getReserva() {
+    public ReservaHotel getReserva() {
         return reserva;
     }
 
-    public void setReserva(Reserva reserva) {
+    public void setReserva(ReservaHotel reserva) {
         this.reserva = reserva;
     }
 }

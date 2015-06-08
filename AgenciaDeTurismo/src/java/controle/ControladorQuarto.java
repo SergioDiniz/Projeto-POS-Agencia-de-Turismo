@@ -60,8 +60,9 @@ public class ControladorQuarto implements Serializable {
                 this.quarto.setDisponivel(false);
             }
             
-            quarto.setHotel(hotel);
             fachada.salvarQuarto(quarto);
+            hotel.getQuartos().add(quarto);
+            fachada.atualizarHotel(hotel);
             quarto = new Quarto();
         }else{
             System.out.println("Codigo Ja Cadastrado!!!");
@@ -94,7 +95,7 @@ public class ControladorQuarto implements Serializable {
     
     public String removerQuarto(){
         fachada.removerQuarto(quarto);
-        
+        this.quarto = new Quarto();
         return null;
     }
 }

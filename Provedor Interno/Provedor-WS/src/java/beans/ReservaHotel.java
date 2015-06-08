@@ -17,17 +17,16 @@ import javax.persistence.TemporalType;
  */
 
 @Entity
-public class Reserva implements Serializable{
+public class ReservaHotel implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     @Temporal(TemporalType.DATE)
-    private Date dataEntrada;
-    @Temporal(TemporalType.DATE)
     private Date dataSaida;
     @Temporal(TemporalType.DATE)
     private Date dataReserva;
+    private float valorReserva;
 
     @ManyToOne
     private Hospede hospede;
@@ -36,13 +35,13 @@ public class Reserva implements Serializable{
     @OneToOne
     private Quarto quarto;
 
-    public Reserva() {
+    public ReservaHotel() {
     }
 
-    public Reserva(Date dataEntrada, Date dataSaida, Date dataReserva, Quarto quarto, Hospede hospede, Hotel hotel) {
-        this.dataEntrada = dataEntrada;
+    public ReservaHotel(Date dataSaida, Date dataReserva, float valorReserva, Quarto quarto, Hospede hospede, Hotel hotel) {
         this.dataSaida = dataSaida;
         this.dataReserva = dataReserva;
+        this.valorReserva = valorReserva;
         this.quarto = quarto;
         this.hospede = hospede;
         this.hotel = hotel;
@@ -54,14 +53,6 @@ public class Reserva implements Serializable{
 
     public void setCodigo(int codigo) {
         this.codigo = codigo;
-    }
-
-    public Date getDataEntrada() {
-        return dataEntrada;
-    }
-
-    public void setDataEntrada(Date dataEntrada) {
-        this.dataEntrada = dataEntrada;
     }
 
     public Date getDataSaida() {
@@ -78,6 +69,14 @@ public class Reserva implements Serializable{
 
     public void setDataReserva(Date dataReserva) {
         this.dataReserva = dataReserva;
+    }
+
+    public float getValorReserva() {
+        return valorReserva;
+    }
+
+    public void setValorReserva(float valorReserva) {
+        this.valorReserva = valorReserva;
     }
 
     public Quarto getQuarto() {

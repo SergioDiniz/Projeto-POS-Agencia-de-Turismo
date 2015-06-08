@@ -20,8 +20,27 @@
     </h:head>
     <h:body>
 
-        <ui:include src="menuadmin.xhtml"/>
 
+        <div class="container">
+            <header id="header">
+                <h1 class="logo"><a href="index.html">Administração</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li class="current"><a href="index.html">Bem Vindo <span>#{administrador.email}</span></a></li>
+
+                        <li>
+                            <h:form>
+                                <h:commandLink value="Sair" class="button special" action="#{controladorAdmin.sair()}"/>
+                            </h:form>
+                        </li>
+
+                    </ul>
+                </nav>
+            </header>
+
+        </div>
+
+        <ui:include src="menuadmin.xhtml"/>
     </h:body>
 </html>
 

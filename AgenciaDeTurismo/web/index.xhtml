@@ -77,13 +77,46 @@
                                         <h:commandLink value="sair" action="#{controladorHospede.sair()}" class="btn-sair"/>
                                     </h:form>
                                 </c:if>
-
-
-
-
                             </div>
+
                             <dir class="col-md-2 btn-cad">
-                                cadastrar
+                                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalLoginAdmin"
+                                        style="color: white">
+                                        Administrador
+                                </button>
+
+                                <!-- Modal Administrador-->
+                                <div class="modal fade" id="modalLoginAdmin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" id="posicao-modal">
+                                        <div class="modal-content" align="left">
+                                            <h:form>
+                                                <form jsf:id="form">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                        <div align="center">
+                                                            <h3 class="modal-title" id="myModalLabel">login</h3>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-md-offset-2 col-md-8">
+                                                                <div class="form-group">
+                                                                    <label for="email">Login</label>
+                                                                    <input type="text" id="email" class="form-control input-lg" placeholder="Login" jsf:value="#{controladorAdmin.gerente.email}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+
+                                                        <h:commandButton class="btn btn-primary btn-lg" value="login" action="#{controladorAdmin.paginaAdmin()}"/>
+                                                    </div>
+                                                </form>
+                                            </h:form>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </dir>
                         </div>
                     </div>
@@ -114,82 +147,87 @@
                 </div>
             </div>
 
-            <div id="cidades">
-                <div class="container">
-                    <div class="row">
-                        <div class="btn-cidade">
-                            <div class="col-md-offset-1 col-md-3">
-                                <div class="row">
-                                    <img src="img/cidades/cidade joao pessoa.jpg" width="100%"/>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-lg btn-info">Joao Pessoa - PB</button>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="btn-cidade">
-                            <div class="col-md-offset-1 col-md-3">
-                                <div class="row">
-                                    <img src="img/cidades/cidade fortaleza.jpg" width="100%"/>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-lg btn-info">Fortaleza - CE</button>
+            <h:form>
+                <div id="cidades">
+                    <div class="container">
+                        <div class="row">
+                            <div class="btn-cidade">
+                                <div class="col-md-offset-1 col-md-3">
+                                    <div class="row">
+                                        <img src="img/cidades/cidade joao pessoa.jpg" width="100%"/>
+                                    </div>
+                                    <div class="row">
+                                        <h:commandLink value="João Pessoa - PB" 
+                                                       action="#{controladorReservaHotel.proximaPagina('João Pessoa')}"
+                                                       class="btn btn-lg btn-info"/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="btn-cidade">
-                            <div class="col-md-offset-1 col-md-3 ">
-                                <div class="row">
-                                    <img src="img/cidades/cidade natal.jpg" width="100%"/>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-lg btn-info">Natal - RN</button>
+                            <div class="btn-cidade">
+                                <div class="col-md-offset-1 col-md-3">
+                                    <div class="row">
+                                        <img src="img/cidades/cidade fortaleza.jpg" width="100%"/>
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btn-lg btn-info">Fortaleza - CE</button>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="btn-cidade">
+                                <div class="col-md-offset-1 col-md-3 ">
+                                    <div class="row">
+                                        <img src="img/cidades/cidade natal.jpg" width="100%"/>
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btn-lg btn-info">Natal - RN</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <br/><br/><br/><br/>
+                        <div class="row">
+                            <div class="btn-cidade">
+                                <div class="col-md-offset-1 col-md-3">
+                                    <div class="row">
+                                        <img src="img/cidades/cidade rio de janeiro.jpg" width="100%"/>
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btn-lg btn-info">Rio de Janeiro - RJ</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="btn-cidade">
+                                <div class="col-md-offset-1 col-md-3">
+                                    <div class="row">
+                                        <img src="img/cidades/cidade salvador.jpg" width="100%"/>
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btn-lg btn-info">Salvador - BH</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="btn-cidade">
+                                <div class="col-md-offset-1 col-md-3 ">
+                                    <div class="row">
+                                        <img src="img/cidades/cidade brasilia.jpg" width="100%"/>
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btn-lg btn-info">Brasilia</button>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
-                    <br/><br/><br/><br/>
-                    <div class="row">
-                        <div class="btn-cidade">
-                            <div class="col-md-offset-1 col-md-3">
-                                <div class="row">
-                                    <img src="img/cidades/cidade rio de janeiro.jpg" width="100%"/>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-lg btn-info">Rio de Janeiro - RJ</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="btn-cidade">
-                            <div class="col-md-offset-1 col-md-3">
-                                <div class="row">
-                                    <img src="img/cidades/cidade salvador.jpg" width="100%"/>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-lg btn-info">Salvador - BH</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="btn-cidade">
-                            <div class="col-md-offset-1 col-md-3 ">
-                                <div class="row">
-                                    <img src="img/cidades/cidade brasilia.jpg" width="100%"/>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-lg btn-info">Brasilia</button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
                 </div>
-            </div>
+            </h:form>
 
 
             <div id="cadastro">
@@ -214,7 +252,7 @@
                                         <input type="text" class="form-control input-lg" placeholder="nome" id="nome" jsf:value="#{controladorHospede.hospedeCadastro.nome}"/>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-md-3">
                                     <div class="form-group">
 
@@ -222,7 +260,7 @@
                                     </div>
                                 </div>
 
-                                
+
 
                                 <div class="col-md-2">
                                     <h:commandButton value="cadastar" class="btn btn-primary btn-lg" action="#{controladorHospede.cadastro()}"/>

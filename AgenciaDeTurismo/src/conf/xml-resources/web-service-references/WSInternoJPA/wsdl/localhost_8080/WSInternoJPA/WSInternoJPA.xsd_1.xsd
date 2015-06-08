@@ -72,6 +72,10 @@
 
 <xs:element name="salvarQuartoResponse" type="tns:salvarQuartoResponse"/>
 
+<xs:element name="salvarReservaHotel" type="tns:salvarReservaHotel"/>
+
+<xs:element name="salvarReservaHotelResponse" type="tns:salvarReservaHotelResponse"/>
+
 <xs:complexType name="buscarHotel">
 <xs:sequence>
 <xs:element name="numero" type="xs:int"/>
@@ -91,7 +95,7 @@
 <xs:element name="gerente" type="tns:gerente" minOccurs="0"/>
 <xs:element name="nome" type="xs:string" minOccurs="0"/>
 <xs:element name="quartos" type="tns:quarto" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="reserva" type="tns:reserva" minOccurs="0"/>
+<xs:element name="reserva" type="tns:reservaHotel" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -113,24 +117,23 @@
 <xs:complexType name="quarto">
 <xs:sequence>
 <xs:element name="disponivel" type="xs:boolean"/>
-<xs:element name="hotel" type="tns:hotel" minOccurs="0"/>
 <xs:element name="numero" type="xs:int"/>
 <xs:element name="preco" type="xs:double"/>
 <xs:element name="qtdHospede" type="xs:int"/>
-<xs:element name="reserva" type="tns:reserva" minOccurs="0"/>
+<xs:element name="reserva" type="tns:reservaHotel" minOccurs="0"/>
 <xs:element name="tipo" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="reserva">
+<xs:complexType name="reservaHotel">
 <xs:sequence>
 <xs:element name="codigo" type="xs:int"/>
-<xs:element name="dataEntrada" type="xs:dateTime" minOccurs="0"/>
 <xs:element name="dataReserva" type="xs:dateTime" minOccurs="0"/>
 <xs:element name="dataSaida" type="xs:dateTime" minOccurs="0"/>
 <xs:element name="hospede" type="tns:hospede" minOccurs="0"/>
 <xs:element name="hotel" type="tns:hotel" minOccurs="0"/>
 <xs:element name="quarto" type="tns:quarto" minOccurs="0"/>
+<xs:element name="valorReserva" type="xs:float"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -138,7 +141,7 @@
 <xs:sequence>
 <xs:element name="email" type="xs:string" minOccurs="0"/>
 <xs:element name="nome" type="xs:string" minOccurs="0"/>
-<xs:element name="reservas" type="tns:reserva" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="reservas" type="tns:reservaHotel" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 <xs:element name="senha" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
@@ -262,6 +265,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="salvarReservaHotel">
+<xs:sequence>
+<xs:element name="reservaHotel" type="tns:reservaHotel" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="salvarReservaHotelResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="atualizarHospede">
 <xs:sequence>
 <xs:element name="hospede" type="tns:hospede" minOccurs="0"/>
@@ -337,7 +352,6 @@
 <xs:complexType name="buscarGerente">
 <xs:sequence>
 <xs:element name="login" type="xs:string" minOccurs="0"/>
-<xs:element name="senha" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

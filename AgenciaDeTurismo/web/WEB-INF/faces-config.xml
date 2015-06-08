@@ -10,8 +10,50 @@
             <to-view-id>/cadastrarQuarto.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
     <navigation-rule>
         <from-view-id>/cadastrarQuarto.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listaHotel</from-outcome>
+            <to-view-id>/listaHotel.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listaHotelCidade</from-outcome>
+            <to-view-id>/listaHotelCidade.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>admin</from-outcome>
+            <to-view-id>/admin.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/listaHotelCidade.xhtml</from-view-id>
+        
+        <navigation-case>
+            <from-outcome>fazerReserva</from-outcome>
+            <to-view-id>/fazerReserva.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>reservarQuarto</from-outcome>
+            <to-view-id>/reservarQuarto.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/menuadmin.xhtml</from-view-id>
+
+        <navigation-case>
+            <from-outcome>cadastrarHotel</from-outcome>
+            <to-view-id>/cadastrarHotel.xhtml</to-view-id>
+        </navigation-case>
+    
         <navigation-case>
             <from-outcome>listaHotel</from-outcome>
             <to-view-id>/listaHotel.xhtml</to-view-id>

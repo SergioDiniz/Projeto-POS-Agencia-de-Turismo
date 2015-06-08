@@ -173,8 +173,20 @@ public class WSInternoJPA {
      * Operação de buscar login da entidade gerente
      */
     @WebMethod(operationName = "buscarGerente")
-    public Gerente buscarGerente(@WebParam(name = "login") String login, @WebParam(name = "senha") String senha) {
-        return fachada.buscarGerente(login, senha);
+    public Gerente buscarGerente(@WebParam(name = "login") String login) {
+        return fachada.buscarGerente(login);
     }
+    
+    /**************************************************************************/
+
+    /***************************Entidade ReservaHotel**************************/
+    /**
+     * Operação de reservar hotel
+     */
+    @WebMethod(operationName = "salvarReservaHotel")
+    public boolean salvarReservaHotel(@WebParam(name = "reservaHotel") ReservaHotel reservaHotel) {
+        return fachada.salvarReservaHotel(reservaHotel);
+    }
+
     /**************************************************************************/
 }

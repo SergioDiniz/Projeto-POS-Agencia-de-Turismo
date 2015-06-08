@@ -25,6 +25,9 @@ public class Fachada implements FachadaIT{
     
     @EJB
     private DaoGerenteIT daoGerenteIT;
+    
+    @EJB
+    private DaoReservaHotelIT daoReservaIT;
 
     public Fachada(){
     
@@ -122,12 +125,21 @@ public class Fachada implements FachadaIT{
     //
     //Servicos do Administrador
     @Override
-    public Gerente buscarGerente(String email, String senha){
-        return daoGerenteIT.buscar(email, senha);
+    public Gerente buscarGerente(String email){
+        return daoGerenteIT.buscar(email);
     }
     
     @Override
     public boolean atualizarGerente(Gerente gerente){
         return daoGerenteIT.atualizar(gerente);
+    }
+    
+    //
+    //
+    //
+    //Servicos da Reserva de um quarto
+    @Override
+    public boolean salvarReservaHotel(ReservaHotel reservaHotel){
+        return daoReservaIT.salvar(reservaHotel);
     }
 }

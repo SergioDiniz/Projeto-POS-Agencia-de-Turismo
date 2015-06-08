@@ -1,5 +1,6 @@
 package daos;
 
+import beans.Hotel;
 import beans.Quarto;
 import interfaces.DaoQuartoIT;
 import javax.ejb.Stateless;
@@ -32,7 +33,6 @@ public class QuartoDao implements DaoQuartoIT {
         Quarto quarto = new Quarto();
         try {
             quarto = em.find(Quarto.class, numero);
-            quarto.getReserva();
             return quarto;
         } catch (Exception e) {
             e.printStackTrace();

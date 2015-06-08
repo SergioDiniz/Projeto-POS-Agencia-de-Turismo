@@ -19,20 +19,23 @@
     </h:head>
     <h:body>
 
-        <div class="container">
-            <div class="col-md-3">
-                <div class="list-group">
-                    <a href="#" class="list-group-item active">
-                        Cras justo odio
-                    </a>
-                    <a href="#" class="list-group-item">Hotel</a>
-                    <a href="#" class="list-group-item">Quarto</a>
-                    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+        <h:form>
+
+            <div class="container">
+
+                <div class="col-md-3">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">
+                            Opções
+                        </a>
+                        <h:commandLink action="#{controladorAdmin.cadastrarHotel()}" class="list-group-item" 
+                                       value="Cadastrar Hotel"/>
+                        <h:commandLink action="#{controladorAdmin.listarHoteis()}" class="list-group-item" 
+                                       value="Hoteis Cadastrados"/>
+                    </div>
                 </div>
             </div>
-        </div>
-
+        </h:form>
     </h:body>
 </html>
 

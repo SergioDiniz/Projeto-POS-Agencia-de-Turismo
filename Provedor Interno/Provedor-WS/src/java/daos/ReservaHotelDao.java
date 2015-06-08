@@ -1,7 +1,7 @@
 package daos;
 
-import beans.Reserva;
-import interfaces.DaoReservaIT;
+import beans.ReservaHotel;
+import interfaces.DaoReservaHotelIT;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,13 +12,13 @@ import javax.persistence.PersistenceContext;
  */
 
 @Stateless
-public class ReservaDao implements DaoReservaIT{
+public class ReservaHotelDao implements DaoReservaHotelIT{
 
     @PersistenceContext(unitName = "Provedor-WSPU")
     private EntityManager em;
     
     @Override
-    public boolean salvar(Reserva reserva) {
+    public boolean salvar(ReservaHotel reserva) {
 
         try {
             em.persist(reserva);

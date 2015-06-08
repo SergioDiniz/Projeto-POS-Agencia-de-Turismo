@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="cadastrarQuarto.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="listaHotel.xhtml" x="489" y="148" zoom="true"/>
+        <Node id="index.xhtml" x="639" y="493" zoom="true"/>
+        <Node id="listaHotelCidade.xhtml" x="399" y="370" zoom="false"/>
+        <Node id="fazerReserva.xhtml" x="162" y="297" zoom="true"/>
+        <Node id="cadastrarHotel.xhtml" x="116" y="87" zoom="true"/>
+        <Node id="admin.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="menuadmin.xhtml" x="105" y="217" zoom="true"/>
+        <Node id="reservarQuarto.xhtml" x="103" y="477" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

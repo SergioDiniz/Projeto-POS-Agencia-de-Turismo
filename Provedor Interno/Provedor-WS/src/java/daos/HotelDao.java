@@ -47,10 +47,14 @@ public class HotelDao implements DaoHotelIT {
     public List<Hotel> buscarTodosCidade(String cidade) {
         List<Hotel> hoteis;
         try {
-            Query query = em.createQuery("select h from Hotel h  where h.enderecoHotel.cidade = :cidade");
-            query.setParameter(cidade, "cidade");
-            hoteis = query.getResultList();
-            hoteis.size();
+            Query query = em.createQuery("select h from Hotel h where h.enderecoHotel.cidade = :cidade");
+            query.setParameter("cidade", cidade);
+            hoteis = (List<Hotel>) query.getResultList();
+            
+            for(Hotel h: hoteis){
+                h.getQuartos().size();
+            }
+            
             return hoteis;
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,7 +67,7 @@ public class HotelDao implements DaoHotelIT {
         List<Hotel> hoteis;
         try {
             Query query = em.createQuery("select h from Hotel h");
-            hoteis = query.getResultList();
+            hoteis = (List<Hotel>) query.getResultList();
             
             for(Hotel h: hoteis){
                 h.getQuartos().size();
@@ -83,6 +87,7 @@ public class HotelDao implements DaoHotelIT {
             em.merge(hotel);
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -94,6 +99,7 @@ public class HotelDao implements DaoHotelIT {
             em.remove(em.merge(hotel));
             return true;
         }catch(Exception e){
+            e.printStackTrace();
             return false;
         }
     }

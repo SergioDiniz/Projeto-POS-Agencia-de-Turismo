@@ -1,12 +1,47 @@
-
-
-
-
 body{
     margin: 0;
     padding: 0;
     margin-bottom: -11px;
 }
+
+.logo{
+    padding-left: 1em;
+}
+
+#header nav {
+    letter-spacing: 0.075em;
+    position: absolute;
+    right: 1.5em;
+    text-transform: uppercase;
+    top: 0.75em;
+}
+
+#header nav ul li {
+    display: inline-block;
+    margin-left: 1.5em;
+}
+
+#header nav ul li a {
+    border: solid 1px transparent;
+    color: inherit;
+    display: inline-block;
+    padding: 0em 0.75em;
+    text-decoration: none;
+}
+
+#header nav ul li.active > a, #header nav ul li:hover > a {
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    background: rgba(188, 202, 206, 0.15);
+}
+
+#header nav ul li.current > a {
+    font-weight: 900;
+}
+
 
 .btn{
     background-image: none;
