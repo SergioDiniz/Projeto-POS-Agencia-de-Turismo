@@ -32,9 +32,6 @@ public class Hotel implements Serializable{
     @OneToOne
     private Gerente gerente;
     
-    @OneToOne(mappedBy = "hotel")
-    private ReservaHotel reserva;
-
     public Hotel() {
     }
 
@@ -89,13 +86,5 @@ public class Hotel implements Serializable{
 
     public void setGerente(Gerente gerente) {
         this.gerente = gerente;
-    }
-
-    public ReservaHotel getReserva() {
-        return reserva;
-    }
-
-    public void setReserva(ReservaHotel reserva) {
-        this.reserva = reserva;
     }
 }

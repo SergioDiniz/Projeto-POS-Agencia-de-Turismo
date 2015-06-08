@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,23 +27,25 @@ public class ReservaHotel implements Serializable{
     private Date dataReserva;
     private float valorReserva;
 
-    @ManyToOne
-    private Hospede hospede;
-    @OneToOne
-    private Hotel hotel;
     @OneToOne
     private Quarto quarto;
 
+    @OneToOne
+    private Hotel hotel;
+    
+    @OneToOne
+    private Hospede hospede;
+    
     public ReservaHotel() {
     }
 
-    public ReservaHotel(Date dataSaida, Date dataReserva, float valorReserva, Quarto quarto, Hospede hospede, Hotel hotel) {
+    public ReservaHotel(Date dataSaida, Date dataReserva, float valorReserva, Quarto quarto, Hotel hotel, Hospede hospede) {
         this.dataSaida = dataSaida;
         this.dataReserva = dataReserva;
         this.valorReserva = valorReserva;
         this.quarto = quarto;
-        this.hospede = hospede;
         this.hotel = hotel;
+        this.hospede = hospede;
     }
 
     public int getCodigo() {
@@ -87,19 +88,19 @@ public class ReservaHotel implements Serializable{
         this.quarto = quarto;
     }
 
-    public Hospede getHospede() {
-        return hospede;
-    }
-
-    public void setHospede(Hospede hospede) {
-        this.hospede = hospede;
-    }
-
     public Hotel getHotel() {
         return hotel;
     }
 
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
+    }
+
+    public Hospede getHospede() {
+        return hospede;
+    }
+
+    public void setHospede(Hospede hospede) {
+        this.hospede = hospede;
     }
 }

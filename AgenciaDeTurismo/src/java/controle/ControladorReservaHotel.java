@@ -4,6 +4,7 @@ import datas.XMLCalendarParaDate;
 import fachada.Fachada;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
@@ -112,14 +113,13 @@ public class ControladorReservaHotel implements Serializable {
         this.session = (HttpSession) this.context.getSession(false);
         this.hotel = (Hotel) this.session.getAttribute("hotelReserva");
         Hospede hospede = (Hospede) this.session.getAttribute("hospedeCadastrado");
-
-        Quarto quarto = buscarQuartoDisponivel(hotel);
         
+        Quarto quarto = buscarQuartoDisponivel(hotel);
         if (quarto != null) {
             
-            reservaHotel.setHospede(hospede);
-            reservaHotel.setHotel(hotel);
             reservaHotel.setQuarto(quarto);
+            reservaHotel.setHotel(hotel);
+            reservaHotel.setHospede(hospede);
             reservaHotel.setDataReserva(XMLCalendarParaDate.toXMLGregorianCalendar(dataEntrada));
             reservaHotel.setDataSaida(XMLCalendarParaDate.toXMLGregorianCalendar(dataSaida));
             
@@ -128,8 +128,8 @@ public class ControladorReservaHotel implements Serializable {
             
             quarto.setDisponivel(false);
             fachada.atualizarQuarto(quarto);
-            fachada.salvarReservaHotel(reservaHotel);
             
+            fachada.salvarReservaHotel(reservaHotel);
             this.reservaHotel = new ReservaHotel();
             this.dataEntrada = null;
             this.dataSaida = null;

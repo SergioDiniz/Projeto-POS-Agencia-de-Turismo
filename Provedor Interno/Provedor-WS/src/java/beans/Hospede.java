@@ -1,11 +1,9 @@
 package beans;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 /**
  *
@@ -21,11 +19,6 @@ public class Hospede implements Serializable{
     @Id private String email;
     @Column(nullable = false)
     private String nome;
-    
-    
-    @OneToMany(mappedBy = "hospede")
-    private List<ReservaHotel> reservas;
-    
     
     public Hospede() {
     }
@@ -58,13 +51,5 @@ public class Hospede implements Serializable{
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public List<ReservaHotel> getReservas() {
-        return reservas;
-    }
-
-    public void setReservas(List<ReservaHotel> reservas) {
-        this.reservas = reservas;
     }
 }
