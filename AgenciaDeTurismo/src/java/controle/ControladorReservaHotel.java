@@ -1,8 +1,10 @@
 package controle;
 
+import datas.XMLCalendarParaDate;
 import fachada.Fachada;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -31,6 +33,8 @@ public class ControladorReservaHotel implements Serializable {
     private ExternalContext context;
     private HttpServletRequest request;
     private HttpSession session;
+    private Date dataEntrada;
+    private Date dataSaida;
 
     public ControladorReservaHotel() {
         this.reservaHotel = new ReservaHotel();
@@ -59,6 +63,22 @@ public class ControladorReservaHotel implements Serializable {
 
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
+    }
+
+    public Date getDataEntrada() {
+        return dataEntrada;
+    }
+
+    public void setDataEntrada(Date dataEntrada) {
+        this.dataEntrada = dataEntrada;
+    }
+
+    public Date getDataSaida() {
+        return dataSaida;
+    }
+
+    public void setDataSaida(Date dataSaida) {
+        this.dataSaida = dataSaida;
     }
 
     public String proximaPagina(String cidade) {
@@ -93,21 +113,26 @@ public class ControladorReservaHotel implements Serializable {
         this.hotel = (Hotel) this.session.getAttribute("hotelReserva");
         Hospede hospede = (Hospede) this.session.getAttribute("hospedeCadastrado");
 
-        if (buscarQuartoDisponivel(hotel) != null) {
-
-            Quarto quarto = buscarQuartoDisponivel(hotel);
+        Quarto quarto = buscarQuartoDisponivel(hotel);
+        
+        if (quarto != null) {
+            
             reservaHotel.setHospede(hospede);
             reservaHotel.setHotel(hotel);
             reservaHotel.setQuarto(quarto);
-            reservaHotel.setValorReserva(1500);
+            reservaHotel.setDataReserva(XMLCalendarParaDate.toXMLGregorianCalendar(dataEntrada));
+            reservaHotel.setDataSaida(XMLCalendarParaDate.toXMLGregorianCalendar(dataSaida));
             
-            System.out.println("Hotel: " + hotel.getNome());
-            System.out.println("Hospede: " + hospede.getNome());
-            System.out.println("Quarto: " + quarto.getNumero());
-
+            float preco = (float) (quarto.getPreco() * XMLCalendarParaDate.diferencaDeDatas(dataEntrada, dataSaida));
+            reservaHotel.setValorReserva(preco);
+            
             quarto.setDisponivel(false);
             fachada.atualizarQuarto(quarto);
             fachada.salvarReservaHotel(reservaHotel);
+            
+            this.reservaHotel = new ReservaHotel();
+            this.dataEntrada = null;
+            this.dataSaida = null;
         } else {
             System.out.println("Nenhum Quarto Disponivel!!!");
         }

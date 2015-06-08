@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <div class="wow fadeInRight" data-wow-delay="0.5s" type="date">
                             <label class="control-label" for="senha">Data de Entrada </label>
-                            <h:inputText value="#{controladorReservaHotel.reservaHotel.dataReserva}" class="form-control">
+                            <h:inputText value="#{controladorReservaHotel.dataEntrada}" class="form-control">
                                 <f:convertDateTime pattern="dd/MM/yyyy" />
                             </h:inputText>
                         </div>
@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <div class="wow fadeInRight" data-wow-delay="0.5s" type="date">
                             <label class="control-label" for="senha">Data de Saida </label>
-                            <h:inputText value="#{controladorReservaHotel.reservaHotel.dataSaida}" class="form-control">
+                            <h:inputText value="#{controladorReservaHotel.dataSaida}" class="form-control">
                                 <f:convertDateTime pattern="dd/MM/yyyy" />
                             </h:inputText>
                         </div>
