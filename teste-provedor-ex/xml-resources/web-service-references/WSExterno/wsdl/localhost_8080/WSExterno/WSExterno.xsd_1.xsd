@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws/">
+
+<xs:element name="listaHotelPorCidade" type="tns:listaHotelPorCidade"/>
+
+<xs:element name="listaHotelPorCidadeResponse" type="tns:listaHotelPorCidadeResponse"/>
+
+<xs:element name="salvarReservaHotel" type="tns:salvarReservaHotel"/>
+
+<xs:element name="salvarReservaHotelResponse" type="tns:salvarReservaHotelResponse"/>
+
+<xs:element name="todosQuatosPorHotel" type="tns:todosQuatosPorHotel"/>
+
+<xs:element name="todosQuatosPorHotelResponse" type="tns:todosQuatosPorHotelResponse"/>
+
+<xs:complexType name="listaHotelPorCidade">
+<xs:sequence>
+<xs:element name="cidade" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listaHotelPorCidadeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:hotel" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hotel">
+<xs:sequence>
+<xs:element name="codigo" type="xs:int"/>
+<xs:element name="enderecoHotel" type="tns:enderecoHotel" minOccurs="0"/>
+<xs:element name="gerente" type="tns:gerente" minOccurs="0"/>
+<xs:element name="nome" type="xs:string" minOccurs="0"/>
+<xs:element name="quartos" type="tns:quarto" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="enderecoHotel">
+<xs:sequence>
+<xs:element name="cidade" type="xs:string" minOccurs="0"/>
+<xs:element name="estado" type="xs:string" minOccurs="0"/>
+<xs:element name="rua" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="gerente">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="senha" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="quarto">
+<xs:sequence>
+<xs:element name="disponivel" type="xs:boolean"/>
+<xs:element name="numero" type="xs:int"/>
+<xs:element name="preco" type="xs:double"/>
+<xs:element name="qtdHospede" type="xs:int"/>
+<xs:element name="reserva" type="tns:reservaHotel" minOccurs="0"/>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservaHotel">
+<xs:sequence>
+<xs:element name="codigo" type="xs:int"/>
+<xs:element name="dataReserva" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="dataSaida" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="hospede" type="tns:hospede" minOccurs="0"/>
+<xs:element name="hotel" type="tns:hotel" minOccurs="0"/>
+<xs:element name="quarto" type="tns:quarto" minOccurs="0"/>
+<xs:element name="valorReserva" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hospede">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="nome" type="xs:string" minOccurs="0"/>
+<xs:element name="senha" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="salvarReservaHotel">
+<xs:sequence>
+<xs:element name="reservaHotel" type="tns:reservaHotel" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="salvarReservaHotelResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="todosQuatosPorHotel">
+<xs:sequence>
+<xs:element name="codigo" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="todosQuatosPorHotelResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:quarto" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
