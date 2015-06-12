@@ -152,7 +152,7 @@ public class Fachada implements FachadaIT{
                     reservaHotel.getDataSaida()));
             reservaHotel.setValorReserva(preco);
             
-            daoQuartoIT.atualizar(quartos.get(0));
+            daoQuartoIT.atualizar(q);
             return daoReservaIT.salvar(reservaHotel);
         } else {
             return false;
