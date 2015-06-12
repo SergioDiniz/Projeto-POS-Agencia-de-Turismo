@@ -25,7 +25,6 @@ public class Hotel implements Serializable{
     @Embedded
     private EnderecoHotel enderecoHotel;
     
-    
     @OneToMany
     private List<Quarto> quartos;
     

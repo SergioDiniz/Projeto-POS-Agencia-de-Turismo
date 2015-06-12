@@ -73,6 +73,8 @@ public class ControladorHospede implements Serializable {
             
             this.context.getSessionMap().put("hospedeCadastrado", hospede);
             this.hospede = (Hospede) this.session.getAttribute("hospedeCadastrado");
+            
+            System.out.println("Hospede: " +this.hospede.getEmail());
             return null;
             
         } catch (Exception e) {

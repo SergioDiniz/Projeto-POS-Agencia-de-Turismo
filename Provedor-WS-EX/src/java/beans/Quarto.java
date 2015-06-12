@@ -25,9 +25,6 @@ public class Quarto implements Serializable{
     private int qtdHospede;
     private boolean disponivel;
     
-    @OneToOne(mappedBy = "quarto")
-    private ReservaHotel reserva;
-
     public Quarto() {
     }
 
@@ -76,13 +73,5 @@ public class Quarto implements Serializable{
 
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
-    }
-
-    public ReservaHotel getReserva() {
-        return reserva;
-    }
-
-    public void setReserva(ReservaHotel reserva) {
-        this.reserva = reserva;
     }
 }

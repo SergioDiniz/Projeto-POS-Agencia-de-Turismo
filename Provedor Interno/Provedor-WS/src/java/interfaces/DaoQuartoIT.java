@@ -1,6 +1,7 @@
 package interfaces;
 
 import beans.Quarto;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -18,5 +19,7 @@ public interface DaoQuartoIT {
     public boolean atualizar(Quarto quarto);
 
     public boolean removerQuarto(Quarto quarto);
+    
+    public List<Quarto> todosQuatosPorHotel(int codHotel);
     
 }
