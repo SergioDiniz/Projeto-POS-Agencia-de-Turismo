@@ -11,230 +11,330 @@
         <link rel="stylesheet" type="text/css" href="css/estilo.css"/>
 
         <script type="text/javascript" src="js/jquery-2.1.3.js"/>
+
+        <!-- Mudar Scroll -->
+        <script src="http://areaaperta.com/nicescroll/js/jquery.nicescroll.min.js"></script>
+
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="css/animate.css"></link>
+
+        <!-- animar css -->
+        <script src="js/wow.js"></script>
+        <script>
+            new WOW().init();
+        </script>
+
         <script type="text/javascript" src="js/bootstrap.js"/>
+
+        <!-- Meu JavaScript -->
+        <script src="js/script.js"></script>
 
 
         <title>Agencia de Hoteis</title>
 
     </h:head>
     <h:body>
-        <div class="topo">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h1>Hoteis</h1>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-md-10 btn-entrar" align="right">
 
-                                <c:if test="#{controladorHospede.hospede.email == null}">
-                                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalLogin">
-                                        entrar
-                                    </button>
-
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" id="posicao-modal">
-                                            <div class="modal-content" align="left">
-                                                <h:form>
-                                                    <form jsf:id="form">
-                                                        <div class="modal-header">
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                            <div align="center">
-                                                                <h3 class="modal-title" id="myModalLabel">login</h3>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-md-offset-2 col-md-8">
-                                                                    <div class="form-group">
-                                                                        <label for="email">email</label>
-                                                                        <input type="email" id="email" class="form-control input-lg" placeholder="email" jsf:value="#{controladorHospede.hospede.email}" />
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="senha">senha</label>
-                                                                        <input type="password" id="senha" class="form-control input-lg" placeholder="senha" jsf:value="#{controladorHospede.hospede.senha}"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-
-                                                            <h:commandButton class="btn btn-primary btn-lg" value="login" action="#{controladorHospede.login()}"/>
-                                                        </div>
-                                                    </form>
-                                                </h:form>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </c:if>
-
-                                <c:if test="#{controladorHospede.hospede.email != null}">
-                                    <h:form>
-                                        Bem-Vindo <b>#{controladorHospede.hospede.nome}</b>, 
-                                        <h:commandLink value="sair" action="#{controladorHospede.sair()}" class="btn-sair"/>
-                                    </h:form>
-                                </c:if>
-                            </div>
-
-                            <dir class="col-md-2 btn-cad">
-                                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalLoginAdmin"
-                                        style="color: white">
-                                        Administrador
-                                </button>
-
-                                <!-- Modal Administrador-->
-                                <div class="modal fade" id="modalLoginAdmin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" id="posicao-modal">
-                                        <div class="modal-content" align="left">
-                                            <h:form>
-                                                <form jsf:id="form">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        <div align="center">
-                                                            <h3 class="modal-title" id="myModalLabel">login</h3>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="row">
-                                                            <div class="col-md-offset-2 col-md-8">
-                                                                <div class="form-group">
-                                                                    <label for="email">Login</label>
-                                                                    <input type="text" id="email" class="form-control input-lg" placeholder="Login" jsf:value="#{controladorAdmin.gerente.email}" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-
-                                                        <h:commandButton class="btn btn-primary btn-lg" value="login" action="#{controladorAdmin.paginaAdmin()}"/>
-                                                    </div>
-                                                </form>
-                                            </h:form>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </dir>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
         <div class="conteudo">
-            <div id="img-hotel">
+            <div id="img-hotel" class="parallax">
+                <div class="topo">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="img/hotel.png" height="70px" style="padding-top: 10px;"/>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-10 btn-entrar" align="right">
 
-            </div>
+                                        <c:if test="#{controladorHospede.hospede.email == null}">
+                                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalLogin">
+                                                entrar
+                                            </button>
 
-            <div id="pesquisar-cidade">
-                <div class="container">
-                    <div class="row">
-                        <div align="center">
-                            <h2>Pesquisa uma Cidade</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-offset-2 col-md-8">
-                            <form>
-                                <input type="text" placeholder="Cajazeiras - PB" class="form-control input-lg"/>
-                            </form>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" id="posicao-modal">
+                                                    <div class="modal-content" align="left">
+                                                        <h:form>
+                                                            <form jsf:id="form">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                    <div align="center">
+                                                                        <h3 class="modal-title" id="myModalLabel">login</h3>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-offset-2 col-md-8">
+                                                                            <div class="form-group">
+                                                                                <label for="email">email</label>
+                                                                                <input type="email" id="email" class="form-control input-lg" placeholder="email" jsf:value="#{controladorHospede.hospede.email}" />
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="senha">senha</label>
+                                                                                <input type="password" id="senha" class="form-control input-lg" placeholder="senha" jsf:value="#{controladorHospede.hospede.senha}"/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <h:commandButton class="btn btn-primary btn-lg" value="login" action="#{controladorHospede.login()}"/>
+                                                                </div>
+                                                            </form>
+                                                        </h:form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </c:if>
+
+                                        <c:if test="#{controladorHospede.hospede.email != null}">
+                                            <h:form>
+                                                Bem-Vindo <b>#{controladorHospede.hospede.nome}</b>, 
+                                                <h:commandLink value="sair" action="#{controladorHospede.sair()}" class="btn-sair"/>
+                                            </h:form>
+                                        </c:if>
+                                    </div>
+
+                                    <dir class="col-md-2 btn-cad ">
+                                        <button type="button" class="btn btn-link " data-toggle="modal" data-target="#modalLoginAdmin"
+                                                style="color: white">
+                                            Administrador
+                                        </button>
+
+                                        <!-- Modal Administrador -->
+                                        <div class="modal fade" id="modalLoginAdmin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" id="posicao-modal">
+                                                <div class="modal-content" align="left">
+                                                    <h:form>
+                                                        <form jsf:id="form">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                <div align="center">
+                                                                    <h3 class="modal-title" id="myModalLabel">login</h3>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-md-offset-2 col-md-8">
+                                                                        <div class="form-group">
+                                                                            <label for="email">Login</label>
+                                                                            <input type="text" id="email" class="form-control input-lg" placeholder="Login" jsf:value="#{controladorAdmin.gerente.email}" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+
+                                                                <h:commandButton class="btn btn-primary btn-lg" value="login" action="#{controladorAdmin.paginaAdmin()}"/>
+                                                            </div>
+                                                        </form>
+                                                    </h:form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </dir>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div id="banner-frase-viagem" class="parallax">
+                <div class="container ">
+                    <div class="row">
+                        <div class="wow fadeInLeft">
+                            <div class="frase">
+                                Marca uma viagem é marcar a vida para sempre
+                            </div>
+                            <div id="cadastre-se" align="center">
+                                <a href="#cadastro"><button class="btn btn-lg btn-conhecer">cadastre-se</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="escolher-destino">
+                <div class="container">
+                    <div class="row">
+                        <div>
+                            Escolha um dos Nossos Destinos
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <h:form>
                 <div id="cidades">
                     <div class="container">
                         <div class="row">
-                            <div class="btn-cidade">
-                                <div class="col-md-offset-1 col-md-3">
+                            <div class="btn-cidade" >
+                                <div class="col-md-offset-1 col-md-5 cd-d" id="pb">
                                     <div class="row">
-                                        <img src="img/cidades/cidade joao pessoa.jpg" width="100%"/>
+                                        <div class="nome-cidade" >
+                                            João Pessoa - PB
+                                        </div>
                                     </div>
-                                    <div class="row">
-                                        <h:commandLink value="João Pessoa - PB" 
+                                    <div class="row visitar-cidade">
+                                        <h:commandLink value="Visitar Cidade" 
                                                        action="#{controladorReservaHotel.proximaPagina('João Pessoa')}"
-                                                       class="btn btn-lg btn-info"/>
+                                                       class="btn btn-lg btn-link"/>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="btn-cidade">
-                                <div class="col-md-offset-1 col-md-3">
+                            <div class="btn-cidade" >
+                                <div class="col-md-offset-1 col-md-5 cd-e" id="ce">
                                     <div class="row">
-                                        <img src="img/cidades/cidade fortaleza.jpg" width="100%"/>
+                                        <div class="nome-cidade" >
+                                            Fortaleza - CE
+                                        </div>
                                     </div>
-                                    <div class="row">
-                                        <h:commandLink value="Fortaleza - CE" 
+                                    <div class="row visitar-cidade">
+                                        <h:commandLink value="Visitar Cidade" 
                                                        action="#{controladorReservaHotel.proximaPagina('Fortaleza')}"
-                                                       class="btn btn-lg btn-info"/>
+                                                       class="btn btn-lg btn-link"/>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="btn-cidade">
-                                <div class="col-md-offset-1 col-md-3 ">
-                                    <div class="row">
-                                        <img src="img/cidades/cidade natal.jpg" width="100%"/>
-                                    </div>
-                                    <div class="row">
-                                        <button class="btn btn-lg btn-info">Natal - RN</button>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
-                        <br/><br/><br/><br/>
+                        <br/><br/><br/><br/><br/><br/>
+                        
+                        
                         <div class="row">
-                            <div class="btn-cidade">
-                                <div class="col-md-offset-1 col-md-3">
+                            <div class="btn-cidade" >
+                                <div class="col-md-offset-1 col-md-5 cd-d" id="rn">
                                     <div class="row">
-                                        <img src="img/cidades/cidade rio de janeiro.jpg" width="100%"/>
+                                        <div class="nome-cidade" >
+                                            Natal - RN
+                                        </div>
                                     </div>
-                                    <div class="row">
-                                        <button class="btn btn-lg btn-info">Rio de Janeiro - RJ</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="btn-cidade">
-                                <div class="col-md-offset-1 col-md-3">
-                                    <div class="row">
-                                        <img src="img/cidades/cidade salvador.jpg" width="100%"/>
-                                    </div>
-                                    <div class="row">
-                                        <button class="btn btn-lg btn-info">Salvador - BH</button>
+                                    <div class="row visitar-cidade">
+                                        <h:commandLink value="Visitar Cidade" 
+                                                       action="#{controladorReservaHotel.proximaPagina('Natal')}"
+                                                       class="btn btn-lg btn-link"/>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="btn-cidade">
-                                <div class="col-md-offset-1 col-md-3 ">
+                            <div class="btn-cidade" >
+                                <div class="col-md-offset-1 col-md-5 cd-e" id="se">
                                     <div class="row">
-                                        <img src="img/cidades/cidade brasilia.jpg" width="100%"/>
+                                        <div class="nome-cidade" >
+                                            Aracajú - SE
+                                        </div>
                                     </div>
-                                    <div class="row">
-                                        <button class="btn btn-lg btn-info">Brasilia</button>
+                                    <div class="row visitar-cidade">
+                                        <h:commandLink value="Visitar Cidade" 
+                                                       action="#{controladorReservaHotel.proximaPagina('Aracaju')}"
+                                                       class="btn btn-lg btn-link"/>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+                        <br/><br/><br/><br/><br/><br/>
+                        
+                        <div class="row">
+                            <div class="btn-cidade" >
+                                <div class="col-md-offset-1 col-md-5 cd-d" id="bh">
+                                    <div class="row">
+                                        <div class="nome-cidade" >
+                                            Salvador - BH
+                                        </div>
+                                    </div>
+                                    <div class="row visitar-cidade">
+                                        <h:commandLink value="Visitar Cidade" 
+                                                       action="#{controladorReservaHotel.proximaPagina('Salvador')}"
+                                                       class="btn btn-lg btn-link"/>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="btn-cidade" >
+                                <div class="col-md-offset-1 col-md-5 cd-e" id="pe">
+                                    <div class="row">
+                                        <div class="nome-cidade" >
+                                            Recife - PE
+                                        </div>
+                                    </div>
+                                    <div class="row visitar-cidade">
+                                        <h:commandLink value="Visitar Cidade" 
+                                                       action="#{controladorReservaHotel.proximaPagina('Recife')}"
+                                                       class="btn btn-lg btn-link"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/><br/><br/><br/><br/><br/>
+                        
+                        
+                        <div class="row">
+                            <div class="btn-cidade" >
+                                <div class="col-md-offset-1 col-md-5 cd-d" id="al">
+                                    <div class="row">
+                                        <div class="nome-cidade" >
+                                            Maceió - AL
+                                        </div>
+                                    </div>
+                                    <div class="row visitar-cidade">
+                                        <h:commandLink value="Visitar Cidade" 
+                                                       action="#{controladorReservaHotel.proximaPagina('Maceio')}"
+                                                       class="btn btn-lg btn-link"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="btn-cidade" >
+                                <div class="col-md-offset-1 col-md-5 cd-e" id="pi">
+                                    <div class="row">
+                                        <div class="nome-cidade" >
+                                            Teresina - PI
+                                        </div>
+                                    </div>
+                                    <div class="row visitar-cidade">
+                                        <h:commandLink value="Visitar Cidade" 
+                                                       action="#{controladorReservaHotel.proximaPagina('Teresina')}"
+                                                       class="btn btn-lg btn-link"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/><br/><br/><br/><br/><br/>
+                        
+                        <div class="row">
+                            <div class="btn-cidade" >
+                                <div class="col-md-offset-1 col-md-5 cd-d" id="ma">
+                                    <div class="row">
+                                        <div class="nome-cidade" >
+                                            São Luis - MA
+                                        </div>
+                                    </div>
+                                    <div class="row visitar-cidade">
+                                        <h:commandLink value="Visitar Cidade" 
+                                                       action="#{controladorReservaHotel.proximaPagina('Sao Luis')}"
+                                                       class="btn btn-lg btn-link"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+
+                        
                     </div>
                 </div>
             </h:form>
 
-
-            <div id="cadastro">
+            <a id="cadastro"></a>
+            <div id="cadastro" class="parallax">
                 <div class="container">
-                    <div class="row form-cadastro">
+                    <div class="row form-cadastro wow fadeIn">
                         <div align="center">
                             <label id="cadastre-se">Cadastre-se</label>
                         </div>
@@ -265,7 +365,7 @@
 
 
                                 <div class="col-md-2">
-                                    <h:commandButton value="cadastar" class="btn btn-primary btn-lg" action="#{controladorHospede.cadastro()}"/>
+                                    <h:commandButton value="cadastrar" class="btn btn-default btn-lg" action="#{controladorHospede.cadastro()}"/>
                                 </div>
 
 
@@ -277,11 +377,22 @@
             </div>
 
             <div id="rodape">
-
+                <div class="container">
+                    <div class="row">
+                        <div align="center" class="wow zoomIn">
+                            <img src="img/logo d.png" title="Diego"/>
+                            <img src="img/logo f.png" title="Fatinha"/>
+                            <img src="img/logo s.png" title="Sérgio"/>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
 
     </h:body>
+
+    <!-- Meu JavaScript -->
+    <script src="js/script.js"></script>
 </html>
 
