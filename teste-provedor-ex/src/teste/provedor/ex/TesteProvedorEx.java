@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package teste.provedor.ex;
 
 import datas.XMLCalendarParaDate;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import ws.*;
@@ -16,36 +13,37 @@ import ws.*;
  */
 public class TesteProvedorEx {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
-        for (Hotel h : listaHotelPorCidade("Cajazeiras")) {
+        for (Hotel h : listaHotelPorCidade("João Pessoa")) {
             System.out.println(h.getNome());
         }
 
-        for (Quarto q : todosQuatosPorHotel(1)) {
-            System.out.println(q.getNumero());
-        }
-        
-        List<Hotel> hoteis = listaHotelPorCidade("Santa Helena");
-        List<Quarto> quartos = todosQuatosPorHotel(hoteis.get(0).getCodigo());
+        List<Hotel> hoteis = listaHotelPorCidade("João Pessoa");
         Hospede hospede = new Hospede();
-        hospede.setEmail("sergio@gmail.com");
-        hospede.setNome("sergio");
-        hospede.setSenha("123");
-        
-        
+        hospede.setEmail("fatinha.sg@hotmail.com");
+        hospede.setNome("Fatinha");
+        hospede.setSenha("fatinha");
+
         ReservaHotel reservaHotel = new ReservaHotel();
-        reservaHotel.setQuarto(quartos.get(0));
+        reservaHotel.setQuarto(null);
         reservaHotel.setHotel(hoteis.get(0));
         reservaHotel.setHospede(hospede);
-        reservaHotel.setDataReserva(XMLCalendarParaDate.toXMLGregorianCalendar(new Date()));
-        reservaHotel.setDataSaida(XMLCalendarParaDate.toXMLGregorianCalendar(new Date()));
         
-        salvarReservaHotel(reservaHotel);
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        Date dataEntrada = format.parse("14/06/2015");
+        Date dataSaida = format.parse("24/06/2015");
+        
+        reservaHotel.setDataReserva(XMLCalendarParaDate.toXMLGregorianCalendar(dataEntrada));
+        reservaHotel.setDataSaida(XMLCalendarParaDate.toXMLGregorianCalendar(dataSaida));
 
+        boolean resposta = salvarReservaHotel(reservaHotel);
+
+        if(resposta == true){
+            System.out.println("Okay!");
+        }else{
+            System.out.println("Nenhum Quarto Disponivel!");
+        }
     }
 
     private static java.util.List<ws.Hotel> listaHotelPorCidade(java.lang.String cidade) {
@@ -54,16 +52,9 @@ public class TesteProvedorEx {
         return port.listaHotelPorCidade(cidade);
     }
 
-    private static java.util.List<ws.Quarto> todosQuatosPorHotel(int codigo) {
-        ws.WSExterno_Service service = new ws.WSExterno_Service();
-        ws.WSExterno port = service.getWSExternoPort();
-        return port.todosQuatosPorHotel(codigo);
-    }
-
     private static boolean salvarReservaHotel(ws.ReservaHotel reservaHotel) {
         ws.WSExterno_Service service = new ws.WSExterno_Service();
         ws.WSExterno port = service.getWSExternoPort();
         return port.salvarReservaHotel(reservaHotel);
     }
-
 }

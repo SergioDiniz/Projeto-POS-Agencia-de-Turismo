@@ -168,6 +168,16 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="listarHoteis">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarHoteisResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:hotel" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="loginHospede">
 <xs:sequence>
 <xs:element name="login" type="xs:string" minOccurs="0"/>
@@ -178,16 +188,6 @@
 <xs:complexType name="loginHospedeResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:hospede" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="listarHoteis">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="listarHoteisResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:hotel" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 

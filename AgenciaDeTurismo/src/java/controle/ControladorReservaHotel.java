@@ -113,23 +113,18 @@ public class ControladorReservaHotel implements Serializable {
         this.session = (HttpSession) this.context.getSession(false);
         this.hotel = (Hotel) this.session.getAttribute("hotelReserva");
         Hospede hospede = (Hospede) this.session.getAttribute("hospedeCadastrado");
-        
-        Quarto quarto = buscarQuartoDisponivel(hotel);
-        if (quarto != null) {
-            
-            reservaHotel.setQuarto(quarto);
-            reservaHotel.setHotel(hotel);
-            reservaHotel.setHospede(hospede);
-            reservaHotel.setDataReserva(XMLCalendarParaDate.toXMLGregorianCalendar(dataEntrada));
-            reservaHotel.setDataSaida(XMLCalendarParaDate.toXMLGregorianCalendar(dataSaida));
-            
-            float preco = (float) (quarto.getPreco() * XMLCalendarParaDate.diferencaDeDatas(dataEntrada, dataSaida));
-            reservaHotel.setValorReserva(preco);
-            
-            quarto.setDisponivel(false);
-            fachada.atualizarQuarto(quarto);
-            
-            fachada.salvarReservaHotel(reservaHotel);
+
+        reservaHotel.setQuarto(null);
+        reservaHotel.setHotel(hotel);
+        reservaHotel.setHospede(hospede);
+        reservaHotel.setDataReserva(XMLCalendarParaDate.toXMLGregorianCalendar(dataEntrada));
+        reservaHotel.setDataSaida(XMLCalendarParaDate.toXMLGregorianCalendar(dataSaida));
+
+        reservaHotel.setValorReserva(0);
+
+        boolean resposta = fachada.salvarReservaHotel(reservaHotel);
+
+        if (resposta == true) {
             this.reservaHotel = new ReservaHotel();
             this.dataEntrada = null;
             this.dataSaida = null;
@@ -138,22 +133,5 @@ public class ControladorReservaHotel implements Serializable {
         }
 
         return null;
-    }
-
-    public Quarto buscarQuartoDisponivel(Hotel hotel) {
-
-        Quarto quarto = null;
-
-        if (hotel.getQuartos().size() > 0) {
-            
-            for (Quarto q : hotel.getQuartos()) {
-                if (q.isDisponivel() == true) {
-                    quarto = q;
-                    break;
-                }
-            }
-        }
-
-        return quarto;
     }
 }

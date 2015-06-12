@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ws;
 
 import beans.Hotel;
@@ -43,19 +38,22 @@ public class WSExterno {
     public List<Hotel> listaHotelPorCidade(@WebParam(name = "cidade") String cidade) {
         return fachada.buscarTodosHoteisPorCidade(cidade);
     }
-    
+
     /**
-     * Operação de Listar todos os quartos de um hotel
+     * Operação que busca uma reserva qualquer
      */
-    @WebMethod(operationName = "todosQuatosPorHotel")
-    public List<Quarto> todosQuatosPorHotel(@WebParam(name = "codigo") int codigo) {
-        return fachada.todosQuatosPorHotel(codigo);
+    @WebMethod(operationName = "buscarReserva")
+    public ReservaHotel buscarReserva(@WebParam(name = "codigo") int codigo) {
+        return fachada.buscarUmaReserva(codigo);
+    }
+
+    /**
+     * Operação que busca todas as reservas de usuario 
+     */
+    @WebMethod(operationName = "listarReservasUsuario")
+    public List<ReservaHotel> listarReservasUsuario(@WebParam(name = "login") String login) {
+        return fachada.todasAsReservas(login);
     }
 
     /**************************************************************************/
-
-    
-    
-    
-    
 }

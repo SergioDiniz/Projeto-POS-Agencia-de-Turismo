@@ -19,13 +19,13 @@ import javax.persistence.Query;
  * @author SergioD
  */
 @Stateless
-public class Dao implements DaoIT{
+public class Dao implements DaoIT {
 
     @PersistenceContext(unitName = "Provedor-WSPU")
     private EntityManager em;
 
     @Override
-    public boolean salvar(ReservaHotel reserva) {
+    public boolean salvarReserva(ReservaHotel reserva) {
         try {
             em.persist(reserva);
             return true;
@@ -35,7 +35,6 @@ public class Dao implements DaoIT{
         }
     }
 
-    
     @Override
     public List<Hotel> buscarTodosHoteisPorCidade(String cidade) {
         List<Hotel> hoteis;
@@ -43,31 +42,68 @@ public class Dao implements DaoIT{
             Query query = em.createQuery("select h from Hotel h where h.enderecoHotel.cidade = :cidade");
             query.setParameter("cidade", cidade);
             hoteis = (List<Hotel>) query.getResultList();
-            
-            for(Hotel h: hoteis){
+
+            for (Hotel h : hoteis) {
                 h.getQuartos().size();
             }
-            
+
             return hoteis;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
-    
+
     @Override
-    public List<Quarto> todosQuatosPorHotel(int codHotel){
+    public List<Quarto> todosQuatosPorHotel(int codHotel) {
         List<Quarto> quartos;
         try {
-            Query query = em.createQuery("select hq from Hotel h JOIN h.quartos hq where h.codigo = :codigo");
+            Query query = em.createQuery("select q from Hotel h JOIN h.quartos q where h.codigo = :codigo and q.disponivel = true");
             query.setParameter("codigo", codHotel);
             quartos = (List<Quarto>) query.getResultList();
-                      
+
             return quartos;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
-    
+
+    @Override
+    public boolean atualizarQuarto(Quarto quarto) {
+        try {
+            em.merge(quarto);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public ReservaHotel buscarReservaHotel(int codigoReserva){
+        
+        try{
+            ReservaHotel reservaHotel = em.find(ReservaHotel.class, codigoReserva);
+            reservaHotel.getHotel().getQuartos().size();
+            return reservaHotel;
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public List<ReservaHotel> listarReservasHotel(String login){
+        Query query = em.createQuery("select r from ReservaHotel r where r.hospede.email = :login");
+        query.setParameter("login", login);
+       
+        List<ReservaHotel> reservaHotels = (List<ReservaHotel>) query.getResultList();
+        
+        for(ReservaHotel r: reservaHotels){
+            r.getHotel().getQuartos().size();
+        }
+        
+        return reservaHotels;
+    }
 }

@@ -1,6 +1,7 @@
 package fachada;
 
 import beans.*;
+import datas.XMLCalendarParaDate;
 import interfaces.*;
 import java.util.List;
 import javax.ejb.EJB;
@@ -140,6 +141,21 @@ public class Fachada implements FachadaIT{
     //Servicos da Reserva de um quarto
     @Override
     public boolean salvarReservaHotel(ReservaHotel reservaHotel){
-        return daoReservaIT.salvar(reservaHotel);
+        List<Quarto> quartos = daoQuartoIT.todosQuatosPorHotel(reservaHotel.getHotel().getCodigo());
+        
+        if (quartos.size() > 0) {
+            Quarto q = quartos.get(0);
+            reservaHotel.setQuarto(q);
+            q.setDisponivel(false);
+            
+            float preco = (float) (q.getPreco() * XMLCalendarParaDate.diferencaDeDatas(reservaHotel.getDataReserva(), 
+                    reservaHotel.getDataSaida()));
+            reservaHotel.setValorReserva(preco);
+            
+            daoQuartoIT.atualizar(q);
+            return daoReservaIT.salvar(reservaHotel);
+        } else {
+            return false;
+        }
     }
 }

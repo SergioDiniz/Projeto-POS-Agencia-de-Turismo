@@ -9,6 +9,7 @@ import beans.Hotel;
 import beans.Quarto;
 import beans.ReservaHotel;
 import dao.DaoIT;
+import datas.XMLCalendarParaDate;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -18,17 +19,32 @@ import javax.ejb.Stateless;
  * @author SergioD
  */
 @Stateless
-public class Fachada implements FachadaIT{
+public class Fachada implements FachadaIT {
 
     @EJB
     private DaoIT dao;
-    
+
     public Fachada() {
     }
 
     @Override
     public boolean salvarReservaHotel(ReservaHotel reservaHotel) {
-        return dao.salvar(reservaHotel);
+        List<Quarto> quartos = dao.todosQuatosPorHotel(reservaHotel.getHotel().getCodigo());
+
+        if (quartos.size() > 0) {
+            Quarto q = quartos.get(0);
+            reservaHotel.setQuarto(q);
+            q.setDisponivel(false);
+
+            float preco = (float) (q.getPreco() * XMLCalendarParaDate.diferencaDeDatas(reservaHotel.getDataReserva(),
+                    reservaHotel.getDataSaida()));
+            reservaHotel.setValorReserva(preco);
+
+            dao.atualizarQuarto(quartos.get(0));
+            return dao.salvarReserva(reservaHotel);
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -37,8 +53,12 @@ public class Fachada implements FachadaIT{
     }
 
     @Override
-    public List<Quarto> todosQuatosPorHotel(int codHotel) {
-        return dao.todosQuatosPorHotel(codHotel);
+    public ReservaHotel buscarUmaReserva(int codigo){
+        return dao.buscarReservaHotel(codigo);
     }
-    
+
+    @Override
+    public List<ReservaHotel> todasAsReservas(String login){
+        return dao.listarReservasHotel(login);
+    }
 }
