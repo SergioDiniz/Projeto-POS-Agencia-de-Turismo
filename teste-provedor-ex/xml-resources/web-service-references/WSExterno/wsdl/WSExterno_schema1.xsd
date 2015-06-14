@@ -5,17 +5,21 @@
 
   <xs:element name="buscarReservaResponse" type="tns:buscarReservaResponse"/>
 
-  <xs:element name="listaHotelPorCidade" nillable="true" type="tns:listaHotelPorCidade"/>
+  <xs:element name="buscarReservasPorData" type="tns:buscarReservasPorData"/>
 
-  <xs:element name="listaHotelPorCidadeResponse" nillable="true" type="tns:listaHotelPorCidadeResponse"/>
+  <xs:element name="buscarReservasPorDataResponse" type="tns:buscarReservasPorDataResponse"/>
+
+  <xs:element name="listaHotelPorCidade" type="tns:listaHotelPorCidade"/>
+
+  <xs:element name="listaHotelPorCidadeResponse" type="tns:listaHotelPorCidadeResponse"/>
 
   <xs:element name="listarReservasUsuario" type="tns:listarReservasUsuario"/>
 
   <xs:element name="listarReservasUsuarioResponse" type="tns:listarReservasUsuarioResponse"/>
 
-  <xs:element name="salvarReservaHotel" nillable="true" type="tns:salvarReservaHotel"/>
+  <xs:element name="salvarReservaHotel" type="tns:salvarReservaHotel"/>
 
-  <xs:element name="salvarReservaHotelResponse" nillable="true" type="tns:salvarReservaHotelResponse"/>
+  <xs:element name="salvarReservaHotelResponse" type="tns:salvarReservaHotelResponse"/>
 
   <xs:complexType name="listarReservasUsuario">
     <xs:sequence>
@@ -104,7 +108,20 @@
 
   <xs:complexType name="listaHotelPorCidadeResponse">
     <xs:sequence>
-      <xs:element name="return" type="tns:hotel" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="return" type="tns:hotel" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="buscarReservasPorData">
+    <xs:sequence>
+      <xs:element name="dataReserva" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="login" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="buscarReservasPorDataResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:reservaHotel" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 

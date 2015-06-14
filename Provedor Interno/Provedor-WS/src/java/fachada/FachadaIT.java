@@ -70,4 +70,10 @@ public interface FachadaIT {
     //
     //Servicos da reserva
     public boolean salvarReservaHotel(ReservaHotel reservaHotel);
+    
+    public ReservaHotel buscarUmaReserva(int codigo);
+    
+    public List<ReservaHotel> listarReservasHotel();
+    
+    public List<ReservaHotel> listarReservasHospede(String login);
 }

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" targetNamespace="http://ws/" xmlns:tns="http://ws/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xs:element name="buscarReserva" type="tns:buscarReserva"/>
+  <xs:element name="buscarReserva" nillable="true" type="tns:buscarReserva"/>
 
-  <xs:element name="buscarReservaResponse" type="tns:buscarReservaResponse"/>
+  <xs:element name="buscarReservaResponse" nillable="true" type="tns:buscarReservaResponse"/>
 
   <xs:element name="listaHotelPorCidade" nillable="true" type="tns:listaHotelPorCidade"/>
 
   <xs:element name="listaHotelPorCidadeResponse" nillable="true" type="tns:listaHotelPorCidadeResponse"/>
 
-  <xs:element name="listarReservasUsuario" type="tns:listarReservasUsuario"/>
+  <xs:element name="listarReservasUsuario" nillable="true" type="tns:listarReservasUsuario"/>
 
-  <xs:element name="listarReservasUsuarioResponse" type="tns:listarReservasUsuarioResponse"/>
+  <xs:element name="listarReservasUsuarioResponse" nillable="true" type="tns:listarReservasUsuarioResponse"/>
 
   <xs:element name="salvarReservaHotel" nillable="true" type="tns:salvarReservaHotel"/>
 
@@ -25,7 +25,7 @@
 
   <xs:complexType name="listarReservasUsuarioResponse">
     <xs:sequence>
-      <xs:element name="return" type="tns:reservaHotel" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="return" type="tns:reservaHotel" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 

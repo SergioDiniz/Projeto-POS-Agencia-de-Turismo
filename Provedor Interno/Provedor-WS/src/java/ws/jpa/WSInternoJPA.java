@@ -208,7 +208,31 @@ public class WSInternoJPA {
         return fachada.salvarReservaHotel(reservaHotel);
     }
 
-    /**
+    /*
      * ***********************************************************************
      */
+     /* Operação que buscar uma reserva pelo codigo
+     */
+    @WebMethod(operationName = "buscarReservaPeloCodigo")
+    public ReservaHotel buscarReservaPeloCodigo(@WebParam(name = "codigo") int codigo) {
+        return fachada.buscarUmaReserva(codigo);
+    }
+
+    /**
+     * Operação que busca todas as reservas do hotel
+     */
+    @WebMethod(operationName = "listarTodasAsReservas")
+    public List<ReservaHotel> listarTodasAsReservas() {
+        return fachada.listarReservasHotel();
+    }
+
+    /**
+     * Operação que lista todas as reservas de um hospede
+     */
+    @WebMethod(operationName = "ReservasDoHospede")
+    public List<ReservaHotel> ReservasDoHospede(@WebParam(name = "login") String login) {
+        return fachada.listarReservasHospede(login);
+    }
+
+    /**************************************************************************/
 }
