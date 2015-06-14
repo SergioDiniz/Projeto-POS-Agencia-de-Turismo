@@ -42,7 +42,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-md-10 btn-entrar" align="right">
+                            <div class="col-md-12 btn-entrar" align="right">
 
                                 <c:if test="#{controladorHospede.hospede.email == null}">
                                     <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalLogin">
@@ -88,51 +88,11 @@
 
                                 <c:if test="#{controladorHospede.hospede.email != null}">
                                     <h:form>
-                                        Bem-Vindo <b>#{controladorHospede.hospede.nome}</b>, 
+                                        Bem-Vindo <b>#{controladorHospede.hospede.nome}</b>, (<a href="conta-usuario.jsf">perfil</a>)
                                         <h:commandLink value="sair" action="#{controladorHospede.sair()}" class="btn-sair"/>
                                     </h:form>
                                 </c:if>
                             </div>
-
-                            <dir class="col-md-2 btn-cad ">
-                                <button type="button" class="btn btn-link " data-toggle="modal" data-target="#modalLoginAdmin"
-                                        style="color: white">
-                                    Administrador
-                                </button>
-
-                                <!-- Modal Administrador -->
-                                <div class="modal fade" id="modalLoginAdmin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" id="posicao-modal">
-                                        <div class="modal-content" align="left">
-                                            <h:form>
-                                                <form jsf:id="form">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        <div align="center">
-                                                            <h3 class="modal-title" id="myModalLabel">login</h3>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="row">
-                                                            <div class="col-md-offset-2 col-md-8">
-                                                                <div class="form-group">
-                                                                    <label for="email">Login</label>
-                                                                    <input type="text" id="email" class="form-control input-lg" placeholder="Login" jsf:value="#{controladorAdmin.gerente.email}" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-
-                                                        <h:commandButton class="btn btn-conhecer btn-lg" value="login" action="#{controladorAdmin.paginaAdmin()}"/>
-                                                    </div>
-                                                </form>
-                                            </h:form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </dir>
-
                         </div>
                     </div>
                 </div>

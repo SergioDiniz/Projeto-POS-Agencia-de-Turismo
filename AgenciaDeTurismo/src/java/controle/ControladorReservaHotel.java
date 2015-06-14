@@ -142,4 +142,7 @@ public class ControladorReservaHotel implements Serializable {
         return fachada.tiposDeQuatosPorHotel(codHotel);
     }
 
+
+    
+    
 }

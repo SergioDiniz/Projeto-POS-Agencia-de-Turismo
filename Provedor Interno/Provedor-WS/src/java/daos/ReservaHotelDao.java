@@ -50,10 +50,16 @@ public class ReservaHotelDao implements DaoReservaHotelIT {
 
     @Override
     public List<ReservaHotel> reservasHospede(String login){
+        List<ReservaHotel> reservaHotels;
         Query query = em.createQuery("select r from ReservaHotel r where r.hospede.email = :email");
         query.setParameter("email", login);
+        reservaHotels = (List<ReservaHotel>) query.getResultList();
         
-        return (List<ReservaHotel>) query.getResultList();
+        for(ReservaHotel r : reservaHotels){
+            r.getHotel().getQuartos().size();
+        }
+        
+        return reservaHotels;
     }
     
     @Override

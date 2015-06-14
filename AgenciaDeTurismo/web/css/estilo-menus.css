@@ -4,7 +4,8 @@
 
 .btn-entrar > .btn, 
 .btn-cad > .btn, 
-.btn-sair{
+.btn-sair,
+.btn-entrar a{
        color: #7F8C8D !important;
 }
 

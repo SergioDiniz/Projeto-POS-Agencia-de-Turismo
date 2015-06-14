@@ -78,7 +78,8 @@ body{
 }
 
 .btn-entrar > button, .btn-entrar > button:hover, .btn-entrar > button:active,
-.btn-entrar > button:visited, .btn-entrar > button:focus{
+.btn-entrar > button:visited, .btn-entrar > button:focus,
+.btn-entrar a{
     color: #fff;
     text-decoration: none;
     padding: 0;
@@ -91,6 +92,10 @@ body{
 
 .btn-entrar{
     padding-top: 28px;
+}
+
+.menu-topo .btn-entrar{
+    padding: 30px;
 }
 
 #modalLogin{

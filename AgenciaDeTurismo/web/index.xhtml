@@ -93,7 +93,7 @@
 
                                         <c:if test="#{controladorHospede.hospede.email != null}">
                                             <h:form>
-                                                Bem-Vindo <b>#{controladorHospede.hospede.nome}</b>, 
+                                                Bem-Vindo <b>#{controladorHospede.hospede.nome}</b>, (<a href="conta-usuario.jsf">perfil</a>)
                                                 <h:commandLink value="sair" action="#{controladorHospede.sair()}" class="btn-sair"/>
                                             </h:form>
                                         </c:if>

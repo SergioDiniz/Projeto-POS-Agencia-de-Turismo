@@ -3,6 +3,7 @@ package controle;
 import fachada.Fachada;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -11,6 +12,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import ws.Hospede;
+import ws.ReservaHotel;
 
 /**
  *
@@ -111,4 +113,9 @@ public class ControladorHospede implements Serializable {
         return null;
     }
 
+        
+    public List<ReservaHotel> reservasDoHospede(){
+        return fachada.reservasDoHospede(this.hospede.getEmail());
+    }
+    
 }

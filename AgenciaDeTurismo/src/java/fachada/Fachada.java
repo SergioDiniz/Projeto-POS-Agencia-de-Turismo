@@ -114,6 +114,13 @@ public class Fachada {
         ws.WSInternoJPA port = service.getWSInternoJPAPort();
         return port.tiposDeQuatosPorHotel(codHotel);
     }
+
+    public java.util.List<ws.ReservaHotel> reservasDoHospede(java.lang.String login) {
+        ws.WSInternoJPA port = service.getWSInternoJPAPort();
+        return port.reservasDoHospede(login);
+    }
+    
+    
     
     
  
