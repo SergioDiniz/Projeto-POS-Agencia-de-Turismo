@@ -10,6 +10,7 @@ import beans.Quarto;
 import beans.ReservaHotel;
 import dao.DaoIT;
 import datas.XMLCalendarParaDate;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;

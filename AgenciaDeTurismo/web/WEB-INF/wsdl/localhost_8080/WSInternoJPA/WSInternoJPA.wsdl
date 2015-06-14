@@ -4,35 +4,23 @@
 <xsd:import namespace="http://jpa.ws/" schemaLocation="http://localhost:8080/WSInternoJPA/WSInternoJPA?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="buscarQuarto">
-<part name="parameters" element="tns:buscarQuarto"/>
+<message name="salvarReservaHotel">
+<part name="parameters" element="tns:salvarReservaHotel"/>
 </message>
-<message name="buscarQuartoResponse">
-<part name="parameters" element="tns:buscarQuartoResponse"/>
+<message name="salvarReservaHotelResponse">
+<part name="parameters" element="tns:salvarReservaHotelResponse"/>
 </message>
-<message name="salvarHospede">
-<part name="parameters" element="tns:salvarHospede"/>
+<message name="buscarHoteisCidade">
+<part name="parameters" element="tns:buscarHoteisCidade"/>
 </message>
-<message name="salvarHospedeResponse">
-<part name="parameters" element="tns:salvarHospedeResponse"/>
+<message name="buscarHoteisCidadeResponse">
+<part name="parameters" element="tns:buscarHoteisCidadeResponse"/>
 </message>
-<message name="removerQuarto">
-<part name="parameters" element="tns:removerQuarto"/>
+<message name="buscarHospedeLogin">
+<part name="parameters" element="tns:buscarHospedeLogin"/>
 </message>
-<message name="removerQuartoResponse">
-<part name="parameters" element="tns:removerQuartoResponse"/>
-</message>
-<message name="removerHospede">
-<part name="parameters" element="tns:removerHospede"/>
-</message>
-<message name="removerHospedeResponse">
-<part name="parameters" element="tns:removerHospedeResponse"/>
-</message>
-<message name="removerHotel">
-<part name="parameters" element="tns:removerHotel"/>
-</message>
-<message name="removerHotelResponse">
-<part name="parameters" element="tns:removerHotelResponse"/>
+<message name="buscarHospedeLoginResponse">
+<part name="parameters" element="tns:buscarHospedeLoginResponse"/>
 </message>
 <message name="buscarHotel">
 <part name="parameters" element="tns:buscarHotel"/>
@@ -40,35 +28,23 @@
 <message name="buscarHotelResponse">
 <part name="parameters" element="tns:buscarHotelResponse"/>
 </message>
-<message name="atualizarHospede">
-<part name="parameters" element="tns:atualizarHospede"/>
-</message>
-<message name="atualizarHospedeResponse">
-<part name="parameters" element="tns:atualizarHospedeResponse"/>
-</message>
 <message name="salvarQuarto">
 <part name="parameters" element="tns:salvarQuarto"/>
 </message>
 <message name="salvarQuartoResponse">
 <part name="parameters" element="tns:salvarQuartoResponse"/>
 </message>
-<message name="atualizarHotel">
-<part name="parameters" element="tns:atualizarHotel"/>
+<message name="buscarQuarto">
+<part name="parameters" element="tns:buscarQuarto"/>
 </message>
-<message name="atualizarHotelResponse">
-<part name="parameters" element="tns:atualizarHotelResponse"/>
+<message name="buscarQuartoResponse">
+<part name="parameters" element="tns:buscarQuartoResponse"/>
 </message>
-<message name="buscarHospede">
-<part name="parameters" element="tns:buscarHospede"/>
+<message name="removerHospede">
+<part name="parameters" element="tns:removerHospede"/>
 </message>
-<message name="buscarHospedeResponse">
-<part name="parameters" element="tns:buscarHospedeResponse"/>
-</message>
-<message name="buscarGerente">
-<part name="parameters" element="tns:buscarGerente"/>
-</message>
-<message name="buscarGerenteResponse">
-<part name="parameters" element="tns:buscarGerenteResponse"/>
+<message name="removerHospedeResponse">
+<part name="parameters" element="tns:removerHospedeResponse"/>
 </message>
 <message name="atualizarGerente">
 <part name="parameters" element="tns:atualizarGerente"/>
@@ -76,11 +52,53 @@
 <message name="atualizarGerenteResponse">
 <part name="parameters" element="tns:atualizarGerenteResponse"/>
 </message>
-<message name="listarHoteis">
-<part name="parameters" element="tns:listarHoteis"/>
+<message name="removerHotel">
+<part name="parameters" element="tns:removerHotel"/>
 </message>
-<message name="listarHoteisResponse">
-<part name="parameters" element="tns:listarHoteisResponse"/>
+<message name="removerHotelResponse">
+<part name="parameters" element="tns:removerHotelResponse"/>
+</message>
+<message name="salvarHospede">
+<part name="parameters" element="tns:salvarHospede"/>
+</message>
+<message name="salvarHospedeResponse">
+<part name="parameters" element="tns:salvarHospedeResponse"/>
+</message>
+<message name="buscarHospede">
+<part name="parameters" element="tns:buscarHospede"/>
+</message>
+<message name="buscarHospedeResponse">
+<part name="parameters" element="tns:buscarHospedeResponse"/>
+</message>
+<message name="atualizarQuarto">
+<part name="parameters" element="tns:atualizarQuarto"/>
+</message>
+<message name="atualizarQuartoResponse">
+<part name="parameters" element="tns:atualizarQuartoResponse"/>
+</message>
+<message name="atualizarHospede">
+<part name="parameters" element="tns:atualizarHospede"/>
+</message>
+<message name="atualizarHospedeResponse">
+<part name="parameters" element="tns:atualizarHospedeResponse"/>
+</message>
+<message name="atualizarHotel">
+<part name="parameters" element="tns:atualizarHotel"/>
+</message>
+<message name="atualizarHotelResponse">
+<part name="parameters" element="tns:atualizarHotelResponse"/>
+</message>
+<message name="removerQuarto">
+<part name="parameters" element="tns:removerQuarto"/>
+</message>
+<message name="removerQuartoResponse">
+<part name="parameters" element="tns:removerQuartoResponse"/>
+</message>
+<message name="buscarGerente">
+<part name="parameters" element="tns:buscarGerente"/>
+</message>
+<message name="buscarGerenteResponse">
+<part name="parameters" element="tns:buscarGerenteResponse"/>
 </message>
 <message name="salvarHotel">
 <part name="parameters" element="tns:salvarHotel"/>
@@ -94,82 +112,94 @@
 <message name="loginHospedeResponse">
 <part name="parameters" element="tns:loginHospedeResponse"/>
 </message>
-<message name="atualizarQuarto">
-<part name="parameters" element="tns:atualizarQuarto"/>
+<message name="listarHoteis">
+<part name="parameters" element="tns:listarHoteis"/>
 </message>
-<message name="atualizarQuartoResponse">
-<part name="parameters" element="tns:atualizarQuartoResponse"/>
+<message name="listarHoteisResponse">
+<part name="parameters" element="tns:listarHoteisResponse"/>
 </message>
-<message name="salvarReservaHotel">
-<part name="parameters" element="tns:salvarReservaHotel"/>
+<message name="buscarReservaPeloCodigo">
+<part name="parameters" element="tns:buscarReservaPeloCodigo"/>
 </message>
-<message name="salvarReservaHotelResponse">
-<part name="parameters" element="tns:salvarReservaHotelResponse"/>
+<message name="buscarReservaPeloCodigoResponse">
+<part name="parameters" element="tns:buscarReservaPeloCodigoResponse"/>
 </message>
-<message name="buscarHospedeLogin">
-<part name="parameters" element="tns:buscarHospedeLogin"/>
+<message name="listarTodasAsReservas">
+<part name="parameters" element="tns:listarTodasAsReservas"/>
 </message>
-<message name="buscarHospedeLoginResponse">
-<part name="parameters" element="tns:buscarHospedeLoginResponse"/>
+<message name="listarTodasAsReservasResponse">
+<part name="parameters" element="tns:listarTodasAsReservasResponse"/>
 </message>
-<message name="buscarHoteisCidade">
-<part name="parameters" element="tns:buscarHoteisCidade"/>
+<message name="ReservasDoHospede">
+<part name="parameters" element="tns:ReservasDoHospede"/>
 </message>
-<message name="buscarHoteisCidadeResponse">
-<part name="parameters" element="tns:buscarHoteisCidadeResponse"/>
+<message name="ReservasDoHospedeResponse">
+<part name="parameters" element="tns:ReservasDoHospedeResponse"/>
 </message>
 <portType name="WSInternoJPA">
-<operation name="buscarQuarto">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarQuartoRequest" message="tns:buscarQuarto"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarQuartoResponse" message="tns:buscarQuartoResponse"/>
+<operation name="salvarReservaHotel">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/salvarReservaHotelRequest" message="tns:salvarReservaHotel"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/salvarReservaHotelResponse" message="tns:salvarReservaHotelResponse"/>
 </operation>
-<operation name="salvarHospede">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/salvarHospedeRequest" message="tns:salvarHospede"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/salvarHospedeResponse" message="tns:salvarHospedeResponse"/>
+<operation name="buscarHoteisCidade">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarHoteisCidadeRequest" message="tns:buscarHoteisCidade"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarHoteisCidadeResponse" message="tns:buscarHoteisCidadeResponse"/>
 </operation>
-<operation name="removerQuarto">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/removerQuartoRequest" message="tns:removerQuarto"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/removerQuartoResponse" message="tns:removerQuartoResponse"/>
-</operation>
-<operation name="removerHospede">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/removerHospedeRequest" message="tns:removerHospede"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/removerHospedeResponse" message="tns:removerHospedeResponse"/>
-</operation>
-<operation name="removerHotel">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/removerHotelRequest" message="tns:removerHotel"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/removerHotelResponse" message="tns:removerHotelResponse"/>
+<operation name="buscarHospedeLogin">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarHospedeLoginRequest" message="tns:buscarHospedeLogin"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarHospedeLoginResponse" message="tns:buscarHospedeLoginResponse"/>
 </operation>
 <operation name="buscarHotel">
 <input wsam:Action="http://jpa.ws/WSInternoJPA/buscarHotelRequest" message="tns:buscarHotel"/>
 <output wsam:Action="http://jpa.ws/WSInternoJPA/buscarHotelResponse" message="tns:buscarHotelResponse"/>
 </operation>
-<operation name="atualizarHospede">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/atualizarHospedeRequest" message="tns:atualizarHospede"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/atualizarHospedeResponse" message="tns:atualizarHospedeResponse"/>
-</operation>
 <operation name="salvarQuarto">
 <input wsam:Action="http://jpa.ws/WSInternoJPA/salvarQuartoRequest" message="tns:salvarQuarto"/>
 <output wsam:Action="http://jpa.ws/WSInternoJPA/salvarQuartoResponse" message="tns:salvarQuartoResponse"/>
 </operation>
-<operation name="atualizarHotel">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/atualizarHotelRequest" message="tns:atualizarHotel"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/atualizarHotelResponse" message="tns:atualizarHotelResponse"/>
+<operation name="buscarQuarto">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarQuartoRequest" message="tns:buscarQuarto"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarQuartoResponse" message="tns:buscarQuartoResponse"/>
 </operation>
-<operation name="buscarHospede">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarHospedeRequest" message="tns:buscarHospede"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarHospedeResponse" message="tns:buscarHospedeResponse"/>
-</operation>
-<operation name="buscarGerente">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarGerenteRequest" message="tns:buscarGerente"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarGerenteResponse" message="tns:buscarGerenteResponse"/>
+<operation name="removerHospede">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/removerHospedeRequest" message="tns:removerHospede"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/removerHospedeResponse" message="tns:removerHospedeResponse"/>
 </operation>
 <operation name="atualizarGerente">
 <input wsam:Action="http://jpa.ws/WSInternoJPA/atualizarGerenteRequest" message="tns:atualizarGerente"/>
 <output wsam:Action="http://jpa.ws/WSInternoJPA/atualizarGerenteResponse" message="tns:atualizarGerenteResponse"/>
 </operation>
-<operation name="listarHoteis">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/listarHoteisRequest" message="tns:listarHoteis"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/listarHoteisResponse" message="tns:listarHoteisResponse"/>
+<operation name="removerHotel">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/removerHotelRequest" message="tns:removerHotel"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/removerHotelResponse" message="tns:removerHotelResponse"/>
+</operation>
+<operation name="salvarHospede">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/salvarHospedeRequest" message="tns:salvarHospede"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/salvarHospedeResponse" message="tns:salvarHospedeResponse"/>
+</operation>
+<operation name="buscarHospede">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarHospedeRequest" message="tns:buscarHospede"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarHospedeResponse" message="tns:buscarHospedeResponse"/>
+</operation>
+<operation name="atualizarQuarto">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/atualizarQuartoRequest" message="tns:atualizarQuarto"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/atualizarQuartoResponse" message="tns:atualizarQuartoResponse"/>
+</operation>
+<operation name="atualizarHospede">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/atualizarHospedeRequest" message="tns:atualizarHospede"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/atualizarHospedeResponse" message="tns:atualizarHospedeResponse"/>
+</operation>
+<operation name="atualizarHotel">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/atualizarHotelRequest" message="tns:atualizarHotel"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/atualizarHotelResponse" message="tns:atualizarHotelResponse"/>
+</operation>
+<operation name="removerQuarto">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/removerQuartoRequest" message="tns:removerQuarto"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/removerQuartoResponse" message="tns:removerQuartoResponse"/>
+</operation>
+<operation name="buscarGerente">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarGerenteRequest" message="tns:buscarGerente"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarGerenteResponse" message="tns:buscarGerenteResponse"/>
 </operation>
 <operation name="salvarHotel">
 <input wsam:Action="http://jpa.ws/WSInternoJPA/salvarHotelRequest" message="tns:salvarHotel"/>
@@ -179,26 +209,26 @@
 <input wsam:Action="http://jpa.ws/WSInternoJPA/loginHospedeRequest" message="tns:loginHospede"/>
 <output wsam:Action="http://jpa.ws/WSInternoJPA/loginHospedeResponse" message="tns:loginHospedeResponse"/>
 </operation>
-<operation name="atualizarQuarto">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/atualizarQuartoRequest" message="tns:atualizarQuarto"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/atualizarQuartoResponse" message="tns:atualizarQuartoResponse"/>
+<operation name="listarHoteis">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/listarHoteisRequest" message="tns:listarHoteis"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/listarHoteisResponse" message="tns:listarHoteisResponse"/>
 </operation>
-<operation name="salvarReservaHotel">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/salvarReservaHotelRequest" message="tns:salvarReservaHotel"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/salvarReservaHotelResponse" message="tns:salvarReservaHotelResponse"/>
+<operation name="buscarReservaPeloCodigo">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarReservaPeloCodigoRequest" message="tns:buscarReservaPeloCodigo"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarReservaPeloCodigoResponse" message="tns:buscarReservaPeloCodigoResponse"/>
 </operation>
-<operation name="buscarHospedeLogin">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarHospedeLoginRequest" message="tns:buscarHospedeLogin"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarHospedeLoginResponse" message="tns:buscarHospedeLoginResponse"/>
+<operation name="listarTodasAsReservas">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/listarTodasAsReservasRequest" message="tns:listarTodasAsReservas"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/listarTodasAsReservasResponse" message="tns:listarTodasAsReservasResponse"/>
 </operation>
-<operation name="buscarHoteisCidade">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarHoteisCidadeRequest" message="tns:buscarHoteisCidade"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarHoteisCidadeResponse" message="tns:buscarHoteisCidadeResponse"/>
+<operation name="ReservasDoHospede">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/ReservasDoHospedeRequest" message="tns:ReservasDoHospede"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/ReservasDoHospedeResponse" message="tns:ReservasDoHospedeResponse"/>
 </operation>
 </portType>
 <binding name="WSInternoJPAPortBinding" type="tns:WSInternoJPA">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="buscarQuarto">
+<operation name="salvarReservaHotel">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -207,7 +237,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="salvarHospede">
+<operation name="buscarHoteisCidade">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -216,25 +246,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="removerQuarto">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="removerHospede">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="removerHotel">
+<operation name="buscarHospedeLogin">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -252,15 +264,6 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="atualizarHospede">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="salvarQuarto">
 <soap:operation soapAction=""/>
 <input>
@@ -270,7 +273,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="atualizarHotel">
+<operation name="buscarQuarto">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -279,16 +282,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="buscarHospede">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="buscarGerente">
+<operation name="removerHospede">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -306,7 +300,70 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="listarHoteis">
+<operation name="removerHotel">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="salvarHospede">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="buscarHospede">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="atualizarQuarto">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="atualizarHospede">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="atualizarHotel">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="removerQuarto">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="buscarGerente">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -333,7 +390,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="atualizarQuarto">
+<operation name="listarHoteis">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -342,7 +399,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="salvarReservaHotel">
+<operation name="buscarReservaPeloCodigo">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -351,7 +408,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="buscarHospedeLogin">
+<operation name="listarTodasAsReservas">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -360,7 +417,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="buscarHoteisCidade">
+<operation name="ReservasDoHospede">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

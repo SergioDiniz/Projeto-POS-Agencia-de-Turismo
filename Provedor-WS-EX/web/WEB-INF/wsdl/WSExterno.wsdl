@@ -12,17 +12,17 @@
   <message name="buscarReservaResponse">
     <part name="parameters" element="tns:buscarReservaResponse"/>
   </message>
-  <message name="listarReservasUsuario">
-    <part name="parameters" element="tns:listarReservasUsuario"/>
-  </message>
-  <message name="listarReservasUsuarioResponse">
-    <part name="parameters" element="tns:listarReservasUsuarioResponse"/>
-  </message>
   <message name="salvarReservaHotel">
     <part name="parameters" element="tns:salvarReservaHotel"/>
   </message>
   <message name="salvarReservaHotelResponse">
     <part name="parameters" element="tns:salvarReservaHotelResponse"/>
+  </message>
+  <message name="listarReservasUsuario">
+    <part name="parameters" element="tns:listarReservasUsuario"/>
+  </message>
+  <message name="listarReservasUsuarioResponse">
+    <part name="parameters" element="tns:listarReservasUsuarioResponse"/>
   </message>
   <message name="listaHotelPorCidade">
     <part name="parameters" element="tns:listaHotelPorCidade"/>
@@ -35,13 +35,13 @@
       <input wsam:Action="http://ws/WSExterno/buscarReservaRequest" message="tns:buscarReserva"/>
       <output wsam:Action="http://ws/WSExterno/buscarReservaResponse" message="tns:buscarReservaResponse"/>
     </operation>
-    <operation name="listarReservasUsuario">
-      <input wsam:Action="http://ws/WSExterno/listarReservasUsuarioRequest" message="tns:listarReservasUsuario"/>
-      <output wsam:Action="http://ws/WSExterno/listarReservasUsuarioResponse" message="tns:listarReservasUsuarioResponse"/>
-    </operation>
     <operation name="salvarReservaHotel">
       <input wsam:Action="http://ws/WSExterno/salvarReservaHotelRequest" message="tns:salvarReservaHotel"/>
       <output wsam:Action="http://ws/WSExterno/salvarReservaHotelResponse" message="tns:salvarReservaHotelResponse"/>
+    </operation>
+    <operation name="listarReservasUsuario">
+      <input wsam:Action="http://ws/WSExterno/listarReservasUsuarioRequest" message="tns:listarReservasUsuario"/>
+      <output wsam:Action="http://ws/WSExterno/listarReservasUsuarioResponse" message="tns:listarReservasUsuarioResponse"/>
     </operation>
     <operation name="listaHotelPorCidade">
       <input wsam:Action="http://ws/WSExterno/listaHotelPorCidadeRequest" message="tns:listaHotelPorCidade"/>
@@ -59,7 +59,7 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="listarReservasUsuario">
+    <operation name="salvarReservaHotel">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -68,7 +68,7 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="salvarReservaHotel">
+    <operation name="listarReservasUsuario">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -89,7 +89,7 @@
   </binding>
   <service name="WSExterno">
     <port name="WSExternoPort" binding="tns:WSExternoPortBinding">
-      <soap:address location="http://localhost:8080/WSExterno/WSExterno"/>
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
     </port>
   </service>
 </definitions>

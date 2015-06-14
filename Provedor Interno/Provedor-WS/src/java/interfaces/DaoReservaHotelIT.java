@@ -1,6 +1,7 @@
 package interfaces;
 
 import beans.ReservaHotel;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -12,4 +13,10 @@ import javax.ejb.Remote;
 public interface DaoReservaHotelIT {
     
     public boolean salvar(ReservaHotel reserva);
+    
+    public ReservaHotel buscarReservaCodigo(int codigo);
+    
+    public List<ReservaHotel> listarReservas();
+    
+    public List<ReservaHotel> reservasHospede(String login);
 }

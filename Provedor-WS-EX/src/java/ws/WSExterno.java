@@ -4,6 +4,7 @@ import beans.Hotel;
 import beans.Quarto;
 import beans.ReservaHotel;
 import fachada.FachadaIT;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.jws.WebService;

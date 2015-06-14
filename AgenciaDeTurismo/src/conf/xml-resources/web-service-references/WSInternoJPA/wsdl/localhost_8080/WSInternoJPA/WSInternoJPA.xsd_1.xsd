@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://jpa.ws/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://jpa.ws/">
 
+<xs:element name="ReservasDoHospede" type="tns:ReservasDoHospede"/>
+
+<xs:element name="ReservasDoHospedeResponse" type="tns:ReservasDoHospedeResponse"/>
+
 <xs:element name="atualizarGerente" type="tns:atualizarGerente"/>
 
 <xs:element name="atualizarGerenteResponse" type="tns:atualizarGerenteResponse"/>
@@ -40,9 +44,17 @@
 
 <xs:element name="buscarQuartoResponse" type="tns:buscarQuartoResponse"/>
 
+<xs:element name="buscarReservaPeloCodigo" type="tns:buscarReservaPeloCodigo"/>
+
+<xs:element name="buscarReservaPeloCodigoResponse" type="tns:buscarReservaPeloCodigoResponse"/>
+
 <xs:element name="listarHoteis" type="tns:listarHoteis"/>
 
 <xs:element name="listarHoteisResponse" type="tns:listarHoteisResponse"/>
+
+<xs:element name="listarTodasAsReservas" type="tns:listarTodasAsReservas"/>
+
+<xs:element name="listarTodasAsReservasResponse" type="tns:listarTodasAsReservasResponse"/>
 
 <xs:element name="loginHospede" type="tns:loginHospede"/>
 
@@ -168,16 +180,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="listarHoteis">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="listarHoteisResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:hotel" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="loginHospede">
 <xs:sequence>
 <xs:element name="login" type="xs:string" minOccurs="0"/>
@@ -188,6 +190,28 @@
 <xs:complexType name="loginHospedeResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:hospede" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarHoteis">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarHoteisResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:hotel" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ReservasDoHospede">
+<xs:sequence>
+<xs:element name="login" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ReservasDoHospedeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:reservaHotel" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -287,6 +311,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="buscarReservaPeloCodigo">
+<xs:sequence>
+<xs:element name="codigo" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarReservaPeloCodigoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:reservaHotel" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="atualizarHotel">
 <xs:sequence>
 <xs:element name="hotel" type="tns:hotel" minOccurs="0"/>
@@ -296,6 +332,16 @@
 <xs:complexType name="atualizarHotelResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarTodasAsReservas">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarTodasAsReservasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:reservaHotel" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -311,18 +357,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="salvarHotel">
-<xs:sequence>
-<xs:element name="hotel" type="tns:hotel" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="salvarHotelResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:boolean"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="buscarHoteisCidade">
 <xs:sequence>
 <xs:element name="cidade" type="xs:string" minOccurs="0"/>
@@ -332,6 +366,18 @@
 <xs:complexType name="buscarHoteisCidadeResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:hotel" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="salvarHotel">
+<xs:sequence>
+<xs:element name="hotel" type="tns:hotel" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="salvarHotelResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 
