@@ -5,13 +5,13 @@
 
   <xs:element name="buscarReservaResponse" type="tns:buscarReservaResponse"/>
 
-  <xs:element name="buscarReservasPorData" type="tns:buscarReservasPorData"/>
-
-  <xs:element name="buscarReservasPorDataResponse" type="tns:buscarReservasPorDataResponse"/>
-
   <xs:element name="listaHotelPorCidade" type="tns:listaHotelPorCidade"/>
 
   <xs:element name="listaHotelPorCidadeResponse" type="tns:listaHotelPorCidadeResponse"/>
+
+  <xs:element name="listarReservasPorData" type="tns:listarReservasPorData"/>
+
+  <xs:element name="listarReservasPorDataResponse" type="tns:listarReservasPorDataResponse"/>
 
   <xs:element name="listarReservasUsuario" type="tns:listarReservasUsuario"/>
 
@@ -88,18 +88,6 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="buscarReserva">
-    <xs:sequence>
-      <xs:element name="codigo" type="xs:int"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="buscarReservaResponse">
-    <xs:sequence>
-      <xs:element name="return" type="tns:reservaHotel" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-
   <xs:complexType name="listaHotelPorCidade">
     <xs:sequence>
       <xs:element name="cidade" type="xs:string" minOccurs="0"/>
@@ -112,16 +100,15 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="buscarReservasPorData">
+  <xs:complexType name="buscarReserva">
     <xs:sequence>
-      <xs:element name="dataReserva" type="xs:dateTime" minOccurs="0"/>
-      <xs:element name="login" type="xs:string" minOccurs="0"/>
+      <xs:element name="codigo" type="xs:int"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="buscarReservasPorDataResponse">
+  <xs:complexType name="buscarReservaResponse">
     <xs:sequence>
-      <xs:element name="return" type="tns:reservaHotel" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="return" type="tns:reservaHotel" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -134,6 +121,19 @@
   <xs:complexType name="salvarReservaHotelResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listarReservasPorData">
+    <xs:sequence>
+      <xs:element name="dataReserva" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="login" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listarReservasPorDataResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:reservaHotel" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

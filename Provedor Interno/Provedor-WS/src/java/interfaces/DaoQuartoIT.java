@@ -2,6 +2,7 @@ package interfaces;
 
 import beans.Quarto;
 import beans.TipoQuato;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -24,5 +25,7 @@ public interface DaoQuartoIT {
     public List<Quarto> todosQuatosPorHotel(int codHotel);
     
     public List<TipoQuato> tiposDeQuatosPorHotel(int codHotel);
+    
+    public List<Quarto> quartosDisponiveis(Date dataEntrada, Date dataSaida);
     
 }

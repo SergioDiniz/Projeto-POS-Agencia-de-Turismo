@@ -6,6 +6,7 @@ import beans.TipoQuato;
 import interfaces.DaoQuartoIT;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -111,5 +112,12 @@ public class QuartoDao implements DaoQuartoIT {
             e.printStackTrace();
             return null;
         }
+    }
+    
+    @Override
+    public List<Quarto> quartosDisponiveis(Date dataEntrada, Date dataSaida){
+        List<Quarto> quartosDisponiveis = new ArrayList();
+        
+        return quartosDisponiveis;
     }
 }

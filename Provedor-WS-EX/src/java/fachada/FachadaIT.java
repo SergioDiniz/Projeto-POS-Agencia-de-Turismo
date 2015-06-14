@@ -2,6 +2,7 @@ package fachada;
 
 import beans.Hotel;
 import beans.ReservaHotel;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,4 +18,6 @@ public interface FachadaIT {
     public ReservaHotel buscarUmaReserva(int codigo);
     
     public List<ReservaHotel> todasAsReservas(String login);
+    
+    public List<ReservaHotel> reservasPorData(Date dataReserva, String login);
 }

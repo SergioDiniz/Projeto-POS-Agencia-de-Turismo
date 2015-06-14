@@ -3,6 +3,7 @@ package dao;
 import beans.Hotel;
 import beans.Quarto;
 import beans.ReservaHotel;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -24,4 +25,6 @@ public interface DaoIT {
     public ReservaHotel buscarReservaHotel(int codigoReserva);
     
     public List<ReservaHotel> listarReservasHotel(String login);
+    
+    public List<ReservaHotel> listarReservasPorData(Date dataReserva, String login);
 }

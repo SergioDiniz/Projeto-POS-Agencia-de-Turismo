@@ -107,4 +107,19 @@ public class Dao implements DaoIT {
         
         return reservaHotels;
     }
+    
+    @Override
+    public List<ReservaHotel> listarReservasPorData(Date dataReserva, String login){
+        Query query = em.createQuery("select r from ReservaHotel r where r.dataReserva = :dataReserva and r.hospede.email = :login");
+        query.setParameter("dataReserva", dataReserva);
+        query.setParameter("login", login);
+        
+        List<ReservaHotel> reservaHotels = (List<ReservaHotel>) query.getResultList();
+        
+        for(ReservaHotel r: reservaHotels){
+            r.getHotel().getQuartos().size();
+        }
+        
+        return reservaHotels;
+    }
 }

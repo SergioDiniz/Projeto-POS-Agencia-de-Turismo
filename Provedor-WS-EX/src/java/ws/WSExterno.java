@@ -56,5 +56,13 @@ public class WSExterno {
         return fachada.todasAsReservas(login);
     }
 
+    /**
+     * Operação que lista as reservas de usuario pela data
+     */
+    @WebMethod(operationName = "listarReservasPorData")
+    public List<ReservaHotel> listarReservasPorData(@WebParam(name = "dataReserva") Date dataReserva, @WebParam(name = "login") String login) {
+        return fachada.reservasPorData(dataReserva, login);
+    }
+    
     /**************************************************************************/
 }
