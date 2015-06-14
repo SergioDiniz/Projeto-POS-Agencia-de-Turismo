@@ -121,6 +121,11 @@ public class Fachada implements FachadaIT{
         return daoQuartoIT.removerQuarto(quarto);
     }
     
+    @Override
+    public List<TipoQuato> tiposDeQuatosPorHotel(int codHotel){
+        return daoQuartoIT.tiposDeQuatosPorHotel(codHotel);
+    }
+    
     //
     //
     //

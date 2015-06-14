@@ -102,4 +102,7 @@ public class ControladorHotel implements Serializable {
         this.enderecoHotel = new EnderecoHotel();
         return null;
     }
+    
+
+    
 }

@@ -17,6 +17,7 @@ import ws.Hospede;
 import ws.Hotel;
 import ws.Quarto;
 import ws.ReservaHotel;
+import ws.TipoQuato;
 
 /**
  *
@@ -88,7 +89,8 @@ public class ControladorReservaHotel implements Serializable {
         this.session = (HttpSession) context.getSession(false);
         this.context.getSessionMap().put("cidadeHotel", cidade);
 
-        return "listaHotelCidade?faces-redirect=true";
+//        return "listaHotelCidade?faces-redirect=true";
+        return "hotel.jsf?faces-redirect=true";
     }
 
     public List<Hotel> hoteisCidade() {
@@ -105,7 +107,8 @@ public class ControladorReservaHotel implements Serializable {
         this.request = (HttpServletRequest) this.context.getRequest();
         this.session = (HttpSession) this.context.getSession(false);
         context.getSessionMap().put("hotelReserva", hotel);
-        return "reservarQuarto?faces-redirect=true";
+//        return "reservarQuarto?faces-redirect=true";
+        return "hotelselecionado.jsf?faces-redirect=true";
     }
 
     public String reservarHotel() {
@@ -134,4 +137,9 @@ public class ControladorReservaHotel implements Serializable {
 
         return null;
     }
+
+    public List<TipoQuato> tiposDeQuatosPorHotel(int codHotel) {
+        return fachada.tiposDeQuatosPorHotel(codHotel);
+    }
+
 }

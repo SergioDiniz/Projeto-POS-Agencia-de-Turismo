@@ -55,6 +55,8 @@ public interface FachadaIT {
 
     public boolean removerQuarto(Quarto quarto);
     
+    public List<TipoQuato> tiposDeQuatosPorHotel(int codHotel);
+    
     //
     //
     //

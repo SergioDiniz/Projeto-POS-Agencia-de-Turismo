@@ -19,8 +19,10 @@ public class WSInternoJPA {
 
     @EJB
     private FachadaIT fachada;
-    
-    /******************************Entidade Hospede****************************/
+
+    /**
+     * ****************************Entidade Hospede***************************
+     */
     /**
      * Operação de salvar Hospede
      */
@@ -34,11 +36,11 @@ public class WSInternoJPA {
      */
     @WebMethod(operationName = "loginHospede")
     public Hospede loginHospede(@WebParam(name = "login") String login, @WebParam(name = "senha") String senha) {
-        
+
         return fachada.login(login, senha);
     }
-    
-        /**
+
+    /**
      * Operação de buscar um hospede pelo login
      */
     @WebMethod(operationName = "buscarHospedeLogin")
@@ -61,7 +63,7 @@ public class WSInternoJPA {
     public boolean removerHospede(@WebParam(name = "hospede") Hospede hospede) {
         return fachada.removerHospede(hospede);
     }
-    
+
     /**
      * Operação de buscar um Hospede
      */
@@ -69,11 +71,13 @@ public class WSInternoJPA {
     public Hospede buscarHospede(@WebParam(name = "email") String email) {
         return fachada.buscarHospede(email);
     }
-    
-    /**************************************************************************/
-    
-    /*******************************Entidade Hotel*****************************/
-    
+
+    /**
+     * ***********************************************************************
+     */
+    /**
+     * *****************************Entidade Hotel****************************
+     */
     /**
      * Operação de salvar Hotel
      */
@@ -89,7 +93,7 @@ public class WSInternoJPA {
     public List<Hotel> listarHoteis() {
         return fachada.todosOsHoteis();
     }
-    
+
     /**
      * Operação de buscar um hotel pelo numero
      */
@@ -121,11 +125,13 @@ public class WSInternoJPA {
     public boolean removerHotel(@WebParam(name = "hotel") Hotel hotel) {
         return fachada.removerHotel(hotel);
     }
-    
-    /**************************************************************************/
-    
-    /*****************************Entidade Quarto******************************/
 
+    /**
+     * ***********************************************************************
+     */
+    /**
+     * ***************************Entidade Quarto*****************************
+     */
     /**
      * Operação de salvar Quarto
      */
@@ -157,17 +163,28 @@ public class WSInternoJPA {
     public boolean removerQuarto(@WebParam(name = "quarto") Quarto quarto) {
         return fachada.removerQuarto(quarto);
     }
-    
-    /**************************************************************************/
-    
-    /****************************Entidade Gerente******************************/
+
+    /**
+     * Operação de mostrar todos os tipos de quarto
+     */
+    @WebMethod(operationName = "tiposDeQuatosPorHotel")
+    public List<TipoQuato> tiposDeQuatosPorHotel(@WebParam(name = "codHotel") int codHotel) {
+        return fachada.tiposDeQuatosPorHotel(codHotel);
+    }
+
+    /**
+     * ***********************************************************************
+     */
+    /**
+     * **************************Entidade Gerente*****************************
+     */
     /**
      * Operação de atualizar um gerente
      */
     @WebMethod(operationName = "atualizarGerente")
     public boolean atualizarGerente(@WebParam(name = "gerente") Gerente gerente) {
         return fachada.atualizarGerente(gerente);
-    } 
+    }
 
     /**
      * Operação de buscar login da entidade gerente
@@ -176,10 +193,13 @@ public class WSInternoJPA {
     public Gerente buscarGerente(@WebParam(name = "login") String login) {
         return fachada.buscarGerente(login);
     }
-    
-    /**************************************************************************/
 
-    /***************************Entidade ReservaHotel**************************/
+    /**
+     * ***********************************************************************
+     */
+    /**
+     * *************************Entidade ReservaHotel*************************
+     */
     /**
      * Operação de reservar hotel
      */
@@ -188,5 +208,7 @@ public class WSInternoJPA {
         return fachada.salvarReservaHotel(reservaHotel);
     }
 
-    /**************************************************************************/
+    /**
+     * ***********************************************************************
+     */
 }

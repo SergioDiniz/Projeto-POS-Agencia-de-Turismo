@@ -76,6 +76,10 @@
 
 <xs:element name="salvarReservaHotelResponse" type="tns:salvarReservaHotelResponse"/>
 
+<xs:element name="tiposDeQuatosPorHotel" type="tns:tiposDeQuatosPorHotel"/>
+
+<xs:element name="tiposDeQuatosPorHotelResponse" type="tns:tiposDeQuatosPorHotelResponse"/>
+
 <xs:complexType name="buscarHotel">
 <xs:sequence>
 <xs:element name="numero" type="xs:int"/>
@@ -299,6 +303,27 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="tiposDeQuatosPorHotel">
+<xs:sequence>
+<xs:element name="codHotel" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tiposDeQuatosPorHotelResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tipoQuato" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoQuato">
+<xs:sequence>
+<xs:element name="numeroVagas" type="xs:int"/>
+<xs:element name="preco" type="xs:double"/>
+<xs:element name="qtdHospede" type="xs:int"/>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="atualizarQuarto">
 <xs:sequence>
 <xs:element name="quarto" type="tns:quarto" minOccurs="0"/>
@@ -306,18 +331,6 @@
 </xs:complexType>
 
 <xs:complexType name="atualizarQuartoResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:boolean"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="salvarHotel">
-<xs:sequence>
-<xs:element name="hotel" type="tns:hotel" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="salvarHotelResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
@@ -332,6 +345,18 @@
 <xs:complexType name="buscarHoteisCidadeResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:hotel" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="salvarHotel">
+<xs:sequence>
+<xs:element name="hotel" type="tns:hotel" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="salvarHotelResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 
