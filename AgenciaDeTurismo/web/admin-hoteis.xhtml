@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <h:head>
+        <title>Hoteis</title>
+    </h:head>
+    <h:body>
+        <div id="menu-topo">
+            <ui:include src="admin-topo.xhtml"/>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="menu-lateral">
+                        <ui:include src="admin-lateral.xhtml"/>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="row">
+                        <div id="nome-cidade">
+                            Hoteis
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="disponiveis">
+                                    Lista de <b>Hoteis</b> cadastrador:
+                                </div>
+                            </div>
+                            <div class="col-md-6" align="right">
+                                <a href="admin-novo-hotel.jsf"><button class="btn-link">novo hotel</button></a>
+                            </div>
+                        </div>
+
+                        <div class="tabela-disponiveis hotel">
+                            <table class="table" align="center">
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Endereço</th>
+                                    <th align="right">
+                                    </th>
+                                </tr> 
+                                <c:forEach var="hotel" items="#{controladorHotel.todosOsHoteis()}">
+                                    <tr>
+                                        <td>${hotel.nome}</td>
+                                        <td>${hotel.enderecoHotel.rua}, ${hotel.enderecoHotel.cidade} - ${hotel.enderecoHotel.estado} </td>
+                                        <td align="right">
+                                            <h:form>
+                                                <button class="btn btn-conhecer" jsf:action="#{controladorHotel.selectionarHotel(hotel)}">IR À HOTEL</button>
+                                            </h:form>
+                                        </td>
+                                    </tr> 
+                                </c:forEach>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </h:body>
+
+    <!-- Meu JavaScript -->
+    <script src="js/script.js"></script>
+
+</html>
+
