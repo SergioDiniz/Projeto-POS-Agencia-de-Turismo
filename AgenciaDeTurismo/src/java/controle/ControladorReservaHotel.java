@@ -4,6 +4,7 @@ import datas.XMLCalendarParaDate;
 import fachada.Fachada;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,6 +14,7 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.xml.datatype.XMLGregorianCalendar;
 import ws.Hospede;
 import ws.Hotel;
 import ws.Quarto;
@@ -142,7 +144,16 @@ public class ControladorReservaHotel implements Serializable {
         return fachada.tiposDeQuatosPorHotel(codHotel);
     }
 
+    public String converteData(Date data) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        return dateFormat.format(data);
+    }
 
-    
-    
+    public String toDate(XMLGregorianCalendar calendar) {
+        if (calendar == null) {
+            return null;
+        }
+        return converteData(calendar.toGregorianCalendar().getTime());
+    }
+
 }

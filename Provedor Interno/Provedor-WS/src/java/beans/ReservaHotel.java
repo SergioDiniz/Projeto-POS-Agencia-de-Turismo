@@ -1,6 +1,7 @@
 package beans;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -103,4 +104,10 @@ public class ReservaHotel implements Serializable{
     public void setHospede(Hospede hospede) {
         this.hospede = hospede;
     }
+    
+    public String converteData(Date data){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        return dateFormat.format(data);
+    }
+    
 }

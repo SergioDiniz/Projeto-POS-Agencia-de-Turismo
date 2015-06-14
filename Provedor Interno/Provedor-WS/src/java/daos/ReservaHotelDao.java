@@ -55,9 +55,6 @@ public class ReservaHotelDao implements DaoReservaHotelIT {
         query.setParameter("email", login);
         reservaHotels = (List<ReservaHotel>) query.getResultList();
         
-        for(ReservaHotel r : reservaHotels){
-            r.getHotel().getQuartos().size();
-        }
         
         return reservaHotels;
     }

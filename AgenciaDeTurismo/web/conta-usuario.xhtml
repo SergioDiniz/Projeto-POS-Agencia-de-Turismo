@@ -40,8 +40,8 @@
                                     <tr>
                                         <td>${hospede.hotel.nome}</td>
                                         <td>${hospede.quarto.numero}</td>
-                                        <td>${hospede.dataReserva}</td>
-                                        <td>${hospede.dataSaida}</td>
+                                        <td>${controladorReservaHotel.toDate(hospede.dataReserva)}</td>
+                                        <td>${controladorReservaHotel.toDate(hospede.dataSaida)}</td>
                                         <td>${hospede.valorReserva}</td>
                                     </tr> 
                                 </c:forEach>

@@ -4,6 +4,12 @@
 <xsd:import namespace="http://jpa.ws/" schemaLocation="http://localhost:8080/WSInternoJPA/WSInternoJPA?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="listarReservasPorData">
+<part name="parameters" element="tns:listarReservasPorData"/>
+</message>
+<message name="listarReservasPorDataResponse">
+<part name="parameters" element="tns:listarReservasPorDataResponse"/>
+</message>
 <message name="salvarReservaHotel">
 <part name="parameters" element="tns:salvarReservaHotel"/>
 </message>
@@ -15,6 +21,42 @@
 </message>
 <message name="atualizarQuartoResponse">
 <part name="parameters" element="tns:atualizarQuartoResponse"/>
+</message>
+<message name="tiposDeQuatosPorHotel">
+<part name="parameters" element="tns:tiposDeQuatosPorHotel"/>
+</message>
+<message name="tiposDeQuatosPorHotelResponse">
+<part name="parameters" element="tns:tiposDeQuatosPorHotelResponse"/>
+</message>
+<message name="buscarHospedeLogin">
+<part name="parameters" element="tns:buscarHospedeLogin"/>
+</message>
+<message name="buscarHospedeLoginResponse">
+<part name="parameters" element="tns:buscarHospedeLoginResponse"/>
+</message>
+<message name="buscarHoteisCidade">
+<part name="parameters" element="tns:buscarHoteisCidade"/>
+</message>
+<message name="buscarHoteisCidadeResponse">
+<part name="parameters" element="tns:buscarHoteisCidadeResponse"/>
+</message>
+<message name="buscarReservaPeloCodigo">
+<part name="parameters" element="tns:buscarReservaPeloCodigo"/>
+</message>
+<message name="buscarReservaPeloCodigoResponse">
+<part name="parameters" element="tns:buscarReservaPeloCodigoResponse"/>
+</message>
+<message name="listarTodasAsReservas">
+<part name="parameters" element="tns:listarTodasAsReservas"/>
+</message>
+<message name="listarTodasAsReservasResponse">
+<part name="parameters" element="tns:listarTodasAsReservasResponse"/>
+</message>
+<message name="ReservasDoHospede">
+<part name="parameters" element="tns:ReservasDoHospede"/>
+</message>
+<message name="ReservasDoHospedeResponse">
+<part name="parameters" element="tns:ReservasDoHospedeResponse"/>
 </message>
 <message name="buscarHotel">
 <part name="parameters" element="tns:buscarHotel"/>
@@ -88,11 +130,11 @@
 <message name="atualizarGerenteResponse">
 <part name="parameters" element="tns:atualizarGerenteResponse"/>
 </message>
-<message name="salvarHotel">
-<part name="parameters" element="tns:salvarHotel"/>
+<message name="loginHospede">
+<part name="parameters" element="tns:loginHospede"/>
 </message>
-<message name="salvarHotelResponse">
-<part name="parameters" element="tns:salvarHotelResponse"/>
+<message name="loginHospedeResponse">
+<part name="parameters" element="tns:loginHospedeResponse"/>
 </message>
 <message name="listarHoteis">
 <part name="parameters" element="tns:listarHoteis"/>
@@ -100,49 +142,17 @@
 <message name="listarHoteisResponse">
 <part name="parameters" element="tns:listarHoteisResponse"/>
 </message>
-<message name="loginHospede">
-<part name="parameters" element="tns:loginHospede"/>
+<message name="salvarHotel">
+<part name="parameters" element="tns:salvarHotel"/>
 </message>
-<message name="loginHospedeResponse">
-<part name="parameters" element="tns:loginHospedeResponse"/>
-</message>
-<message name="tiposDeQuatosPorHotel">
-<part name="parameters" element="tns:tiposDeQuatosPorHotel"/>
-</message>
-<message name="tiposDeQuatosPorHotelResponse">
-<part name="parameters" element="tns:tiposDeQuatosPorHotelResponse"/>
-</message>
-<message name="buscarHospedeLogin">
-<part name="parameters" element="tns:buscarHospedeLogin"/>
-</message>
-<message name="buscarHospedeLoginResponse">
-<part name="parameters" element="tns:buscarHospedeLoginResponse"/>
-</message>
-<message name="buscarHoteisCidade">
-<part name="parameters" element="tns:buscarHoteisCidade"/>
-</message>
-<message name="buscarHoteisCidadeResponse">
-<part name="parameters" element="tns:buscarHoteisCidadeResponse"/>
-</message>
-<message name="buscarReservaPeloCodigo">
-<part name="parameters" element="tns:buscarReservaPeloCodigo"/>
-</message>
-<message name="buscarReservaPeloCodigoResponse">
-<part name="parameters" element="tns:buscarReservaPeloCodigoResponse"/>
-</message>
-<message name="listarTodasAsReservas">
-<part name="parameters" element="tns:listarTodasAsReservas"/>
-</message>
-<message name="listarTodasAsReservasResponse">
-<part name="parameters" element="tns:listarTodasAsReservasResponse"/>
-</message>
-<message name="ReservasDoHospede">
-<part name="parameters" element="tns:ReservasDoHospede"/>
-</message>
-<message name="ReservasDoHospedeResponse">
-<part name="parameters" element="tns:ReservasDoHospedeResponse"/>
+<message name="salvarHotelResponse">
+<part name="parameters" element="tns:salvarHotelResponse"/>
 </message>
 <portType name="WSInternoJPA">
+<operation name="listarReservasPorData">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/listarReservasPorDataRequest" message="tns:listarReservasPorData"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/listarReservasPorDataResponse" message="tns:listarReservasPorDataResponse"/>
+</operation>
 <operation name="salvarReservaHotel">
 <input wsam:Action="http://jpa.ws/WSInternoJPA/salvarReservaHotelRequest" message="tns:salvarReservaHotel"/>
 <output wsam:Action="http://jpa.ws/WSInternoJPA/salvarReservaHotelResponse" message="tns:salvarReservaHotelResponse"/>
@@ -150,6 +160,30 @@
 <operation name="atualizarQuarto">
 <input wsam:Action="http://jpa.ws/WSInternoJPA/atualizarQuartoRequest" message="tns:atualizarQuarto"/>
 <output wsam:Action="http://jpa.ws/WSInternoJPA/atualizarQuartoResponse" message="tns:atualizarQuartoResponse"/>
+</operation>
+<operation name="tiposDeQuatosPorHotel">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/tiposDeQuatosPorHotelRequest" message="tns:tiposDeQuatosPorHotel"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/tiposDeQuatosPorHotelResponse" message="tns:tiposDeQuatosPorHotelResponse"/>
+</operation>
+<operation name="buscarHospedeLogin">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarHospedeLoginRequest" message="tns:buscarHospedeLogin"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarHospedeLoginResponse" message="tns:buscarHospedeLoginResponse"/>
+</operation>
+<operation name="buscarHoteisCidade">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarHoteisCidadeRequest" message="tns:buscarHoteisCidade"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarHoteisCidadeResponse" message="tns:buscarHoteisCidadeResponse"/>
+</operation>
+<operation name="buscarReservaPeloCodigo">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarReservaPeloCodigoRequest" message="tns:buscarReservaPeloCodigo"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarReservaPeloCodigoResponse" message="tns:buscarReservaPeloCodigoResponse"/>
+</operation>
+<operation name="listarTodasAsReservas">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/listarTodasAsReservasRequest" message="tns:listarTodasAsReservas"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/listarTodasAsReservasResponse" message="tns:listarTodasAsReservasResponse"/>
+</operation>
+<operation name="ReservasDoHospede">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/ReservasDoHospedeRequest" message="tns:ReservasDoHospede"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/ReservasDoHospedeResponse" message="tns:ReservasDoHospedeResponse"/>
 </operation>
 <operation name="buscarHotel">
 <input wsam:Action="http://jpa.ws/WSInternoJPA/buscarHotelRequest" message="tns:buscarHotel"/>
@@ -199,45 +233,30 @@
 <input wsam:Action="http://jpa.ws/WSInternoJPA/atualizarGerenteRequest" message="tns:atualizarGerente"/>
 <output wsam:Action="http://jpa.ws/WSInternoJPA/atualizarGerenteResponse" message="tns:atualizarGerenteResponse"/>
 </operation>
-<operation name="salvarHotel">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/salvarHotelRequest" message="tns:salvarHotel"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/salvarHotelResponse" message="tns:salvarHotelResponse"/>
+<operation name="loginHospede">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/loginHospedeRequest" message="tns:loginHospede"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/loginHospedeResponse" message="tns:loginHospedeResponse"/>
 </operation>
 <operation name="listarHoteis">
 <input wsam:Action="http://jpa.ws/WSInternoJPA/listarHoteisRequest" message="tns:listarHoteis"/>
 <output wsam:Action="http://jpa.ws/WSInternoJPA/listarHoteisResponse" message="tns:listarHoteisResponse"/>
 </operation>
-<operation name="loginHospede">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/loginHospedeRequest" message="tns:loginHospede"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/loginHospedeResponse" message="tns:loginHospedeResponse"/>
-</operation>
-<operation name="tiposDeQuatosPorHotel">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/tiposDeQuatosPorHotelRequest" message="tns:tiposDeQuatosPorHotel"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/tiposDeQuatosPorHotelResponse" message="tns:tiposDeQuatosPorHotelResponse"/>
-</operation>
-<operation name="buscarHospedeLogin">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarHospedeLoginRequest" message="tns:buscarHospedeLogin"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarHospedeLoginResponse" message="tns:buscarHospedeLoginResponse"/>
-</operation>
-<operation name="buscarHoteisCidade">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarHoteisCidadeRequest" message="tns:buscarHoteisCidade"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarHoteisCidadeResponse" message="tns:buscarHoteisCidadeResponse"/>
-</operation>
-<operation name="buscarReservaPeloCodigo">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/buscarReservaPeloCodigoRequest" message="tns:buscarReservaPeloCodigo"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/buscarReservaPeloCodigoResponse" message="tns:buscarReservaPeloCodigoResponse"/>
-</operation>
-<operation name="listarTodasAsReservas">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/listarTodasAsReservasRequest" message="tns:listarTodasAsReservas"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/listarTodasAsReservasResponse" message="tns:listarTodasAsReservasResponse"/>
-</operation>
-<operation name="ReservasDoHospede">
-<input wsam:Action="http://jpa.ws/WSInternoJPA/ReservasDoHospedeRequest" message="tns:ReservasDoHospede"/>
-<output wsam:Action="http://jpa.ws/WSInternoJPA/ReservasDoHospedeResponse" message="tns:ReservasDoHospedeResponse"/>
+<operation name="salvarHotel">
+<input wsam:Action="http://jpa.ws/WSInternoJPA/salvarHotelRequest" message="tns:salvarHotel"/>
+<output wsam:Action="http://jpa.ws/WSInternoJPA/salvarHotelResponse" message="tns:salvarHotelResponse"/>
 </operation>
 </portType>
 <binding name="WSInternoJPAPortBinding" type="tns:WSInternoJPA">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="listarReservasPorData">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="salvarReservaHotel">
 <soap:operation soapAction=""/>
 <input>
@@ -248,6 +267,60 @@
 </output>
 </operation>
 <operation name="atualizarQuarto">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="tiposDeQuatosPorHotel">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="buscarHospedeLogin">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="buscarHoteisCidade">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="buscarReservaPeloCodigo">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="listarTodasAsReservas">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ReservasDoHospede">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -364,7 +437,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="salvarHotel">
+<operation name="loginHospede">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -382,61 +455,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="loginHospede">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="tiposDeQuatosPorHotel">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="buscarHospedeLogin">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="buscarHoteisCidade">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="buscarReservaPeloCodigo">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="listarTodasAsReservas">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="ReservasDoHospede">
+<operation name="salvarHotel">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
