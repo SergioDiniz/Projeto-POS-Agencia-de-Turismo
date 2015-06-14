@@ -76,7 +76,8 @@ public class ControladorHotel implements Serializable {
         HttpServletRequest request = (HttpServletRequest) context.getRequest();
         HttpSession session = (HttpSession) context.getSession(false);
         context.getSessionMap().put("hotel", hotel);
-        return "cadastrarQuarto?faces-redirect=true";
+//        return "cadastrarQuarto?faces-redirect=true";
+        return "admin-aditar-hotel.jsf?faces-redirect=true";
     }
 
     public String buscarHotel() {
