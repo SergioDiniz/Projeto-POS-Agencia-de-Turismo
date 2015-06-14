@@ -3,6 +3,7 @@ package fachada;
 import beans.*;
 import datas.XMLCalendarParaDate;
 import interfaces.*;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -178,5 +179,10 @@ public class Fachada implements FachadaIT {
     @Override
     public List<ReservaHotel> listarReservasHospede(String login){
         return daoReservaIT.reservasHospede(login);
+    }
+    
+    @Override
+    public List<ReservaHotel> listarReservasPorData(Date dataReserva, String login){
+        return daoReservaIT.listarReservasPorData(dataReserva, login);
     }
 }

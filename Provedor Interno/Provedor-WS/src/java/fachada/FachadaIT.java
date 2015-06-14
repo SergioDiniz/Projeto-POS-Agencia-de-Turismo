@@ -1,6 +1,7 @@
 package fachada;
 
 import beans.*;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -76,4 +77,6 @@ public interface FachadaIT {
     public List<ReservaHotel> listarReservasHotel();
     
     public List<ReservaHotel> listarReservasHospede(String login);
+    
+    public List<ReservaHotel> listarReservasPorData(Date dataReserva, String login);
 }

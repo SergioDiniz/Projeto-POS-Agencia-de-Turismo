@@ -20,4 +20,5 @@ public interface FachadaIT {
     public List<ReservaHotel> todasAsReservas(String login);
     
     public List<ReservaHotel> reservasPorData(Date dataReserva, String login);
+   
 }

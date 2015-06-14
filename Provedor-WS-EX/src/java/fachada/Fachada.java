@@ -54,17 +54,18 @@ public class Fachada implements FachadaIT {
     }
 
     @Override
-    public ReservaHotel buscarUmaReserva(int codigo){
+    public ReservaHotel buscarUmaReserva(int codigo) {
         return dao.buscarReservaHotel(codigo);
     }
 
     @Override
-    public List<ReservaHotel> todasAsReservas(String login){
+    public List<ReservaHotel> todasAsReservas(String login) {
         return dao.listarReservasHotel(login);
     }
-    
+
     @Override
-    public List<ReservaHotel> reservasPorData(Date dataReserva, String login){
+    public List<ReservaHotel> reservasPorData(Date dataReserva, String login) {
         return dao.listarReservasPorData(dataReserva, login);
     }
+
 }

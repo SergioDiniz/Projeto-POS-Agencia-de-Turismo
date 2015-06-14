@@ -2,6 +2,7 @@ package daos;
 
 import beans.ReservaHotel;
 import interfaces.DaoReservaHotelIT;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -54,4 +55,20 @@ public class ReservaHotelDao implements DaoReservaHotelIT {
         
         return (List<ReservaHotel>) query.getResultList();
     }
+    
+    @Override
+    public List<ReservaHotel> listarReservasPorData(Date dataReserva, String login){
+        Query query = em.createQuery("select r from ReservaHotel r where r.dataReserva = :dataReserva and r.hospede.email = :login");
+        query.setParameter("dataReserva", dataReserva);
+        query.setParameter("login", login);
+        
+        List<ReservaHotel> reservaHotels = (List<ReservaHotel>) query.getResultList();
+        
+        for(ReservaHotel r: reservaHotels){
+            r.getHotel().getQuartos().size();
+        }
+        
+        return reservaHotels;
+    }
+    
 }

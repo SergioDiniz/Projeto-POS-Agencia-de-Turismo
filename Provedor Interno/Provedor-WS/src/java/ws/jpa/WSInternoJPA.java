@@ -2,6 +2,7 @@ package ws.jpa;
 
 import beans.*;
 import fachada.FachadaIT;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.jws.WebService;
@@ -211,7 +212,7 @@ public class WSInternoJPA {
     /*
      * ***********************************************************************
      */
-     /* Operação que buscar uma reserva pelo codigo
+    /* Operação que buscar uma reserva pelo codigo
      */
     @WebMethod(operationName = "buscarReservaPeloCodigo")
     public ReservaHotel buscarReservaPeloCodigo(@WebParam(name = "codigo") int codigo) {
@@ -234,5 +235,15 @@ public class WSInternoJPA {
         return fachada.listarReservasHospede(login);
     }
 
-    /**************************************************************************/
+    /**
+     * Operação que lista as reservas de usuario pela data
+     */
+    @WebMethod(operationName = "listarReservasPorData")
+    public List<ReservaHotel> listarReservasPorData(@WebParam(name = "dataReserva") Date dataReserva, @WebParam(name = "login") String login) {
+        return fachada.listarReservasPorData(dataReserva, login);
+    }
+
+    /**
+     * ***********************************************************************
+     */
 }

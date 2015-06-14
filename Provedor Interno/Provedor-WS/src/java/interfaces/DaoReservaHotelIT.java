@@ -1,6 +1,7 @@
 package interfaces;
 
 import beans.ReservaHotel;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -19,4 +20,7 @@ public interface DaoReservaHotelIT {
     public List<ReservaHotel> listarReservas();
     
     public List<ReservaHotel> reservasHospede(String login);
+    
+    public List<ReservaHotel> listarReservasPorData(Date dataReserva, String login);
+    
 }

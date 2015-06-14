@@ -22,8 +22,10 @@ public class WSExterno {
 
     @EJB
     private FachadaIT fachada;
-    
-    /***************************Entidade ReservaHotel**************************/
+
+    /**
+     * *************************Entidade ReservaHotel*************************
+     */
     /**
      * Operação de reservar hotel
      */
@@ -49,7 +51,7 @@ public class WSExterno {
     }
 
     /**
-     * Operação que busca todas as reservas de usuario 
+     * Operação que busca todas as reservas de usuario
      */
     @WebMethod(operationName = "listarReservasUsuario")
     public List<ReservaHotel> listarReservasUsuario(@WebParam(name = "login") String login) {
@@ -63,6 +65,9 @@ public class WSExterno {
     public List<ReservaHotel> listarReservasPorData(@WebParam(name = "dataReserva") Date dataReserva, @WebParam(name = "login") String login) {
         return fachada.reservasPorData(dataReserva, login);
     }
-    
-    /**************************************************************************/
+
+
+    /**
+     * ***********************************************************************
+     */
 }
