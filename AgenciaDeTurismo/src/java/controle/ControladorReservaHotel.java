@@ -126,7 +126,7 @@ public class ControladorReservaHotel implements Serializable {
     }
 
     public String reservarHotel(Quarto quarto) {
-        
+         
         this.context = FacesContext.getCurrentInstance().getExternalContext();
         this.session = (HttpSession) this.context.getSession(false);
         this.hotel = (Hotel) this.session.getAttribute("hotelReserva");
@@ -134,7 +134,6 @@ public class ControladorReservaHotel implements Serializable {
         this.dataSaida = (Date) this.session.getAttribute("dataSaida");
         Hospede hospede = (Hospede) this.session.getAttribute("hospedeCadastrado");
         
-        System.out.println(hospede.getEmail());
         reservaHotel.setQuarto(quarto);
         reservaHotel.setHotel(hotel);
         reservaHotel.setEmailHospede(hospede.getEmail());
@@ -153,7 +152,7 @@ public class ControladorReservaHotel implements Serializable {
         } else {
             System.out.println("Nenhum Quarto Disponivel!!!");
         }
-
+         
         return null;
     }
     

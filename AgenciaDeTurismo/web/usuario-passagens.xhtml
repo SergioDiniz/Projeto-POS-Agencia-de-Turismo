@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <h:head>
+        <title>Passagens</title>
+    </h:head>
+    <h:body>
+        <div id="menu-topo">
+            <ui:include src="cidade-topo.xhtml"/>
+        </div>
+
+        <div class="container usuario">
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="menu-lateral">
+                        <ui:include src="menu-lateral-usuario.xhtml"/>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div id="nome-cidade">
+                            Ultimas reservas de Passagem
+                        </div>
+                        
+                        <div class="tabela-disponiveis">
+                            <table class="table" align="center">
+                                <tr>
+                                    <th>Hotel</th>
+                                    <th>Quarto</th>
+                                    <th>Entrada</th>
+                                    <th>Saida</th>
+                                    <th>Valor</th>
+                                </tr> 
+                                <c:forEach var="hospede" items="${controladorHospede.reservasDoHospede()}">
+                                    <tr>
+                                        <td>${hospede.hotel.nome}</td>
+                                        <td>${hospede.quarto.numero}</td>
+                                        <td>${controladorReservaHotel.toDate(hospede.dataReserva)}</td>
+                                        <td>${controladorReservaHotel.toDate(hospede.dataSaida)}</td>
+                                        <td>${hospede.valorReserva}</td>
+                                    </tr> 
+                                </c:forEach>
+                            </table>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </h:body>
+</html>
+
