@@ -3,9 +3,9 @@
   <services/>
   <clients>
     <client name="WSExterno">
-      <wsdl-url>file:/C:/Users/Fatinha/Documents/Repositorios/Agencia%20de%20Viajens/Provedor-WS-EX/web/WEB-INF/wsdl/WSExterno.wsdl</wsdl-url>
+      <wsdl-url>file:/D:/Sergio/Documentos/ADS/P6/POS/Projeto%201/Projeto-POS-Agencia-de-Turismo/Provedor-WS-EX/web/WEB-INF/wsdl/WSExterno.wsdl</wsdl-url>
       <local-wsdl-file>WSExterno.wsdl</local-wsdl-file>
-      <package-name forceReplace="true">ws</package-name>
+      <package-name>ws</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>file:/C:/Users/Fatinha/Documents/Repositorios/Agencia%20de%20Viajens/Provedor-WS-EX/web/WEB-INF/wsdl/WSExterno.wsdl</wsimport-option-value>
+          <wsimport-option-value>file:/D:/Sergio/Documentos/ADS/P6/POS/Projeto%201/Projeto-POS-Agencia-de-Turismo/Provedor-WS-EX/web/WEB-INF/wsdl/WSExterno.wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -31,10 +31,6 @@
         <wsimport-option>
           <wsimport-option-name>xendorsed</wsimport-option-name>
           <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>package</wsimport-option-name>
-          <wsimport-option-value>ws</wsimport-option-value>
         </wsimport-option>
       </wsimport-options>
     </client>

@@ -26,8 +26,8 @@ public class WSExterno {
     /**
      * Operação de Web service
      */
-    @WebMethod(operationName = "buscarTodosCidade")
-    public List<Hotel> buscarTodosCidade(@WebParam(name = "cidade") String cidade) {
+    @WebMethod(operationName = "buscarHoteisPorCidade")
+    public List<Hotel> buscarHoteisPorCidade(@WebParam(name = "cidade") String cidade) {
         return fachada.buscarTodosCidade(cidade);
     }
 
@@ -58,8 +58,8 @@ public class WSExterno {
     /**
      * Operação de Web service
      */
-    @WebMethod(operationName = "buscarReservaCodigo")
-    public ReservaHotel buscarReservaCodigo(@WebParam(name = "codigo") int codigo) {
+    @WebMethod(operationName = "buscarReservaPorCodigo")
+    public ReservaHotel buscarReservaPorCodigo(@WebParam(name = "codigo") int codigo) {
         return fachada.buscarReservaCodigo(codigo);
     }
 

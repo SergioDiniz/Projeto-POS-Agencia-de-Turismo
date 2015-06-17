@@ -6,4 +6,6 @@
     <system systemId="file:/C:/Users/Fatinha/Documents/Repositorios/WS-AgenciaTurismo/Provedor-WS-EX/web/WEB-INF/wsdl/WSExterno_schema1.xsd" uri="xml-resources/web-service-references/WSExterno/wsdl/WSExterno_schema1.xsd"/>
     <system systemId="file:/C:/Users/Fatinha/Documents/Repositorios/Agencia%20de%20Viajens/Provedor-WS-EX/web/WEB-INF/wsdl/WSExterno.wsdl" uri="xml-resources/web-service-references/WSExterno/wsdl/WSExterno.wsdl"/>
     <system systemId="file:/C:/Users/Fatinha/Documents/Repositorios/Agencia%20de%20Viajens/Provedor-WS-EX/web/WEB-INF/wsdl/WSExterno_schema1.xsd" uri="xml-resources/web-service-references/WSExterno/wsdl/WSExterno_schema1.xsd"/>
+    <system systemId="file:/D:/Sergio/Documentos/ADS/P6/POS/Projeto%201/Projeto-POS-Agencia-de-Turismo/Provedor-WS-EX/web/WEB-INF/wsdl/WSExterno.wsdl" uri="xml-resources/web-service-references/WSExterno/wsdl/WSExterno.wsdl"/>
+    <system systemId="file:/D:/Sergio/Documentos/ADS/P6/POS/Projeto%201/Projeto-POS-Agencia-de-Turismo/Provedor-WS-EX/web/WEB-INF/wsdl/WSExterno_schema1.xsd" uri="xml-resources/web-service-references/WSExterno/wsdl/WSExterno_schema1.xsd"/>
 </catalog>

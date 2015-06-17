@@ -18,12 +18,6 @@
   <message name="salvarResevarResponse">
     <part name="parameters" element="tns:salvarResevarResponse"/>
   </message>
-  <message name="buscarTodosCidade">
-    <part name="parameters" element="tns:buscarTodosCidade"/>
-  </message>
-  <message name="buscarTodosCidadeResponse">
-    <part name="parameters" element="tns:buscarTodosCidadeResponse"/>
-  </message>
   <message name="quartosDisponiveis">
     <part name="parameters" element="tns:quartosDisponiveis"/>
   </message>
@@ -36,11 +30,17 @@
   <message name="listarReservasPorDataResponse">
     <part name="parameters" element="tns:listarReservasPorDataResponse"/>
   </message>
-  <message name="buscarReservaCodigo">
-    <part name="parameters" element="tns:buscarReservaCodigo"/>
+  <message name="buscarReservaPorCodigo">
+    <part name="parameters" element="tns:buscarReservaPorCodigo"/>
   </message>
-  <message name="buscarReservaCodigoResponse">
-    <part name="parameters" element="tns:buscarReservaCodigoResponse"/>
+  <message name="buscarReservaPorCodigoResponse">
+    <part name="parameters" element="tns:buscarReservaPorCodigoResponse"/>
+  </message>
+  <message name="buscarHoteisPorCidade">
+    <part name="parameters" element="tns:buscarHoteisPorCidade"/>
+  </message>
+  <message name="buscarHoteisPorCidadeResponse">
+    <part name="parameters" element="tns:buscarHoteisPorCidadeResponse"/>
   </message>
   <portType name="WSExterno">
     <operation name="reservasHospede">
@@ -51,10 +51,6 @@
       <input wsam:Action="http://ws/WSExterno/salvarResevarRequest" message="tns:salvarResevar"/>
       <output wsam:Action="http://ws/WSExterno/salvarResevarResponse" message="tns:salvarResevarResponse"/>
     </operation>
-    <operation name="buscarTodosCidade">
-      <input wsam:Action="http://ws/WSExterno/buscarTodosCidadeRequest" message="tns:buscarTodosCidade"/>
-      <output wsam:Action="http://ws/WSExterno/buscarTodosCidadeResponse" message="tns:buscarTodosCidadeResponse"/>
-    </operation>
     <operation name="quartosDisponiveis">
       <input wsam:Action="http://ws/WSExterno/quartosDisponiveisRequest" message="tns:quartosDisponiveis"/>
       <output wsam:Action="http://ws/WSExterno/quartosDisponiveisResponse" message="tns:quartosDisponiveisResponse"/>
@@ -63,9 +59,13 @@
       <input wsam:Action="http://ws/WSExterno/listarReservasPorDataRequest" message="tns:listarReservasPorData"/>
       <output wsam:Action="http://ws/WSExterno/listarReservasPorDataResponse" message="tns:listarReservasPorDataResponse"/>
     </operation>
-    <operation name="buscarReservaCodigo">
-      <input wsam:Action="http://ws/WSExterno/buscarReservaCodigoRequest" message="tns:buscarReservaCodigo"/>
-      <output wsam:Action="http://ws/WSExterno/buscarReservaCodigoResponse" message="tns:buscarReservaCodigoResponse"/>
+    <operation name="buscarReservaPorCodigo">
+      <input wsam:Action="http://ws/WSExterno/buscarReservaPorCodigoRequest" message="tns:buscarReservaPorCodigo"/>
+      <output wsam:Action="http://ws/WSExterno/buscarReservaPorCodigoResponse" message="tns:buscarReservaPorCodigoResponse"/>
+    </operation>
+    <operation name="buscarHoteisPorCidade">
+      <input wsam:Action="http://ws/WSExterno/buscarHoteisPorCidadeRequest" message="tns:buscarHoteisPorCidade"/>
+      <output wsam:Action="http://ws/WSExterno/buscarHoteisPorCidadeResponse" message="tns:buscarHoteisPorCidadeResponse"/>
     </operation>
   </portType>
   <binding name="WSExternoPortBinding" type="tns:WSExterno">
@@ -88,15 +88,6 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="buscarTodosCidade">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
     <operation name="quartosDisponiveis">
       <soap:operation soapAction=""/>
       <input>
@@ -115,7 +106,16 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="buscarReservaCodigo">
+    <operation name="buscarReservaPorCodigo">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="buscarHoteisPorCidade">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -127,7 +127,7 @@
   </binding>
   <service name="WSExterno">
     <port name="WSExternoPort" binding="tns:WSExternoPortBinding">
-      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+      <soap:address location="http://localhost:8080/WSExterno/WSExterno"/>
     </port>
   </service>
 </definitions>

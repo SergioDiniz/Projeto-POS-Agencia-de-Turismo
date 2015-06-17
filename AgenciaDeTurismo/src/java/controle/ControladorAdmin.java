@@ -45,7 +45,7 @@ public class ControladorAdmin implements Serializable {
         this.session = (HttpSession) context.getSession(false);
         this.context.getSessionMap().put("administrador", this.gerente);
         this.gerente = (Gerente) this.session.getAttribute("administrador");
-        return "admin?faces-redirect=true";
+        return "administrador.jsf?faces-redirect=true";
     }
 
     public String sair() {
