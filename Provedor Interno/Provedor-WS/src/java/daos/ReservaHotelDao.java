@@ -51,7 +51,7 @@ public class ReservaHotelDao implements DaoReservaHotelIT {
     @Override
     public List<ReservaHotel> reservasHospede(String login){
         List<ReservaHotel> reservaHotels;
-        Query query = em.createQuery("select r from ReservaHotel r where r.hospede.email = :email");
+        Query query = em.createQuery("select r from ReservaHotel r where r.emailHospede = :email");
         query.setParameter("email", login);
         reservaHotels = (List<ReservaHotel>) query.getResultList();
         
@@ -61,7 +61,7 @@ public class ReservaHotelDao implements DaoReservaHotelIT {
     
     @Override
     public List<ReservaHotel> listarReservasPorData(Date dataReserva, String login){
-        Query query = em.createQuery("select r from ReservaHotel r where r.dataReserva = :dataReserva and r.hospede.email = :login");
+        Query query = em.createQuery("select r from ReservaHotel r where r.dataReserva = :dataReserva and r.emailHospede = :login");
         query.setParameter("dataReserva", dataReserva);
         query.setParameter("login", login);
         

@@ -54,7 +54,7 @@ public class Dao implements DaoIT {
     // Metodos do Quarto   
     @Override
     public List<Quarto> quartosDisponiveis(Date dataEntrada, Date dataSaida, int codHotel) {
-        String sql = "SELECT q from Hotel h, ReservaHotel rh JOIN rh.quarto q where h.codigo = :codHotel and ";
+        String sql = "SELECT q from Hotel h, ReservaHotel rh JOIN rh.quarto q where h.codigo = :codHotel and q.disponivel = TRUE and ";
         List<String> consultas = new ArrayList<>();
         consultas.add(":dataEntrada = rh.dataReserva and  :dataSaida = rh.dataSaida");
         consultas.add("rh.dataReserva between :dataEntrada and :dataSaida");
@@ -108,7 +108,7 @@ public class Dao implements DaoIT {
     // Metodos da Reserva
     @Override
     public List<ReservaHotel> listarReservasPorData(Date dataReserva, String login){
-        Query query = em.createQuery("select r from ReservaHotel r where r.dataReserva = :dataReserva and r.hospede.email = :login");
+        Query query = em.createQuery("select r from ReservaHotel r where r.dataReserva = :dataReserva and r.emailHospede = :login");
         query.setParameter("dataReserva", dataReserva);
         query.setParameter("login", login);
         
@@ -124,7 +124,7 @@ public class Dao implements DaoIT {
     @Override
     public List<ReservaHotel> reservasHospede(String login){
         List<ReservaHotel> reservaHotels;
-        Query query = em.createQuery("select r from ReservaHotel r where r.hospede.email = :email");
+        Query query = em.createQuery("select r from ReservaHotel r where r.emailHospede = :email");
         query.setParameter("email", login);
         reservaHotels = (List<ReservaHotel>) query.getResultList();
         

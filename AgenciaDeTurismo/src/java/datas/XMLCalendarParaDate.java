@@ -17,6 +17,7 @@ public class XMLCalendarParaDate {
     public static XMLGregorianCalendar toXMLGregorianCalendar(Date date) {
         GregorianCalendar gCalendar = new GregorianCalendar();
         gCalendar.setTime(date);
+        gCalendar.add(gCalendar.DATE, +1);
         XMLGregorianCalendar xmlCalendar = null;
         
         try {

@@ -198,18 +198,10 @@
 <xs:element name="codigo" type="xs:int"/>
 <xs:element name="dataReserva" type="xs:dateTime" minOccurs="0"/>
 <xs:element name="dataSaida" type="xs:dateTime" minOccurs="0"/>
-<xs:element name="hospede" type="tns:hospede" minOccurs="0"/>
+<xs:element name="emailHospede" type="xs:string" minOccurs="0"/>
 <xs:element name="hotel" type="tns:hotel" minOccurs="0"/>
 <xs:element name="quarto" type="tns:quarto" minOccurs="0"/>
 <xs:element name="valorReserva" type="xs:float"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="hospede">
-<xs:sequence>
-<xs:element name="email" type="xs:string" minOccurs="0"/>
-<xs:element name="nome" type="xs:string" minOccurs="0"/>
-<xs:element name="senha" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -223,6 +215,14 @@
 <xs:complexType name="loginHospedeResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:hospede" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hospede">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="nome" type="xs:string" minOccurs="0"/>
+<xs:element name="senha" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

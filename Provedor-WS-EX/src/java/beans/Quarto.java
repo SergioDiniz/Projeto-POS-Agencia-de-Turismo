@@ -74,4 +74,29 @@ public class Quarto implements Serializable{
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 79 * hash + this.numero;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Quarto other = (Quarto) obj;
+        if (this.numero != other.numero) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
 }

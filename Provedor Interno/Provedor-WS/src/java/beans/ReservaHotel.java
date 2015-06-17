@@ -34,19 +34,18 @@ public class ReservaHotel implements Serializable{
     @OneToOne
     private Hotel hotel;
     
-    @OneToOne
-    private Hospede hospede;
+    private String emailHospede;
     
     public ReservaHotel() {
     }
 
-    public ReservaHotel(Date dataSaida, Date dataReserva, float valorReserva, Quarto quarto, Hotel hotel, Hospede hospede) {
+    public ReservaHotel(Date dataSaida, Date dataReserva, float valorReserva, Quarto quarto, Hotel hotel, String emailHospede) {
         this.dataSaida = dataSaida;
         this.dataReserva = dataReserva;
         this.valorReserva = valorReserva;
         this.quarto = quarto;
         this.hotel = hotel;
-        this.hospede = hospede;
+        this.emailHospede = emailHospede;
     }
 
     public int getCodigo() {
@@ -97,17 +96,15 @@ public class ReservaHotel implements Serializable{
         this.hotel = hotel;
     }
 
-    public Hospede getHospede() {
-        return hospede;
+    public String getEmailHospede() {
+        return emailHospede;
     }
 
-    public void setHospede(Hospede hospede) {
-        this.hospede = hospede;
+    public void setEmailHospede(String emailHospede) {
+        this.emailHospede = emailHospede;
     }
-    
-    public String converteData(Date data){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        return dateFormat.format(data);
-    }
+
+
+
     
 }

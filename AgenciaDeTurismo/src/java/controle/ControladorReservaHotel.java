@@ -126,20 +126,21 @@ public class ControladorReservaHotel implements Serializable {
     }
 
     public String reservarHotel(Quarto quarto) {
-
+        
         this.context = FacesContext.getCurrentInstance().getExternalContext();
         this.session = (HttpSession) this.context.getSession(false);
         this.hotel = (Hotel) this.session.getAttribute("hotelReserva");
         this.dataEntrada = (Date) this.session.getAttribute("dataEntrada");
         this.dataSaida = (Date) this.session.getAttribute("dataSaida");
         Hospede hospede = (Hospede) this.session.getAttribute("hospedeCadastrado");
-
+        
+        System.out.println(hospede.getEmail());
         reservaHotel.setQuarto(quarto);
         reservaHotel.setHotel(hotel);
-        reservaHotel.setHospede(hospede);
+        reservaHotel.setEmailHospede(hospede.getEmail());
         reservaHotel.setDataReserva(XMLCalendarParaDate.toXMLGregorianCalendar(dataEntrada));
         reservaHotel.setDataSaida(XMLCalendarParaDate.toXMLGregorianCalendar(dataSaida));
-        
+        reservaHotel.setValorReserva((float) quarto.getPreco());
 
         boolean resposta = fachada.salvarReservaHotel(reservaHotel);
 

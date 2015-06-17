@@ -131,7 +131,7 @@ public class QuartoDao implements DaoQuartoIT {
 
     @Override
     public List<Quarto> quartosDisponiveis(Date dataEntrada, Date dataSaida, int codHotel) {
-        String sql = "SELECT q from Hotel h, ReservaHotel rh JOIN rh.quarto q where h.codigo = :codHotel and ";
+        String sql = "SELECT q from Hotel h, ReservaHotel rh JOIN rh.quarto q where q.disponivel = TRUE and h.codigo = :codHotel and ";
         List<String> consultas = new ArrayList<>();
         consultas.add(":dataEntrada = rh.dataReserva and  :dataSaida = rh.dataSaida");
         consultas.add("rh.dataReserva between :dataEntrada and :dataSaida");
@@ -146,7 +146,7 @@ public class QuartoDao implements DaoQuartoIT {
             quartosDisponiveis = removerQuartosIndisponiveis(codHotel);
 
             for (String consulta : consultas) {
-                Query query = em.createQuery(sql+consulta);
+                Query query = em.createQuery(sql + consulta);
                 query.setParameter("dataEntrada", dataEntrada);
                 query.setParameter("dataSaida", dataSaida);
                 query.setParameter("codHotel", codHotel);

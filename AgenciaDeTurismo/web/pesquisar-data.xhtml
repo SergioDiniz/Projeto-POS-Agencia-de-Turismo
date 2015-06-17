@@ -88,53 +88,7 @@
                                                     <td>${quartopordata.numero}</td>
                                                     <td>R$ ${quartopordata.preco}</td>
                                                     <td align="right">
-
-                                                        <h:commandButton class="btn btn-conhecer btn-lg" value="ALUGAR" action="#{controladorReservaHotel.reservarHotel(quartopordata)}"/>
-
-                                                        <!-- Modal -->
-                                                        <div class="modal fade" id="modalAlugar-${id.index}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content" align="left">
-                                                                    <h:form>
-                                                                        <form jsf:id="form">
-                                                                            <div class="modal-header">
-                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                                <div align="center">
-                                                                                    <h3 class="modal-title" id="myModalLabel">Alugar</h3>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                                <div class="row">
-                                                                                    <div class="col-md-offset-1 col-md-10">
-
-                                                                                        <h4 align="center">Informações do quarto</h4>
-
-                                                                                        <table class="table">
-                                                                                            <tr>
-                                                                                                <th>Tipo</th>
-                                                                                                <th>Nº de Hospedes</th>
-                                                                                                <th>Quantidade</th>
-                                                                                                <th>Valor</th>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td>${quartopordata.tipo}</td>
-                                                                                                <td>${quartopordata.qtdHospede}</td>
-                                                                                                <td>${quartopordata.numero}</td>
-                                                                                                <td>R$ ${quartopordata.preco}</td>
-                                                                                            </tr>
-                                                                                        </table>
-                                                                                    </div>
-                                                                                </div>
-
-                                                                            </div>
-                                                                            <div class="modal-footer">
-                                                                                
-                                                                            </div>
-                                                                        </form>
-                                                                    </h:form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <h:commandButton class="btn btn-conhecer btn-lg" value="ALUGAR" action="#{controladorReservaHotel.reservarHotel(quartopordata)}"/>                                                        
                                                     </td>
                                                 </tr>
                                             </c:forEach>
