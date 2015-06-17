@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/D:/POS/Restaurante/WSReservaRestaurante.wsdl" uri="xml-resources/web-service-references/WSReservaRestaurante/wsdl/WSReservaRestaurante.wsdl"/>
+    <system systemId="file:/D:/POS/Restaurante/WSReservaRestaurante_schema1.xsd" uri="xml-resources/web-service-references/WSReservaRestaurante/wsdl/WSReservaRestaurante_schema1.xsd"/>
+</catalog>

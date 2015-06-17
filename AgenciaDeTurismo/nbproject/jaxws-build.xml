@@ -42,5 +42,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/ws"/>
         <delete dir="${build.generated.dir}/jax-wsCache/WSInternoJPA"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-WSInternoJPA"/>
+    <target name="wsimport-client-WSReservaRestaurante" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSReservaRestaurante"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSReservaRestaurante" destdir="${build.generated.dir}/jax-wsCache/WSReservaRestaurante" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/WSReservaRestaurante/wsdl/WSReservaRestaurante.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="file:/D:/POS/Restaurante/WSReservaRestaurante.wsdl" xnocompile="true" xendorsed="true" package="wse.restaurante">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/WSReservaRestaurante/wsdl/WSReservaRestaurante.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSReservaRestaurante"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSReservaRestaurante">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSReservaRestaurante" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/wse/restaurante"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/WSReservaRestaurante"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-WSInternoJPA, wsimport-client-WSReservaRestaurante"/>
 </project>

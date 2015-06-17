@@ -7,6 +7,7 @@ import ws.Hospede;
 import ws.Hotel;
 import ws.Quarto;
 import ws.WSInternoJPA_Service;
+import wse.restaurante.WSReservaRestaurante_Service;
 
 /**
  *
@@ -14,6 +15,10 @@ import ws.WSInternoJPA_Service;
  */
 @Stateless
 public class Fachada {
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/WSReservaRestaurante.wsdl")
+    private WSReservaRestaurante_Service service_1;
+    
+
 
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/WSInternoJPA/WSInternoJPA.wsdl")
     private WSInternoJPA_Service service;
@@ -128,4 +133,24 @@ public class Fachada {
         return port.reservasDoHospede(login);
     }
 
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    
+    // WS Reservas no Restaurante - Janneina
+
+    public java.util.List<wse.restaurante.Restaurante> buscarRestaurantesPorCidade(java.lang.String cidade) {
+        wse.restaurante.WSReservaRestaurante port = service_1.getWSReservaRestaurantePort();
+        return port.buscarRestaurantesPorCidade(cidade);
+    }
+
+    
+    
+    
 }

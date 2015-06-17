@@ -1,29 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" targetNamespace="http://ws/" xmlns:tns="http://ws/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xs:element name="buscarReservaCodigo" nillable="true" type="tns:buscarReservaCodigo"/>
+  <xs:element name="buscarHoteisPorCidade" type="tns:buscarHoteisPorCidade"/>
 
-  <xs:element name="buscarReservaCodigoResponse" nillable="true" type="tns:buscarReservaCodigoResponse"/>
+  <xs:element name="buscarHoteisPorCidadeResponse" type="tns:buscarHoteisPorCidadeResponse"/>
 
-  <xs:element name="buscarTodosCidade" nillable="true" type="tns:buscarTodosCidade"/>
+  <xs:element name="buscarReservaPorCodigo" type="tns:buscarReservaPorCodigo"/>
 
-  <xs:element name="buscarTodosCidadeResponse" nillable="true" type="tns:buscarTodosCidadeResponse"/>
+  <xs:element name="buscarReservaPorCodigoResponse" type="tns:buscarReservaPorCodigoResponse"/>
 
-  <xs:element name="listarReservasPorData" nillable="true" type="tns:listarReservasPorData"/>
+  <xs:element name="listarReservasPorData" type="tns:listarReservasPorData"/>
 
-  <xs:element name="listarReservasPorDataResponse" nillable="true" type="tns:listarReservasPorDataResponse"/>
+  <xs:element name="listarReservasPorDataResponse" type="tns:listarReservasPorDataResponse"/>
 
-  <xs:element name="quartosDisponiveis" nillable="true" type="tns:quartosDisponiveis"/>
+  <xs:element name="quartosDisponiveis" type="tns:quartosDisponiveis"/>
 
-  <xs:element name="quartosDisponiveisResponse" nillable="true" type="tns:quartosDisponiveisResponse"/>
+  <xs:element name="quartosDisponiveisResponse" type="tns:quartosDisponiveisResponse"/>
 
-  <xs:element name="reservasHospede" nillable="true" type="tns:reservasHospede"/>
+  <xs:element name="reservasHospede" type="tns:reservasHospede"/>
 
-  <xs:element name="reservasHospedeResponse" nillable="true" type="tns:reservasHospedeResponse"/>
+  <xs:element name="reservasHospedeResponse" type="tns:reservasHospedeResponse"/>
 
-  <xs:element name="salvarResevar" nillable="true" type="tns:salvarResevar"/>
+  <xs:element name="salvarResevar" type="tns:salvarResevar"/>
 
-  <xs:element name="salvarResevarResponse" nillable="true" type="tns:salvarResevarResponse"/>
+  <xs:element name="salvarResevarResponse" type="tns:salvarResevarResponse"/>
+
+  <xs:complexType name="quartosDisponiveis">
+    <xs:sequence>
+      <xs:element name="dataEntrada" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="dataSaida" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="codHotel" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="quartosDisponiveisResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:quarto" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="quarto">
+    <xs:sequence>
+      <xs:element name="disponivel" type="xs:boolean"/>
+      <xs:element name="numero" type="xs:int"/>
+      <xs:element name="preco" type="xs:double"/>
+      <xs:element name="qtdHospede" type="xs:int"/>
+      <xs:element name="tipo" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
 
   <xs:complexType name="salvarResevar">
     <xs:sequence>
@@ -68,45 +92,21 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="quarto">
-    <xs:sequence>
-      <xs:element name="disponivel" type="xs:boolean"/>
-      <xs:element name="numero" type="xs:int"/>
-      <xs:element name="preco" type="xs:double"/>
-      <xs:element name="qtdHospede" type="xs:int"/>
-      <xs:element name="tipo" type="xs:string" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-
   <xs:complexType name="salvarResevarResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:boolean"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="quartosDisponiveis">
-    <xs:sequence>
-      <xs:element name="codHotel" type="xs:int"/>
-      <xs:element name="dataEntrada" type="xs:dateTime" minOccurs="0"/>
-      <xs:element name="dataSaida" type="xs:dateTime" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="quartosDisponiveisResponse">
-    <xs:sequence>
-      <xs:element name="return" type="tns:quarto" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="buscarTodosCidade">
+  <xs:complexType name="buscarHoteisPorCidade">
     <xs:sequence>
       <xs:element name="cidade" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="buscarTodosCidadeResponse">
+  <xs:complexType name="buscarHoteisPorCidadeResponse">
     <xs:sequence>
-      <xs:element name="return" type="tns:hotel" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="return" type="tns:hotel" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -119,17 +119,17 @@
 
   <xs:complexType name="listarReservasPorDataResponse">
     <xs:sequence>
-      <xs:element name="return" type="tns:reservaHotel" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="return" type="tns:reservaHotel" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="buscarReservaCodigo">
+  <xs:complexType name="buscarReservaPorCodigo">
     <xs:sequence>
       <xs:element name="codigo" type="xs:int"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="buscarReservaCodigoResponse">
+  <xs:complexType name="buscarReservaPorCodigoResponse">
     <xs:sequence>
       <xs:element name="return" type="tns:reservaHotel" minOccurs="0"/>
     </xs:sequence>
@@ -143,7 +143,7 @@
 
   <xs:complexType name="reservasHospedeResponse">
     <xs:sequence>
-      <xs:element name="return" type="tns:reservaHotel" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="return" type="tns:reservaHotel" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

@@ -36,13 +36,11 @@
                                     <th>Saida</th>
                                     <th>Valor</th>
                                 </tr> 
-                                <c:forEach var="hospede" items="${controladorHospede.reservasDoHospede()}">
+                                <c:forEach var="restaurante" items="${controladorRestaurante.buscarRestaurantesPorCidade()}">
                                     <tr>
-                                        <td>${hospede.hotel.nome}</td>
-                                        <td>${hospede.quarto.numero}</td>
-                                        <td>${controladorReservaHotel.toDate(hospede.dataReserva)}</td>
-                                        <td>${controladorReservaHotel.toDate(hospede.dataSaida)}</td>
-                                        <td>${hospede.valorReserva}</td>
+                                        <td>${restaurante.nome}</td>
+                                        <td>${restaurante.descricao}</td>
+                                        <td>${restaurante.cnpj}</td>
                                     </tr> 
                                 </c:forEach>
                             </table>

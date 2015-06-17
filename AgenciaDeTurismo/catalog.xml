@@ -2,4 +2,6 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:8080/WSInternoJPA/WSInternoJPA?wsdl" uri="src/conf/xml-resources/web-service-references/WSInternoJPA/wsdl/localhost_8080/WSInternoJPA/WSInternoJPA.wsdl"/>
     <system systemId="http://localhost:8080/WSInternoJPA/WSInternoJPA?xsd=1" uri="src/conf/xml-resources/web-service-references/WSInternoJPA/wsdl/localhost_8080/WSInternoJPA/WSInternoJPA.xsd_1.xsd"/>
+    <system systemId="file:/D:/POS/Restaurante/WSReservaRestaurante.wsdl" uri="src/conf/xml-resources/web-service-references/WSReservaRestaurante/wsdl/WSReservaRestaurante.wsdl"/>
+    <system systemId="file:/D:/POS/Restaurante/WSReservaRestaurante_schema1.xsd" uri="src/conf/xml-resources/web-service-references/WSReservaRestaurante/wsdl/WSReservaRestaurante_schema1.xsd"/>
 </catalog>

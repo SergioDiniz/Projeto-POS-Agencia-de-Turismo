@@ -31,18 +31,20 @@ public class App {
 //        }
         
         
-        for(Hotel h : buscarTodosCidade("João Pessoa")){
+        for(Hotel h : buscarHoteisPorCidade("João Pessoa")){
             System.out.println(h.getNome());
         }
         
         
     }
 
-    private static java.util.List<ws.Hotel> buscarTodosCidade(java.lang.String cidade) {
+    private static java.util.List<ws.Hotel> buscarHoteisPorCidade(java.lang.String cidade) {
         ws.WSExterno_Service service = new ws.WSExterno_Service();
         ws.WSExterno port = service.getWSExternoPort();
-        return port.buscarTodosCidade(cidade);
+        return port.buscarHoteisPorCidade(cidade);
     }
+
+
 
 
     

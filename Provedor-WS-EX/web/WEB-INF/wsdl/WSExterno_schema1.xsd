@@ -25,6 +25,30 @@
 
   <xs:element name="salvarResevarResponse" type="tns:salvarResevarResponse"/>
 
+  <xs:complexType name="quartosDisponiveis">
+    <xs:sequence>
+      <xs:element name="dataEntrada" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="dataSaida" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="codHotel" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="quartosDisponiveisResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:quarto" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="quarto">
+    <xs:sequence>
+      <xs:element name="disponivel" type="xs:boolean"/>
+      <xs:element name="numero" type="xs:int"/>
+      <xs:element name="preco" type="xs:double"/>
+      <xs:element name="qtdHospede" type="xs:int"/>
+      <xs:element name="tipo" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="salvarResevar">
     <xs:sequence>
       <xs:element name="reserva" type="tns:reservaHotel" minOccurs="0"/>
@@ -68,33 +92,9 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="quarto">
-    <xs:sequence>
-      <xs:element name="disponivel" type="xs:boolean"/>
-      <xs:element name="numero" type="xs:int"/>
-      <xs:element name="preco" type="xs:double"/>
-      <xs:element name="qtdHospede" type="xs:int"/>
-      <xs:element name="tipo" type="xs:string" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-
   <xs:complexType name="salvarResevarResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:boolean"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="quartosDisponiveis">
-    <xs:sequence>
-      <xs:element name="dataEntrada" type="xs:dateTime" minOccurs="0"/>
-      <xs:element name="dataSaida" type="xs:dateTime" minOccurs="0"/>
-      <xs:element name="codHotel" type="xs:int"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="quartosDisponiveisResponse">
-    <xs:sequence>
-      <xs:element name="return" type="tns:quarto" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
