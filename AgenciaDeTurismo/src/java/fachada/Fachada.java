@@ -1,4 +1,3 @@
-
 package fachada;
 
 import javax.ejb.Stateless;
@@ -9,15 +8,13 @@ import ws.Hotel;
 import ws.Quarto;
 import ws.WSInternoJPA_Service;
 
-
 /**
  *
  * @author SergioD
  */
 @Stateless
 public class Fachada {
-   
-    
+
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/WSInternoJPA/WSInternoJPA.wsdl")
     private WSInternoJPA_Service service;
 
@@ -41,9 +38,8 @@ public class Fachada {
         ws.WSInternoJPA port = service.getWSInternoJPAPort();
         return port.removerHospede(hospede);
     }
-    
-    /*Servicos da Entidade Hotel*/
 
+    /*Servicos da Entidade Hotel*/
     public boolean salvarHotel(ws.Hotel hotel) {
         ws.WSInternoJPA port = service.getWSInternoJPAPort();
         return port.salvarHotel(hotel);
@@ -73,9 +69,8 @@ public class Fachada {
         ws.WSInternoJPA port = service.getWSInternoJPAPort();
         return port.removerHotel(hotel);
     }
-    
-    /*Servicos da Entidade Quarto*/
 
+    /*Servicos da Entidade Quarto*/
     public boolean salvarQuarto(ws.Quarto quarto) {
         ws.WSInternoJPA port = service.getWSInternoJPAPort();
         return port.salvarQuarto(quarto);
@@ -95,16 +90,29 @@ public class Fachada {
         ws.WSInternoJPA port = service.getWSInternoJPAPort();
         return port.removerQuarto(quarto);
     }
-    
-    /*Servicos da Entidade Reserva*/
 
+    public java.util.List<ws.Quarto> todosQuatosPorHotel(int codHotel) {
+        ws.WSInternoJPA port = service.getWSInternoJPAPort();
+        return port.todosQuatosPorHotel(codHotel);
+    }
+
+    public java.util.List<ws.Quarto> quartosDisponiveis(javax.xml.datatype.XMLGregorianCalendar dataEntrada, javax.xml.datatype.XMLGregorianCalendar dataSaida, int codHotel) {
+        ws.WSInternoJPA port = service.getWSInternoJPAPort();
+        return port.quartosDisponiveis(dataEntrada, dataSaida, codHotel);
+    }
+
+    public java.util.List<ws.Quarto> todosQuatosPorHotelAdmin(int codHotel) {
+        ws.WSInternoJPA port = service.getWSInternoJPAPort();
+        return port.todosQuatosPorHotelAdmin(codHotel);
+    }
+
+    /*Servicos da Entidade Reserva*/
     public boolean salvarReservaHotel(ws.ReservaHotel reservaHotel) {
         ws.WSInternoJPA port = service.getWSInternoJPAPort();
         return port.salvarReservaHotel(reservaHotel);
     }
-    
-    /*Servicos da Entidade Administrador*/
 
+    /*Servicos da Entidade Administrador*/
     public Gerente buscarGerente(java.lang.String login) {
         ws.WSInternoJPA port = service.getWSInternoJPAPort();
         return port.buscarGerente(login);
@@ -119,9 +127,5 @@ public class Fachada {
         ws.WSInternoJPA port = service.getWSInternoJPAPort();
         return port.reservasDoHospede(login);
     }
-    
-    
-    
-    
- 
+
 }

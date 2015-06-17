@@ -174,6 +174,34 @@ public class WSInternoJPA {
     }
 
     /**
+     * Operação de mostrar todos os quartos por hotel
+     */
+    @WebMethod(operationName = "todosQuatosPorHotel")
+    public List<Quarto> todosQuatosPorHotel(@WebParam(name = "codHotel") int codHotel) {
+        return fachada.todosQuatosPorHotel(codHotel);
+    }
+
+    
+    /**
+     * Operação de mostrar todos os quartos por hotel para a paga de admin
+     */
+    @WebMethod(operationName = "todosQuatosPorHotelAdmin")
+    public List<Quarto> todosQuatosPorHotelAdmin(@WebParam(name = "codHotel") int codHotel) {
+        return fachada.todosQuatosPorHotelAdmin(codHotel);
+    }
+    
+    
+    /**
+     * Operação de mostrar todos os tipos de quarto
+     * @param dataEntrada
+     * @return 
+     */
+    @WebMethod(operationName = "quartosDisponiveis")
+    public List<Quarto> quartosDisponiveis(@WebParam(name = "dataEntrada") Date dataEntrada, @WebParam(name = "dataSaida") Date dataSaida, @WebParam(name = "codHotel") int codHotel) {
+        return fachada.quartosIndisponiveisNaReserva(dataEntrada, dataSaida, codHotel);
+    }
+
+    /**
      * ***********************************************************************
      */
     /**

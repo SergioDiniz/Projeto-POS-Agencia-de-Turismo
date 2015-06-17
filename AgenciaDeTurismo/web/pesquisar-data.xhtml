@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Pesquisar Data</title>
+    </h:head>
+    <h:body>
+        <div id="menu-topo">
+            <ui:include src="cidade-topo.xhtml"/>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="menu-lateral">
+                        <ui:include src="cidade-lateral.xhtml"/>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div id="nome-cidade">
+                            Bem-vindo a ${cidadeHotel}
+                        </div>
+
+                        <div class="disponiveis">
+                            Digite uma <b>data</b> para pesquisar quartos disponiveis:
+                        </div>
+
+                        <div class="row">
+                            <h:form>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        Data de Entrada *
+                                        <h:inputText value="#{controladorReservaHotel.dataEntrada}" class="form-control input-lg" id="data-entrada" p:placeholder="Data de Entrada">
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        </h:inputText>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        Data de Saída *
+                                        <h:inputText value="#{controladorReservaHotel.dataSaida}" class="form-control input-lg" id="data-saida" p:placeholder="Data de Saída">
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        </h:inputText>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <h:commandButton class="btn btn-conhecer btn-lg" value="Pesquisar" action="#{controladorReservaHotel.quartosDisponiveis(hotelReserva.codigo)}" style="margin-top: 19px;"/>
+                                </div>
+                            </h:form>
+                        </div>
+
+
+                        <h:form rendered="${controladorReservaHotel.quartosPesquisa}">
+                            
+
+
+                            <div class="row">
+                                <div class="">
+                                    <div class="disponiveis">
+                                        Lista de <b>Quartos</b> disponiveis:
+                                    </div>
+
+                                    <div class="tabela-disponiveis quartos">
+                                        <table class="table" align="center">
+                                            <tr>
+                                                <th>Tipo</th>
+                                                <th>Nº de Hospedes</th>
+                                                <th>Nº do Quarto</th>
+                                                <th>Preço</th>
+                                                <th align="right">
+                                                </th>
+                                            </tr>
+
+
+
+                                            <c:forEach var="quartopordata" items="${quatosDisponiveisPorData}" varStatus="id" >
+                                                <tr>
+                                                    <td>${quartopordata.tipo}</td>
+                                                    <td>${quartopordata.qtdHospede}</td>
+                                                    <td>${quartopordata.numero}</td>
+                                                    <td>R$ ${quartopordata.preco}</td>
+                                                    <td align="right">
+
+                                                        <button type="button" class="btn btn-conhecer" data-toggle="modal" data-target="#modalAlugar-${id.index}">
+                                                            ALUGAR
+                                                        </button>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="modalAlugar-${id.index}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content" align="left">
+                                                                    <h:form>
+                                                                        <form jsf:id="form">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                                <div align="center">
+                                                                                    <h3 class="modal-title" id="myModalLabel">Alugar</h3>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-offset-1 col-md-10">
+
+                                                                                        <h4 align="center">Informações do quarto</h4>
+
+                                                                                        <table class="table">
+                                                                                            <tr>
+                                                                                                <th>Tipo</th>
+                                                                                                <th>Nº de Hospedes</th>
+                                                                                                <th>Quantidade</th>
+                                                                                                <th>Valor</th>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>${quartopordata.tipo}</td>
+                                                                                                <td>${quartopordata.qtdHospede}</td>
+                                                                                                <td>${quartopordata.numero}</td>
+                                                                                                <td>R$ ${quartopordata.preco}</td>
+                                                                                            </tr>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <h:commandButton class="btn btn-conhecer btn-lg" value="ALUGAR" action="#{controladorReservaHotel.reservarHotel(quartopordata)}"/>
+                                                                            </div>
+                                                                        </form>
+                                                                    </h:form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </h:form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </h:body>
+
+    <!-- Meu JavaScript -->
+    <script src="js/script.js"></script>
+</html>
+

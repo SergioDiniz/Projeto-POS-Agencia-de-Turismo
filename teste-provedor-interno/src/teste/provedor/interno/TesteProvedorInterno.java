@@ -5,6 +5,11 @@
  */
 package teste.provedor.interno;
 
+import datas.XMLCalendarParaDate;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import ws.jpa.Quarto;
 import ws.jpa.TipoQuato;
 
 /**
@@ -16,21 +21,32 @@ public class TesteProvedorInterno {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         // TODO code application logic here
         
-             
-        for(TipoQuato t : tiposDeQuatosPorHotel(1)){
-            System.out.println("tipo: " + t.getTipo());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        
+        
+        
+        Date d1 = sdf.parse("18/02/2015");
+        Date d2 = sdf.parse("20/02/2015");
+        
+        
+        
+        for(Quarto q : quartosDisponiveis(XMLCalendarParaDate.toXMLGregorianCalendar(d1), XMLCalendarParaDate.toXMLGregorianCalendar(d2), 1)){
+            System.out.println(q.getNumero());
         }
         
         
     }
 
-    private static java.util.List<ws.jpa.TipoQuato> tiposDeQuatosPorHotel(int codHotel) {
+    private static java.util.List<ws.jpa.Quarto> quartosDisponiveis(javax.xml.datatype.XMLGregorianCalendar dataEntrada, javax.xml.datatype.XMLGregorianCalendar dataSaida, int codHotel) {
         ws.jpa.WSInternoJPA_Service service = new ws.jpa.WSInternoJPA_Service();
         ws.jpa.WSInternoJPA port = service.getWSInternoJPAPort();
-        return port.tiposDeQuatosPorHotel(codHotel);
+        return port.quartosDisponiveis(dataEntrada, dataSaida, codHotel);
     }
 
+
+    
+    
 }

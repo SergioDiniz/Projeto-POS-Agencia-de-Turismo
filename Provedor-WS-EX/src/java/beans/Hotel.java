@@ -6,6 +6,7 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -25,7 +26,8 @@ public class Hotel implements Serializable{
     @Embedded
     private EnderecoHotel enderecoHotel;
     
-    @OneToMany
+    
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Quarto> quartos;
     
     @OneToOne

@@ -29,43 +29,35 @@ public class Fachada implements FachadaIT {
     }
 
     @Override
-    public boolean salvarReservaHotel(ReservaHotel reservaHotel) {
-        List<Quarto> quartos = dao.todosQuatosPorHotel(reservaHotel.getHotel().getCodigo());
-
-        if (quartos.size() > 0) {
-            Quarto q = quartos.get(0);
-            reservaHotel.setQuarto(q);
-            q.setDisponivel(false);
-
-            float preco = (float) (q.getPreco() * XMLCalendarParaDate.diferencaDeDatas(reservaHotel.getDataReserva(),
-                    reservaHotel.getDataSaida()));
-            reservaHotel.setValorReserva(preco);
-
-            dao.atualizarQuarto(quartos.get(0));
-            return dao.salvarReserva(reservaHotel);
-        } else {
-            return false;
-        }
+    public List<Hotel> buscarTodosCidade(String cidade) {
+        return dao.buscarTodosCidade(cidade);
     }
 
     @Override
-    public List<Hotel> buscarTodosHoteisPorCidade(String cidade) {
-        return dao.buscarTodosHoteisPorCidade(cidade);
+    public List<Quarto> quartosDisponiveis(Date dataEntrada, Date dataSaida, int codHotel) {
+        return dao.quartosDisponiveis(dataEntrada, dataSaida, codHotel);
     }
 
     @Override
-    public ReservaHotel buscarUmaReserva(int codigo) {
-        return dao.buscarReservaHotel(codigo);
-    }
-
-    @Override
-    public List<ReservaHotel> todasAsReservas(String login) {
-        return dao.listarReservasHotel(login);
-    }
-
-    @Override
-    public List<ReservaHotel> reservasPorData(Date dataReserva, String login) {
+    public List<ReservaHotel> listarReservasPorData(Date dataReserva, String login) {
         return dao.listarReservasPorData(dataReserva, login);
     }
+
+    @Override
+    public List<ReservaHotel> reservasHospede(String login) {
+        return dao.reservasHospede(login);
+    }
+
+    @Override
+    public ReservaHotel buscarReservaCodigo(int codigo) {
+        return dao.buscarReservaCodigo(codigo);
+    }
+
+    @Override
+    public boolean salvarReserva(ReservaHotel reserva) {
+        return dao.salvarResevar(reserva);
+    }
+
+   
 
 }

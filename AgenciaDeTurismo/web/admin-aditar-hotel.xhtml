@@ -5,9 +5,9 @@
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-          
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
     <h:head>
         <title>Editar Hotel</title>
     </h:head>
@@ -38,24 +38,42 @@
                                 </div>
                             </div>
                             <div class="col-md-6" align="right">
-                                <a href="admin-novo-hotel.jsf"><button class="btn-link">novo hotel</button></a>
+                                <a href="admin-novo-quarto.jsf"><button class="btn-link" style="padding-right: 10px;">novo quarto</button></a>
+                                <a href="admin-confi-hotel.jsf"><button class="btn-link">editar</button></a>
                             </div>
                         </div>
 
                         <div class="tabela-disponiveis quartos">
                             <table class="table" align="center">
                                 <tr>
+                                    <th>Nº</th>
                                     <th>Tipo</th>
-                                    <th>Nº de Hospedes</th>
-                                    <th>Quantidade</th>
+                                    <th>Qdte Hospedes</th>
                                     <th>Valor</th>
+                                    <th>Manuteção</th>
+                                    <th></th>
                                 </tr>
-                                <c:forEach var="quarto" items="${controladorReservaHotel.tiposDeQuatosPorHotel(hotel.codigo)}" varStatus="id">
+                                <c:forEach var="quarto" items="${controladorQuarto.todosQuatosPorHotelAdmin(hotel.codigo)}" varStatus="id">
                                     <tr>
+                                        <td>${quarto.numero}</td>
                                         <td>${quarto.tipo}</td>
                                         <td>${quarto.qtdHospede}</td>
-                                        <td>${quarto.numeroVagas}</td>
                                         <td>R$ ${quarto.preco}</td>
+                                        <td>
+                                            <c:choose>
+                                                <c:when test="${quarto.disponivel == true}">
+                                                    NÃO
+                                                </c:when>
+                                                <c:otherwise>
+                                                    SIM
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </td>
+                                        <td align="right">
+                                            <h:form>
+                                                <button class="btn btn-conhecer" jsf:action="#{controladorQuarto.buscarQuartoPorNumero(quarto.numero)}">EDITAR</button>
+                                            </h:form>
+                                        </td>
                                     </tr>
                                 </c:forEach>
 

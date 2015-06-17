@@ -24,8 +24,10 @@ public interface DaoQuartoIT {
     
     public List<Quarto> todosQuatosPorHotel(int codHotel);
     
-    public List<TipoQuato> tiposDeQuatosPorHotel(int codHotel);
+    public List<Quarto> todosQuatosPorHotelAdmin(int codHotel);
     
-    public List<Quarto> quartosDisponiveis(Date dataEntrada, Date dataSaida);
+    public List<TipoQuato> tiposDeQuatosPorHotel(int codHotel);
+        
+    public List<Quarto> quartosDisponiveis(Date dataEntrada, Date dataSaida, int codHotel);
     
 }

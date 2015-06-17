@@ -22,13 +22,13 @@ public class ReservaHotelDao implements DaoReservaHotelIT {
     @Override
     public boolean salvar(ReservaHotel reserva) {
 
-        try {
+//        try {
             em.persist(reserva);
             return true;
-        } catch (Exception e) {
-            e.getMessage();
-            return false;
-        }
+//        } catch (Exception e) {
+//            e.getMessage();
+//            return false;
+//        }
     }
 
     @Override

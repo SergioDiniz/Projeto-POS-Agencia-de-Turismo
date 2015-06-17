@@ -1,8 +1,8 @@
 package controle;
 
-
 import fachada.Fachada;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -26,6 +26,8 @@ public class ControladorQuarto implements Serializable {
     private Quarto quarto;
     private String disponivel;
 
+    
+    
     public ControladorQuarto() {
         this.quarto = new Quarto();
         this.disponivel = new String();
@@ -43,59 +45,89 @@ public class ControladorQuarto implements Serializable {
         return disponivel;
     }
 
+    
+    
     public void setDisponivel(String disponivel) {
         this.disponivel = disponivel;
     }
-    
+
     public String salvarQuarto() {
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
         HttpSession session = (HttpSession) context.getSession(false);
         Hotel hotel = (Hotel) session.getAttribute("hotel");
-    
-        if(fachada.buscarQuarto(quarto.getNumero()) == null){
-            
-            if(this.disponivel.equalsIgnoreCase("Sim")){
+
+        if (fachada.buscarQuarto(quarto.getNumero()) == null) {
+
+            if (this.disponivel.equalsIgnoreCase("Sim")) {
                 this.quarto.setDisponivel(true);
-            }else{
+            } else {
                 this.quarto.setDisponivel(false);
             }
-            
+
             fachada.salvarQuarto(quarto);
             hotel.getQuartos().add(quarto);
             fachada.atualizarHotel(hotel);
             quarto = new Quarto();
-        }else{
+        } else {
             System.out.println("Codigo Ja Cadastrado!!!");
         }
-        
+
         return null;
     }
-    
-    public String volarPageListarHotel(){
+
+    public String volarPageListarHotel() {
         return "listaHotel?faces-redirect=true";
     }
-    
-    public String buscarQuarto(){
+
+    public String buscarQuarto() {
         Quarto q = fachada.buscarQuarto(quarto.getNumero());
-        
-        if(q != null){
+
+        if (q != null) {
             this.quarto = q;
-        }else{
+        } else {
             System.out.println("Nenhum Registro Encontrado!");
         }
-        
+
         return null;
     }
-    
-    public String atualizarQuarto(){
-        fachada.atualizarQuarto(quarto);
-        
+
+    public String buscarQuartoPorNumero(int numeroQuarto) {
+        Quarto q = fachada.buscarQuarto(numeroQuarto);
+
+        if (q != null) {
+            this.quarto = q;
+            return "admin-editar-quarto.jsf?faces-redirect=true";
+        } else {
+            System.out.println("Nenhum Registro Encontrado!");
+        }
+
         return null;
     }
-    
-    public String removerQuarto(){
+
+    public String atualizarQuarto() {
+
+        if (this.disponivel.equalsIgnoreCase("Sim")) {
+            this.quarto.setDisponivel(true);
+        } else {
+            this.quarto.setDisponivel(false);
+        }
+
+        fachada.atualizarQuarto(this.quarto);
+
+        return "admin-aditar-hotel.jsf?faces-redirect=true";
+    }
+
+    public String removerQuarto() {
         fachada.removerQuarto(quarto);
         this.quarto = new Quarto();
-        return null;
+        return "admin-aditar-hotel.jsf?faces-redirect=true";
+    }
+
+    public List<Quarto> todosQuatosPorHotel(int codHotel) {
+        return fachada.todosQuatosPorHotel(codHotel);
+    }
+
+    public List<Quarto> todosQuatosPorHotelAdmin(int codHotel) {
+        return fachada.todosQuatosPorHotelAdmin(codHotel);
     }
 }

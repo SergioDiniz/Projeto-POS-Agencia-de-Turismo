@@ -13,18 +13,20 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface DaoIT {
+
+    // Metodos do Hotel
+    public List<Hotel> buscarTodosCidade(String cidade);
     
-    public boolean salvarReserva(ReservaHotel reserva);
+    // Metodos do Quarto   
+    public List<Quarto> quartosDisponiveis(Date dataEntrada, Date dataSaida, int codHotel);
     
-    public List<Hotel> buscarTodosHoteisPorCidade(String cidade);
-    
-    public List<Quarto> todosQuatosPorHotel(int codHotel);
-    
-    public boolean atualizarQuarto(Quarto quarto);
-    
-    public ReservaHotel buscarReservaHotel(int codigoReserva);
-    
-    public List<ReservaHotel> listarReservasHotel(String login);
-    
+    // Metodos da Reserva
     public List<ReservaHotel> listarReservasPorData(Date dataReserva, String login);
+    
+    public List<ReservaHotel> reservasHospede(String login);
+    
+    public ReservaHotel buscarReservaCodigo(int codigo);
+    
+    public boolean salvarResevar(ReservaHotel reserva);
+
 }

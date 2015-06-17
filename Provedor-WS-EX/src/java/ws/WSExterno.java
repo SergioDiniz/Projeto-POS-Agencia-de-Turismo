@@ -24,50 +24,51 @@ public class WSExterno {
     private FachadaIT fachada;
 
     /**
-     * *************************Entidade ReservaHotel*************************
+     * Operação de Web service
      */
-    /**
-     * Operação de reservar hotel
-     */
-    @WebMethod(operationName = "salvarReservaHotel")
-    public boolean salvarReservaHotel(@WebParam(name = "reservaHotel") ReservaHotel reservaHotel) {
-        return fachada.salvarReservaHotel(reservaHotel);
+    @WebMethod(operationName = "buscarTodosCidade")
+    public List<Hotel> buscarTodosCidade(@WebParam(name = "cidade") String cidade) {
+        return fachada.buscarTodosCidade(cidade);
     }
 
     /**
-     * Operação de Listar todos os hoteis de uma cidade
+     * Operação de Web service
      */
-    @WebMethod(operationName = "listaHotelPorCidade")
-    public List<Hotel> listaHotelPorCidade(@WebParam(name = "cidade") String cidade) {
-        return fachada.buscarTodosHoteisPorCidade(cidade);
+    @WebMethod(operationName = "quartosDisponiveis")
+    public List<Quarto> quartosDisponiveis(@WebParam(name = "dataEntrada") Date dataEntrada, @WebParam(name = "dataSaida") Date dataSaida, @WebParam(name = "codHotel") int codHotel) {
+        return fachada.quartosDisponiveis(dataEntrada, dataSaida, codHotel);
     }
 
     /**
-     * Operação que busca uma reserva qualquer
-     */
-    @WebMethod(operationName = "buscarReserva")
-    public ReservaHotel buscarReserva(@WebParam(name = "codigo") int codigo) {
-        return fachada.buscarUmaReserva(codigo);
-    }
-
-    /**
-     * Operação que busca todas as reservas de usuario
-     */
-    @WebMethod(operationName = "listarReservasUsuario")
-    public List<ReservaHotel> listarReservasUsuario(@WebParam(name = "login") String login) {
-        return fachada.todasAsReservas(login);
-    }
-
-    /**
-     * Operação que lista as reservas de usuario pela data
+     * Operação de Web service
      */
     @WebMethod(operationName = "listarReservasPorData")
     public List<ReservaHotel> listarReservasPorData(@WebParam(name = "dataReserva") Date dataReserva, @WebParam(name = "login") String login) {
-        return fachada.reservasPorData(dataReserva, login);
+        return fachada.listarReservasPorData(dataReserva, login);
     }
 
+    /**
+     * Operação de Web service
+     */
+    @WebMethod(operationName = "reservasHospede")
+    public List<ReservaHotel> reservasHospede(@WebParam(name = "login") String login) {
+        return fachada.reservasHospede(login);
+    }
 
     /**
-     * ***********************************************************************
+     * Operação de Web service
      */
+    @WebMethod(operationName = "buscarReservaCodigo")
+    public ReservaHotel buscarReservaCodigo(@WebParam(name = "codigo") int codigo) {
+        return fachada.buscarReservaCodigo(codigo);
+    }
+
+    /**
+     * Operação de Web service
+     */
+    @WebMethod(operationName = "salvarResevar")
+    public boolean salvarResevar(@WebParam(name = "reserva") ReservaHotel reserva) {
+        return fachada.salvarReserva(reserva);
+    } 
+    
 }

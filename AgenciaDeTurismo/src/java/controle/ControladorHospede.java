@@ -66,56 +66,61 @@ public class ControladorHospede implements Serializable {
 
     }
 
-    public String login(){
+    public String login() {
         try {
-            
+
             this.context = FacesContext.getCurrentInstance().getExternalContext();
             this.session = (HttpSession) context.getSession(false);
             this.hospede = fachada.loginHospede(this.hospede.getEmail(), this.hospede.getSenha());
-            
+
             this.context.getSessionMap().put("hospedeCadastrado", hospede);
             this.hospede = (Hospede) this.session.getAttribute("hospedeCadastrado");
-            
-            System.out.println("Hospede: " +this.hospede.getEmail());
+
+            System.out.println("Hospede: " + this.hospede.getEmail());
             return null;
-            
+
         } catch (Exception e) {
             return null;
         }
 
     }
-    
+
     public String sair() {
         this.context = FacesContext.getCurrentInstance().getExternalContext();
         HttpServletRequest request = (HttpServletRequest) context.getRequest();
         this.session = (HttpSession) context.getSession(false);
         session.invalidate();
-        
+
         try {
             context.redirect(request.getContextPath());
             this.hospede = new Hospede();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
-        return null;
-    }
-    
-    public String atualizarHospede(){
-        
-        fachada.atualizarHospede(hospede);
-        return null;
-    }
-    
-    public String removerHospede(){
-    
-        fachada.removerHospede(hospede);
+
         return null;
     }
 
-        
-    public List<ReservaHotel> reservasDoHospede(){
+    public String atualizarHospede() {
+
+        fachada.atualizarHospede(hospede);
+        return null;
+    }
+
+    public String removerHospede() {
+
+        fachada.removerHospede(hospede);
+
+        this.context = FacesContext.getCurrentInstance().getExternalContext();
+        HttpServletRequest request = (HttpServletRequest) context.getRequest();
+        this.session = (HttpSession) context.getSession(false);
+        session.invalidate();
+
+        return "index.jsf?faces-redirect=true";
+    }
+
+    public List<ReservaHotel> reservasDoHospede() {
         return fachada.reservasDoHospede(this.hospede.getEmail());
     }
-    
+
 }

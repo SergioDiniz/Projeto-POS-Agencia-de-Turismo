@@ -27,15 +27,38 @@ public class ControladorHotel implements Serializable {
 
     private Hotel hotel;
     private EnderecoHotel enderecoHotel;
+    private Hotel hotelaux;
+    private EnderecoHotel enderecoHotelaux;
+    
 
     public ControladorHotel() {
         this.hotel = new Hotel();
         this.enderecoHotel = new EnderecoHotel();
+        this.hotelaux = new Hotel();
+        this.enderecoHotelaux = new EnderecoHotel();
     }
 
     public Hotel getHotel() {
         return hotel;
     }
+
+    public Hotel getHotelaux() {
+        return hotelaux;
+    }
+
+    public EnderecoHotel getEnderecoHotelaux() {
+        return enderecoHotelaux;
+    }
+
+    public void setEnderecoHotelaux(EnderecoHotel enderecoHotelaux) {
+        this.enderecoHotelaux = enderecoHotelaux;
+    }
+
+    
+    public void setHotelaux(Hotel Hotelaux) {
+        this.hotelaux = Hotelaux;
+    }
+    
 
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
@@ -51,17 +74,19 @@ public class ControladorHotel implements Serializable {
 
     public String cadastrarHotel() {
 
-        if (fachada.buscarHotel(hotel.getCodigo()) == null) {
+        if (fachada.buscarHotel(hotelaux.getCodigo()) == null) {
 
             Gerente gerente = new Gerente();
             gerente.setEmail("Admin");
             gerente.setSenha("12345");
-            hotel.setGerente(gerente);
+            hotelaux.setGerente(gerente);
 
-            hotel.setEnderecoHotel(this.enderecoHotel);
-            fachada.salvarHotel(hotel);
-            this.hotel = new Hotel();
-            this.enderecoHotel = new EnderecoHotel();
+            hotelaux.setEnderecoHotel(this.enderecoHotelaux);
+            fachada.salvarHotel(hotelaux);
+            this.hotelaux = new Hotel();
+            this.enderecoHotelaux = new EnderecoHotel();
+            
+            return "admin-hoteis.jsf?faces-redirect=true";
         }
         return null;
     }
@@ -72,6 +97,7 @@ public class ControladorHotel implements Serializable {
 
     public String selectionarHotel(Hotel hotel) {
         this.hotel = hotel;
+        this.enderecoHotel =  hotel.getEnderecoHotel();
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
         HttpServletRequest request = (HttpServletRequest) context.getRequest();
         HttpSession session = (HttpSession) context.getSession(false);
@@ -94,15 +120,17 @@ public class ControladorHotel implements Serializable {
     public String atualizarHotel() {
         this.hotel.setEnderecoHotel(enderecoHotel);
         fachada.atualizarHotel(hotel);
-        return null;
+        return "admin-aditar-hotel.jsf?faces-redirect=true";
     }
 
     public String removerHotel() {
         fachada.removerHotel(hotel);
         this.hotel = new Hotel();
         this.enderecoHotel = new EnderecoHotel();
-        return null;
+        return "admin-hoteis.jsf?faces-redirect=true";
     }
+    
+    
     
 
     

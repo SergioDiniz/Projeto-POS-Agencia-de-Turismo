@@ -6,29 +6,23 @@
       <xsd:import namespace="http://ws/" schemaLocation="WSExterno_schema1.xsd"/>
     </xsd:schema>
   </types>
-  <message name="buscarReserva">
-    <part name="parameters" element="tns:buscarReserva"/>
+  <message name="buscarReservaCodigo">
+    <part name="parameters" element="tns:buscarReservaCodigo"/>
   </message>
-  <message name="buscarReservaResponse">
-    <part name="parameters" element="tns:buscarReservaResponse"/>
+  <message name="buscarReservaCodigoResponse">
+    <part name="parameters" element="tns:buscarReservaCodigoResponse"/>
   </message>
-  <message name="salvarReservaHotel">
-    <part name="parameters" element="tns:salvarReservaHotel"/>
+  <message name="quartosDisponiveis">
+    <part name="parameters" element="tns:quartosDisponiveis"/>
   </message>
-  <message name="salvarReservaHotelResponse">
-    <part name="parameters" element="tns:salvarReservaHotelResponse"/>
+  <message name="quartosDisponiveisResponse">
+    <part name="parameters" element="tns:quartosDisponiveisResponse"/>
   </message>
-  <message name="listaHotelPorCidade">
-    <part name="parameters" element="tns:listaHotelPorCidade"/>
+  <message name="buscarTodosCidade">
+    <part name="parameters" element="tns:buscarTodosCidade"/>
   </message>
-  <message name="listaHotelPorCidadeResponse">
-    <part name="parameters" element="tns:listaHotelPorCidadeResponse"/>
-  </message>
-  <message name="listarReservasUsuario">
-    <part name="parameters" element="tns:listarReservasUsuario"/>
-  </message>
-  <message name="listarReservasUsuarioResponse">
-    <part name="parameters" element="tns:listarReservasUsuarioResponse"/>
+  <message name="buscarTodosCidadeResponse">
+    <part name="parameters" element="tns:buscarTodosCidadeResponse"/>
   </message>
   <message name="listarReservasPorData">
     <part name="parameters" element="tns:listarReservasPorData"/>
@@ -36,31 +30,47 @@
   <message name="listarReservasPorDataResponse">
     <part name="parameters" element="tns:listarReservasPorDataResponse"/>
   </message>
+  <message name="reservasHospede">
+    <part name="parameters" element="tns:reservasHospede"/>
+  </message>
+  <message name="reservasHospedeResponse">
+    <part name="parameters" element="tns:reservasHospedeResponse"/>
+  </message>
+  <message name="salvarResevar">
+    <part name="parameters" element="tns:salvarResevar"/>
+  </message>
+  <message name="salvarResevarResponse">
+    <part name="parameters" element="tns:salvarResevarResponse"/>
+  </message>
   <portType name="WSExterno">
-    <operation name="buscarReserva">
-      <input wsam:Action="http://ws/WSExterno/buscarReservaRequest" message="tns:buscarReserva"/>
-      <output wsam:Action="http://ws/WSExterno/buscarReservaResponse" message="tns:buscarReservaResponse"/>
+    <operation name="buscarReservaCodigo">
+      <input wsam:Action="http://ws/WSExterno/buscarReservaCodigoRequest" message="tns:buscarReservaCodigo"/>
+      <output wsam:Action="http://ws/WSExterno/buscarReservaCodigoResponse" message="tns:buscarReservaCodigoResponse"/>
     </operation>
-    <operation name="salvarReservaHotel">
-      <input wsam:Action="http://ws/WSExterno/salvarReservaHotelRequest" message="tns:salvarReservaHotel"/>
-      <output wsam:Action="http://ws/WSExterno/salvarReservaHotelResponse" message="tns:salvarReservaHotelResponse"/>
+    <operation name="quartosDisponiveis">
+      <input wsam:Action="http://ws/WSExterno/quartosDisponiveisRequest" message="tns:quartosDisponiveis"/>
+      <output wsam:Action="http://ws/WSExterno/quartosDisponiveisResponse" message="tns:quartosDisponiveisResponse"/>
     </operation>
-    <operation name="listaHotelPorCidade">
-      <input wsam:Action="http://ws/WSExterno/listaHotelPorCidadeRequest" message="tns:listaHotelPorCidade"/>
-      <output wsam:Action="http://ws/WSExterno/listaHotelPorCidadeResponse" message="tns:listaHotelPorCidadeResponse"/>
-    </operation>
-    <operation name="listarReservasUsuario">
-      <input wsam:Action="http://ws/WSExterno/listarReservasUsuarioRequest" message="tns:listarReservasUsuario"/>
-      <output wsam:Action="http://ws/WSExterno/listarReservasUsuarioResponse" message="tns:listarReservasUsuarioResponse"/>
+    <operation name="buscarTodosCidade">
+      <input wsam:Action="http://ws/WSExterno/buscarTodosCidadeRequest" message="tns:buscarTodosCidade"/>
+      <output wsam:Action="http://ws/WSExterno/buscarTodosCidadeResponse" message="tns:buscarTodosCidadeResponse"/>
     </operation>
     <operation name="listarReservasPorData">
       <input wsam:Action="http://ws/WSExterno/listarReservasPorDataRequest" message="tns:listarReservasPorData"/>
       <output wsam:Action="http://ws/WSExterno/listarReservasPorDataResponse" message="tns:listarReservasPorDataResponse"/>
     </operation>
+    <operation name="reservasHospede">
+      <input wsam:Action="http://ws/WSExterno/reservasHospedeRequest" message="tns:reservasHospede"/>
+      <output wsam:Action="http://ws/WSExterno/reservasHospedeResponse" message="tns:reservasHospedeResponse"/>
+    </operation>
+    <operation name="salvarResevar">
+      <input wsam:Action="http://ws/WSExterno/salvarResevarRequest" message="tns:salvarResevar"/>
+      <output wsam:Action="http://ws/WSExterno/salvarResevarResponse" message="tns:salvarResevarResponse"/>
+    </operation>
   </portType>
   <binding name="WSExternoPortBinding" type="tns:WSExterno">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-    <operation name="buscarReserva">
+    <operation name="buscarReservaCodigo">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -69,7 +79,7 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="salvarReservaHotel">
+    <operation name="quartosDisponiveis">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -78,16 +88,7 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="listaHotelPorCidade">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="listarReservasUsuario">
+    <operation name="buscarTodosCidade">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -97,6 +98,24 @@
       </output>
     </operation>
     <operation name="listarReservasPorData">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="reservasHospede">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="salvarResevar">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>

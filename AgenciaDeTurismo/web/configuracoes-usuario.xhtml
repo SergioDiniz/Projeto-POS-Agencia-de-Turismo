@@ -44,7 +44,8 @@
                                             <h:inputSecret redisplay="true" value="#{controladorHospede.hospede.senha}" class="form-control input-lg"/>
                                         </div>
                                         <div>
-                                            <h:commandButton class="btn btn-conhecer" value="Salvar" action="${controladorHospede.atualizarHospede()}"/>
+                                            <h:commandButton class="btn btn-conhecer" value="Salvar" action="${controladorHospede.atualizarHospede()}" style="margin-right: 1em"/>
+                                            <h:commandButton class="btn btn-default" value="Excluir" action="${controladorHospede.removerHospede()}"/>
                                         </div>
                                     </h:form>
                                 </div>

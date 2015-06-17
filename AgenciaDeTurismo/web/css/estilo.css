@@ -368,8 +368,7 @@ body{
 }
 
 .bem-vindo{
-    margin-top: 70px;
-    text-align: center;
+    margin-top: 20px;
     font-size: 30px;
     font-family: 'Quicksand', sans-serif !important;
 }

@@ -88,6 +88,21 @@ public class QuartoDao implements DaoQuartoIT {
     }
 
     @Override
+    public List<Quarto> todosQuatosPorHotelAdmin(int codHotel) {
+        List<Quarto> quartos;
+        try {
+            Query query = em.createQuery("select q from Hotel h JOIN h.quartos q where h.codigo = :codigo");
+            query.setParameter("codigo", codHotel);
+            quartos = (List<Quarto>) query.getResultList();
+
+            return quartos;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
     public List<TipoQuato> tiposDeQuatosPorHotel(int codHotel) {
         List<TipoQuato> quartos = new ArrayList<TipoQuato>();
         try {
@@ -113,11 +128,54 @@ public class QuartoDao implements DaoQuartoIT {
             return null;
         }
     }
-    
+
     @Override
-    public List<Quarto> quartosDisponiveis(Date dataEntrada, Date dataSaida){
-        List<Quarto> quartosDisponiveis = new ArrayList();
-        
-        return quartosDisponiveis;
+    public List<Quarto> quartosDisponiveis(Date dataEntrada, Date dataSaida, int codHotel) {
+        String sql = "SELECT q from Hotel h, ReservaHotel rh JOIN rh.quarto q where h.codigo = :codHotel and ";
+        List<String> consultas = new ArrayList<>();
+        consultas.add(":dataEntrada = rh.dataReserva and  :dataSaida = rh.dataSaida");
+        consultas.add("rh.dataReserva between :dataEntrada and :dataSaida");
+        consultas.add(":dataEntrada > rh.dataReserva and :dataSaida > rh.dataSaida and :dataEntrada < rh.dataSaida");
+        consultas.add(":dataEntrada > rh.dataReserva and :dataSaida < rh.dataSaida");
+        consultas.add(":dataEntrada < rh.dataReserva and :dataSaida > rh.dataSaida ");
+
+        List<Quarto> quartos = new ArrayList<>();
+        try {
+            
+            List<Quarto> quartosDisponiveis = new ArrayList<>();
+            quartosDisponiveis = removerQuartosIndisponiveis(codHotel);
+
+            for (String consulta : consultas) {
+                Query query = em.createQuery(sql+consulta);
+                query.setParameter("dataEntrada", dataEntrada);
+                query.setParameter("dataSaida", dataSaida);
+                query.setParameter("codHotel", codHotel);
+                quartos = (List<Quarto>) query.getResultList();
+                
+                quartosDisponiveis.removeAll(quartos);
+                quartos = new ArrayList<>();
+                
+            }
+
+            
+
+            return quartosDisponiveis;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
+
+    public List<Quarto> removerQuartosIndisponiveis(int codHotel) {
+        List<Quarto> quartos = new ArrayList();
+        Query query = em.createQuery("select q from Hotel h JOIN h.quartos q WHERE h.codigo = :codHotel");
+        query.setParameter("codHotel", codHotel);
+
+        List<Quarto> todos = (List<Quarto>) query.getResultList();
+        quartos = (List<Quarto>) query.getResultList();
+
+        return quartos;
+    }
+
 }

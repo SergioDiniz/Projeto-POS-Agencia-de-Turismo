@@ -127,6 +127,22 @@ public class Fachada implements FachadaIT {
         return daoQuartoIT.tiposDeQuatosPorHotel(codHotel);
     }
     
+    @Override
+    public List<Quarto> todosQuatosPorHotel(int codHotel) {
+        return daoQuartoIT.todosQuatosPorHotel(codHotel);
+    }
+
+
+    @Override
+    public List<Quarto> quartosIndisponiveisNaReserva(Date dataEntrada, Date dataSaida, int codHotel) {
+        return daoQuartoIT.quartosDisponiveis(dataEntrada, dataSaida, codHotel);
+    }
+    
+    @Override
+    public List<Quarto> todosQuatosPorHotelAdmin(int codHotel){
+        return daoQuartoIT.todosQuatosPorHotelAdmin(codHotel);
+    }
+    
 
     //
     //
@@ -185,4 +201,7 @@ public class Fachada implements FachadaIT {
     public List<ReservaHotel> listarReservasPorData(Date dataReserva, String login){
         return daoReservaIT.listarReservasPorData(dataReserva, login);
     }
+
+
+
 }

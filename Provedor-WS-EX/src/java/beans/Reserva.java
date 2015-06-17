@@ -1,12 +1,12 @@
 package beans;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,36 +17,35 @@ import javax.persistence.TemporalType;
  */
 
 @Entity
-public class ReservaHotel implements Serializable{
+public class Reserva implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     @Temporal(TemporalType.DATE)
+    private Date dataEntrada;
+    @Temporal(TemporalType.DATE)
     private Date dataSaida;
     @Temporal(TemporalType.DATE)
     private Date dataReserva;
-    private float valorReserva;
 
+    @ManyToOne
+    private Hospede hospede;
+    @OneToOne
+    private Hotel hotel;
     @OneToOne
     private Quarto quarto;
 
-    @OneToOne
-    private Hotel hotel;
-    
-    @OneToOne
-    private Hospede hospede;
-    
-    public ReservaHotel() {
+    public Reserva() {
     }
 
-    public ReservaHotel(Date dataSaida, Date dataReserva, float valorReserva, Quarto quarto, Hotel hotel, Hospede hospede) {
+    public Reserva(Date dataEntrada, Date dataSaida, Date dataReserva, Quarto quarto, Hospede hospede, Hotel hotel) {
+        this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
         this.dataReserva = dataReserva;
-        this.valorReserva = valorReserva;
         this.quarto = quarto;
-        this.hotel = hotel;
         this.hospede = hospede;
+        this.hotel = hotel;
     }
 
     public int getCodigo() {
@@ -55,6 +54,14 @@ public class ReservaHotel implements Serializable{
 
     public void setCodigo(int codigo) {
         this.codigo = codigo;
+    }
+
+    public Date getDataEntrada() {
+        return dataEntrada;
+    }
+
+    public void setDataEntrada(Date dataEntrada) {
+        this.dataEntrada = dataEntrada;
     }
 
     public Date getDataSaida() {
@@ -73,28 +80,12 @@ public class ReservaHotel implements Serializable{
         this.dataReserva = dataReserva;
     }
 
-    public float getValorReserva() {
-        return valorReserva;
-    }
-
-    public void setValorReserva(float valorReserva) {
-        this.valorReserva = valorReserva;
-    }
-
     public Quarto getQuarto() {
         return quarto;
     }
 
     public void setQuarto(Quarto quarto) {
         this.quarto = quarto;
-    }
-
-    public Hotel getHotel() {
-        return hotel;
-    }
-
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
     }
 
     public Hospede getHospede() {
@@ -104,10 +95,12 @@ public class ReservaHotel implements Serializable{
     public void setHospede(Hospede hospede) {
         this.hospede = hospede;
     }
-    
-    public String converteData(Date data){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        return dateFormat.format(data);
+
+    public Hotel getHotel() {
+        return hotel;
     }
-    
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
 }

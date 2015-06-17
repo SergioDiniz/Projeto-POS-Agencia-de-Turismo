@@ -39,10 +39,12 @@ public class ControladorReservaHotel implements Serializable {
     private HttpSession session;
     private Date dataEntrada;
     private Date dataSaida;
+    private boolean quartosPesquisa;
 
     public ControladorReservaHotel() {
         this.reservaHotel = new ReservaHotel();
         this.hotel = new Hotel();
+        this.quartosPesquisa =  false;
     }
 
     public ReservaHotel getReservaHotel() {
@@ -65,6 +67,16 @@ public class ControladorReservaHotel implements Serializable {
         return hotel;
     }
 
+    public boolean isQuartosPesquisa() {
+        return quartosPesquisa;
+    }
+
+    public void setQuartosPesquisa(boolean quartosPesquisa) {
+        this.quartosPesquisa = quartosPesquisa;
+    }
+
+    
+    
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
     }
@@ -110,24 +122,26 @@ public class ControladorReservaHotel implements Serializable {
         this.session = (HttpSession) this.context.getSession(false);
         context.getSessionMap().put("hotelReserva", hotel);
 //        return "reservarQuarto?faces-redirect=true";
-        return "hotelselecionado.jsf?faces-redirect=true";
+        return "pesquisar-data.jsf?faces-redirect=true";
     }
 
-    public String reservarHotel() {
+    public String reservarHotel(Quarto quarto) {
         this.context = FacesContext.getCurrentInstance().getExternalContext();
         this.session = (HttpSession) this.context.getSession(false);
         this.hotel = (Hotel) this.session.getAttribute("hotelReserva");
+        System.out.println("Hotel: " + hotel.getNome());
         Hospede hospede = (Hospede) this.session.getAttribute("hospedeCadastrado");
+        System.out.println("Usuario: " + hospede.getNome());
 
-        reservaHotel.setQuarto(null);
+        System.out.println("Quarto: " + quarto.getNumero());
+        reservaHotel.setQuarto(quarto);
         reservaHotel.setHotel(hotel);
         reservaHotel.setHospede(hospede);
-        reservaHotel.setDataReserva(XMLCalendarParaDate.toXMLGregorianCalendar(dataEntrada));
-        reservaHotel.setDataSaida(XMLCalendarParaDate.toXMLGregorianCalendar(dataSaida));
-
-        reservaHotel.setValorReserva(0);
+        reservaHotel.setDataReserva(XMLCalendarParaDate.toXMLGregorianCalendar(this.dataEntrada));
+        reservaHotel.setDataSaida(XMLCalendarParaDate.toXMLGregorianCalendar(this.dataSaida));
 
         boolean resposta = fachada.salvarReservaHotel(reservaHotel);
+        System.out.println("");
 
         if (resposta == true) {
             this.reservaHotel = new ReservaHotel();
@@ -139,6 +153,24 @@ public class ControladorReservaHotel implements Serializable {
 
         return null;
     }
+    
+    
+    public String quartosDisponiveis(int codHotel){
+        this.quartosPesquisa = true;
+        
+        List<Quarto> qax = fachada.quartosDisponiveis(XMLCalendarParaDate.toXMLGregorianCalendar(dataEntrada), XMLCalendarParaDate.toXMLGregorianCalendar(dataSaida), codHotel);
+        
+        for (int i = 0; i < qax.size(); i++) {
+            qax.get(i).setPreco(XMLCalendarParaDate.diferencaDeDatas(dataEntrada, dataSaida) * qax.get(i).getPreco());
+        }
+        
+        this.context = FacesContext.getCurrentInstance().getExternalContext();
+        this.request = (HttpServletRequest) context.getRequest();
+        this.session = (HttpSession) context.getSession(false);
+        this.context.getSessionMap().put("quatosDisponiveisPorData", qax );
+        return null;
+    }
+    
 
     public List<TipoQuato> tiposDeQuatosPorHotel(int codHotel) {
         return fachada.tiposDeQuatosPorHotel(codHotel);
@@ -155,5 +187,7 @@ public class ControladorReservaHotel implements Serializable {
         }
         return converteData(calendar.toGregorianCalendar().getTime());
     }
+    
+    
 
 }

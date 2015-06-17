@@ -1,6 +1,7 @@
 package fachada;
 
 import beans.Hotel;
+import beans.Quarto;
 import beans.ReservaHotel;
 import java.util.Date;
 import java.util.List;
@@ -11,14 +12,19 @@ import java.util.List;
  */
 public interface FachadaIT {
     
-    public boolean salvarReservaHotel(ReservaHotel reservaHotel);
+    // Metodos do Hotel
+    public List<Hotel> buscarTodosCidade(String cidade);
     
-    public List<Hotel> buscarTodosHoteisPorCidade(String cidade);
+    // Metodos do Quarto   
+    public List<Quarto> quartosDisponiveis(Date dataEntrada, Date dataSaida, int codHotel);
     
-    public ReservaHotel buscarUmaReserva(int codigo);
+    // Metodos da Reserva
+    public List<ReservaHotel> listarReservasPorData(Date dataReserva, String login);
     
-    public List<ReservaHotel> todasAsReservas(String login);
+    public List<ReservaHotel> reservasHospede(String login);
     
-    public List<ReservaHotel> reservasPorData(Date dataReserva, String login);
+    public ReservaHotel buscarReservaCodigo(int codigo);
+    
+    public boolean salvarReserva(ReservaHotel reserva);
    
 }

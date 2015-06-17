@@ -1,0 +1,70 @@
+
+// Data Iguais
+select rh.* from hotel h, Quarto q 
+INNER JOIN Hotel_Quarto hq on q.numero = hq.quartos_numero 
+INNER JOIN ReservaHotel rh on rh.quarto_numero = q.numero 
+where h.codigo = 1 and 
+(
+'2015-02-10' = rh.datareserva
+and
+'2015-02-15' = rh.datasaida
+)
+
+
+
+
+// Entrada fora, Saida dentro
+select rh.* from hotel h, Quarto q 
+INNER JOIN Hotel_Quarto hq on q.numero = hq.quartos_numero 
+INNER JOIN ReservaHotel rh on rh.quarto_numero = q.numero 
+where h.codigo = 1 and 
+(
+rh.datareserva between '2015-02-08'
+and
+'2015-02-12' 
+)
+
+
+
+
+
+// Entra dentro, Saida Fora
+select rh.* from hotel h, Quarto q 
+INNER JOIN Hotel_Quarto hq on q.numero = hq.quartos_numero 
+INNER JOIN ReservaHotel rh on rh.quarto_numero = q.numero 
+where h.codigo = 1 and 
+(
+'2015-02-12' > rh.datareserva
+and
+'2015-02-18' > rh.datasaida
+and
+'2015-02-12' < rh.datasaida
+
+)
+
+
+
+// Os dois dentro
+select rh.* from hotel h, Quarto q 
+INNER JOIN Hotel_Quarto hq on q.numero = hq.quartos_numero 
+INNER JOIN ReservaHotel rh on rh.quarto_numero = q.numero 
+where h.codigo = 1 and 
+(
+'2015-02-12' > rh.datareserva
+and
+'2015-02-14' < rh.datasaida
+)
+
+
+
+
+//  Os dois fora
+select rh.* from hotel h, Quarto q 
+INNER JOIN Hotel_Quarto hq on q.numero = hq.quartos_numero 
+INNER JOIN ReservaHotel rh on rh.quarto_numero = q.numero 
+where h.codigo = 1 and 
+(
+'2015-02-05' < rh.datareserva
+and
+'2015-02-24' > rh.datasaida
+)
