@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="http://localhost:8080/WSExterno/WSExterno?wsdl" uri="wsdl/localhost_8080/WSExterno/WSExterno.wsdl"/>
-    <system systemId="http://localhost:8080/WSExterno/WSExterno?xsd=1" uri="wsdl/localhost_8080/WSExterno/WSExterno.xsd_1.xsd"/>
     <system systemId="file:/C:/Users/Fatinha/Documents/Repositorios/WS-AgenciaTurismo/Provedor-WS-EX/web/WEB-INF/wsdl/WSExterno.wsdl" uri="wsdl/WSExterno.wsdl"/>
     <system systemId="file:/C:/Users/Fatinha/Documents/Repositorios/WS-AgenciaTurismo/Provedor-WS-EX/web/WEB-INF/wsdl/WSExterno_schema1.xsd" uri="wsdl/WSExterno_schema1.xsd"/>
     <system systemId="file:/C:/Users/Fatinha/Documents/Repositorios/Agencia%20de%20Viajens/Provedor-WS-EX/web/WEB-INF/wsdl/WSExterno.wsdl" uri="wsdl/WSExterno.wsdl"/>
     <system systemId="file:/C:/Users/Fatinha/Documents/Repositorios/Agencia%20de%20Viajens/Provedor-WS-EX/web/WEB-INF/wsdl/WSExterno_schema1.xsd" uri="wsdl/WSExterno_schema1.xsd"/>
+    <system systemId="http://localhost:8080/WSExterno/WSExterno?wsdl" uri="wsdl/localhost_8080/WSExterno/WSExterno.wsdl"/>
+    <system systemId="http://localhost:8080/WSExterno/WSExterno?xsd=1" uri="wsdl/localhost_8080/WSExterno/WSExterno.xsd_1.xsd"/>
     <system systemId="file:/D:/Sergio/Documentos/ADS/P6/POS/Projeto%201/Projeto-POS-Agencia-de-Turismo/Provedor-WS-EX/web/WEB-INF/wsdl/WSExterno.wsdl" uri="wsdl/WSExterno.wsdl"/>
     <system systemId="file:/D:/Sergio/Documentos/ADS/P6/POS/Projeto%201/Projeto-POS-Agencia-de-Turismo/Provedor-WS-EX/web/WEB-INF/wsdl/WSExterno_schema1.xsd" uri="wsdl/WSExterno_schema1.xsd"/>
 </catalog>

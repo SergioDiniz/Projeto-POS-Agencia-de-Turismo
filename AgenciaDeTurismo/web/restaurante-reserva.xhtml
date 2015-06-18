@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cidade</title>
+    </h:head>
+    <h:body>
+        <div id="menu-topo">
+            <ui:include src="cidade-topo.xhtml"/>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="menu-lateral">
+                        <ui:include src="cidade-lateral.xhtml"/>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div id="nome-cidade">
+                            Bem-vindo a ${restaurante.nome}
+                        </div>
+
+                        <div class="disponiveis">
+                            Informe <b>todos</b> os dados para fazer uma reserva:
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6" style="margin-top: 20px;">
+                                <h:form>
+                                    <div class="form-group">
+                                        Data de Entrada *
+                                        <h:inputText value="#{controladorRestaurante.dataReserva}" class="form-control input-lg" id="data-entrada" p:placeholder="Data de Reserva">
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        </h:inputText>
+                                    </div>
+                                    <div class="form-group">
+                                        Quantidade de Pessoas *
+                                        <h:inputText value="#{controladorRestaurante.reservaRestaurante.qtdePessoas}" class="form-control input-lg" id="pessoas" p:placeholder="Data de Reserva" />
+                                    </div>
+                                    <h:commandButton class="btn btn-conhecer btn-lg" value="Reservar" action="#{controladorRestaurante.criarReserva(hospedeCadastrado.email, restaurante)}" style="margin-top: 10px;"/>
+                                </h:form>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </h:body>
+
+    <!-- Meu JavaScript -->
+    <script src="js/script.js"></script>
+</html>
+

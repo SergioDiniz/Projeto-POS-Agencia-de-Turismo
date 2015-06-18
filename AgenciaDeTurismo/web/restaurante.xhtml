@@ -35,19 +35,19 @@
                             <table class="table" align="center">
                                 <tr>
                                     <th>Nome</th>
-                                    <th>Descirção</th>
+                                    <th>Descrição</th>
                                     <th>CNPJ</th>
                                     <th align="right">
                                     </th>
                                 </tr> 
-                                <c:forEach var="restaurantes" items="${controladorRestaurante.buscarRestaurantesPorCidade()}">
+                                <c:forEach var="restaurante" items="${controladorRestaurante.buscarRestaurantesPorCidade()}">
                                     <tr>
-                                        <td>${restaurantes.nome}</td>
-                                        <td>${restaurantes.descricao}</td>
-                                        <td>${restaurantes.cnpj}</td>
+                                        <td>${restaurante.nome}</td>
+                                        <td>${restaurante.descricao}</td>
+                                        <td>${restaurante.cnpj}</td>
                                         <td align="right">
                                             <h:form>
-                                                <button class="btn btn-conhecer" jsf:action="${controladorReservaHotel.selectionarHotelReserva(hotel)}">IR À HOTEL</button>
+                                                <button class="btn btn-conhecer" jsf:action="${controladorRestaurante.selecionarRestaurante(restaurante)}">VISITAR</button>
                                             </h:form>
                                         </td>
                                     </tr> 

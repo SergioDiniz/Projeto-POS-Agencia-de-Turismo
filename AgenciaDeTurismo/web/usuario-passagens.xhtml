@@ -26,28 +26,30 @@
                         <div id="nome-cidade">
                             Ultimas reservas de Passagem
                         </div>
-                        
+
                         <div class="tabela-disponiveis">
                             <table class="table" align="center">
                                 <tr>
-                                    <th>Hotel</th>
-                                    <th>Quarto</th>
-                                    <th>Entrada</th>
-                                    <th>Saida</th>
-                                    <th>Valor</th>
+                                    <th>Agencia</th>
+                                    <th>Nº da Passagem</th>
+                                    <th>Nº de Voo</th>
+                                    <th>Origem</th>
+                                    <th>Destino</th>
+                                    <th>Preço</th>
                                 </tr> 
-                                <c:forEach var="hospede" items="${controladorHospede.reservasDoHospede()}">
+                                <c:forEach var="passagem" items="${controladorPassagem.listarPassagens(hospede.email)}">
                                     <tr>
-                                        <td>${hospede.hotel.nome}</td>
-                                        <td>${hospede.quarto.numero}</td>
-                                        <td>${controladorReservaHotel.toDate(hospede.dataReserva)}</td>
-                                        <td>${controladorReservaHotel.toDate(hospede.dataSaida)}</td>
-                                        <td>${hospede.valorReserva}</td>
+                                        <td>${passagem.voo.agencia.nome}</td>
+                                        <td>${passagem.id}</td>
+                                        <td>${passagem.voo.id}</td>
+                                        <td>${passagem.voo.origem.nome}</td>
+                                        <td>${passagem.voo.destino.nome}</td>
+                                        <td>${passagem.voo.preco}</td>
                                     </tr> 
                                 </c:forEach>
                             </table>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

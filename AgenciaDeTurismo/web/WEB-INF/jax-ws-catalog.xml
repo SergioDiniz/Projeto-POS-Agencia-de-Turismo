@@ -4,4 +4,6 @@
     <system systemId="http://localhost:8080/WSInternoJPA/WSInternoJPA?xsd=1" uri="wsdl/localhost_8080/WSInternoJPA/WSInternoJPA.xsd_1.xsd"/>
     <system systemId="file:/D:/POS/Restaurante/WSReservaRestaurante.wsdl" uri="wsdl/WSReservaRestaurante.wsdl"/>
     <system systemId="file:/D:/POS/Restaurante/WSReservaRestaurante_schema1.xsd" uri="wsdl/WSReservaRestaurante_schema1.xsd"/>
+    <system systemId="file:/D:/POS/Passagens/ServicosDePassagensWS.wsdl" uri="wsdl/ServicosDePassagensWS.wsdl"/>
+    <system systemId="file:/D:/POS/Passagens/ServicosDePassagensWS_schema1.xsd" uri="wsdl/ServicosDePassagensWS_schema1.xsd"/>
 </catalog>

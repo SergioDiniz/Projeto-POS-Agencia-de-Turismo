@@ -7,6 +7,7 @@ import ws.Hospede;
 import ws.Hotel;
 import ws.Quarto;
 import ws.WSInternoJPA_Service;
+import wse.passagem.ServicosDePassagensWS;
 import wse.restaurante.WSReservaRestaurante_Service;
 
 /**
@@ -15,10 +16,10 @@ import wse.restaurante.WSReservaRestaurante_Service;
  */
 @Stateless
 public class Fachada {
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/ServicosDePassagensWS.wsdl")
+    private ServicosDePassagensWS service_2;
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/WSReservaRestaurante.wsdl")
     private WSReservaRestaurante_Service service_1;
-    
-
 
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/WSInternoJPA/WSInternoJPA.wsdl")
     private WSInternoJPA_Service service;
@@ -133,24 +134,65 @@ public class Fachada {
         return port.reservasDoHospede(login);
     }
 
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
     
-    // WS Reservas no Restaurante - Janneina
+    
+    //
+    //
+    //
+    //
+    // Restaurante
 
     public java.util.List<wse.restaurante.Restaurante> buscarRestaurantesPorCidade(java.lang.String cidade) {
         wse.restaurante.WSReservaRestaurante port = service_1.getWSReservaRestaurantePort();
         return port.buscarRestaurantesPorCidade(cidade);
     }
 
+    public boolean criarReserva(wse.restaurante.ReservaRestaurante reserva) {
+        wse.restaurante.WSReservaRestaurante port = service_1.getWSReservaRestaurantePort();
+        return port.criarReserva(reserva);
+    }
+
+    public java.util.List<wse.restaurante.ReservaRestaurante> listarReservas() {
+        wse.restaurante.WSReservaRestaurante port = service_1.getWSReservaRestaurantePort();
+        return port.listarReservas();
+    }
+
+    public java.util.List<wse.restaurante.ReservaRestaurante> pesquisarReserva(javax.xml.datatype.XMLGregorianCalendar data) {
+        wse.restaurante.WSReservaRestaurante port = service_1.getWSReservaRestaurantePort();
+        return port.pesquisarReserva(data);
+    }
     
+    //
+    //
+    //
+    //
+    //
+    // Passagens
+
+    public java.util.List<wse.passagem.Voo> bucarVoos(java.lang.String cidadeOrigem, java.lang.String cidadeDestino, javax.xml.datatype.XMLGregorianCalendar data) {
+        wse.passagem.WSServices port = service_2.getWSServicesPort();
+        return port.bucarVoos(cidadeOrigem, cidadeDestino, data);
+    }
+
+    public Boolean cancelarPassagem(java.lang.Long idPassagem) {
+        wse.passagem.WSServices port = service_2.getWSServicesPort();
+        return port.cancelarPassagem(idPassagem);
+    }
+
+    public Boolean comprarPassagemIda(java.lang.String loginUsuario, wse.passagem.Voo voo, java.lang.String nomePassageiro, java.lang.String sobreNomePassageiro) {
+        wse.passagem.WSServices port = service_2.getWSServicesPort();
+        return port.comprarPassagemIda(loginUsuario, voo, nomePassageiro, sobreNomePassageiro);
+    }
+
+    public Boolean comprarPassagemIdaVolta(java.lang.String loginUsuario, wse.passagem.Voo vooIda, wse.passagem.Voo vooIdaVolta, java.lang.String nomePassageiro, java.lang.String sobreNomePassageiro) {
+        wse.passagem.WSServices port = service_2.getWSServicesPort();
+        return port.comprarPassagemIdaVolta(loginUsuario, vooIda, vooIdaVolta, nomePassageiro, sobreNomePassageiro);
+    }
+
+    public java.util.List<wse.passagem.Passagem> listarPassagens(java.lang.String loginUsuario) {
+        wse.passagem.WSServices port = service_2.getWSServicesPort();
+        return port.listarPassagens(loginUsuario);
+    }
     
     
 }

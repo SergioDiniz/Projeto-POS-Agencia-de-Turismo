@@ -30,17 +30,17 @@
                         <div class="tabela-disponiveis">
                             <table class="table" align="center">
                                 <tr>
-                                    <th>Hotel</th>
-                                    <th>Quarto</th>
-                                    <th>Entrada</th>
-                                    <th>Saida</th>
-                                    <th>Valor</th>
+                                    <th>Restaurante</th>
+                                    <th>Pessoas</th>
+                                    <th>Data</th>
+                                    <th>Cidade</th>
                                 </tr> 
-                                <c:forEach var="restaurante" items="${controladorRestaurante.buscarRestaurantesPorCidade()}">
+                                <c:forEach var="restaurantes" items="${controladorRestaurante.listarReservas(hospedeCadastrado.email)}">
                                     <tr>
-                                        <td>${restaurante.nome}</td>
-                                        <td>${restaurante.descricao}</td>
-                                        <td>${restaurante.cnpj}</td>
+                                        <td>${restaurantes.restaurante.nome}</td>
+                                        <td>${restaurantes.qtdePessoas}</td>
+                                        <td>${controladorReservaHotel.toDate(restaurantes.dataReserva)}</td>
+                                        <td>${restaurantes.restaurante.cidade}</td>
                                     </tr> 
                                 </c:forEach>
                             </table>

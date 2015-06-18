@@ -89,7 +89,7 @@
   </binding>
   <service name="WSReservaRestaurante">
     <port name="WSReservaRestaurantePort" binding="tns:WSReservaRestaurantePortBinding">
-      <soap:address location="http://192.168.92.56:8080/CrudRestaurante/CrudRestaurante"/>
+      <soap:address location="http://10.10.0.195:8080/WSReservaRestaurante/WSReservaRestaurante"/>
     </port>
   </service>
 </definitions>
