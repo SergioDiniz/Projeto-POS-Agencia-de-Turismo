@@ -127,7 +127,7 @@
   </binding>
   <service name="WSExterno">
     <port name="WSExternoPort" binding="tns:WSExternoPortBinding">
-      <soap:address location="http://10.10.1.122:8080/WSExterno/WSExterno"/>
+      <soap:address location="http://10.10.0.249:8080/WSExterno/WSExterno"/>
     </port>
   </service>
 </definitions>

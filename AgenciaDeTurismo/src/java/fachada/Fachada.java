@@ -18,7 +18,7 @@ import wse.restaurante.WSReservaRestaurante_Service;
 public class Fachada {
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/ServicosDePassagensWS.wsdl")
     private ServicosDePassagensWS service_2;
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/WSReservaRestaurante.wsdl")
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/10.10.0.95_8080/WSReservaRestaurante/WSReservaRestaurante.wsdl")
     private WSReservaRestaurante_Service service_1;
 
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/WSInternoJPA/WSInternoJPA.wsdl")
@@ -192,6 +192,13 @@ public class Fachada {
     public java.util.List<wse.passagem.Passagem> listarPassagens(java.lang.String loginUsuario) {
         wse.passagem.WSServices port = service_2.getWSServicesPort();
         return port.listarPassagens(loginUsuario);
+    }
+
+    private java.util.List<wse.restaurante.Restaurante> buscarRestaurantesPorCidade_1(java.lang.String cidade) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        wse.restaurante.WSReservaRestaurante port = service_1.getWSReservaRestaurantePort();
+        return port.buscarRestaurantesPorCidade(cidade);
     }
     
     

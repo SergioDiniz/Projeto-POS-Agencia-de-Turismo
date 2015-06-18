@@ -6,4 +6,6 @@
     <system systemId="file:/D:/POS/Restaurante/WSReservaRestaurante_schema1.xsd" uri="src/conf/xml-resources/web-service-references/WSReservaRestaurante/wsdl/WSReservaRestaurante_schema1.xsd"/>
     <system systemId="file:/D:/POS/Passagens/ServicosDePassagensWS.wsdl" uri="src/conf/xml-resources/web-service-references/ServicosDePassagensWS/wsdl/ServicosDePassagensWS.wsdl"/>
     <system systemId="file:/D:/POS/Passagens/ServicosDePassagensWS_schema1.xsd" uri="src/conf/xml-resources/web-service-references/ServicosDePassagensWS/wsdl/ServicosDePassagensWS_schema1.xsd"/>
+    <system systemId="http://10.10.0.95:8080/WSReservaRestaurante/WSReservaRestaurante?WSDL" uri="src/conf/xml-resources/web-service-references/WSReservaRestaurante/wsdl/10.10.0.95_8080/WSReservaRestaurante/WSReservaRestaurante.wsdl"/>
+    <system systemId="http://10.10.0.95:8080/WSReservaRestaurante/WSReservaRestaurante?xsd=1" uri="src/conf/xml-resources/web-service-references/WSReservaRestaurante/wsdl/10.10.0.95_8080/WSReservaRestaurante/WSReservaRestaurante.xsd_1.xsd"/>
 </catalog>

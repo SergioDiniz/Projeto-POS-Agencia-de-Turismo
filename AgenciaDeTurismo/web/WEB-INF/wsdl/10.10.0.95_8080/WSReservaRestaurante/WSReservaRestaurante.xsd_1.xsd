@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://webservicesexternos/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservicesexternos/">
+
+<xs:element name="buscarRestaurantesPorCidade" type="tns:buscarRestaurantesPorCidade"/>
+
+<xs:element name="buscarRestaurantesPorCidadeResponse" type="tns:buscarRestaurantesPorCidadeResponse"/>
+
+<xs:element name="criarReserva" type="tns:criarReserva"/>
+
+<xs:element name="criarReservaResponse" type="tns:criarReservaResponse"/>
+
+<xs:element name="listarReservas" type="tns:listarReservas"/>
+
+<xs:element name="listarReservasResponse" type="tns:listarReservasResponse"/>
+
+<xs:element name="pesquisarReserva" type="tns:pesquisarReserva"/>
+
+<xs:element name="pesquisarReservaResponse" type="tns:pesquisarReservaResponse"/>
+
+<xs:complexType name="criarReserva">
+<xs:sequence>
+<xs:element name="reserva" type="tns:reservaRestaurante" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservaRestaurante">
+<xs:sequence>
+<xs:element name="dataReserva" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="qtdePessoas" type="xs:int"/>
+<xs:element name="restaurante" type="tns:restaurante" minOccurs="0"/>
+<xs:element name="usuario" type="tns:usuario" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="restaurante">
+<xs:sequence>
+<xs:element name="cidade" type="xs:string" minOccurs="0"/>
+<xs:element name="cnpj" type="xs:string" minOccurs="0"/>
+<xs:element name="descricao" type="xs:string" minOccurs="0"/>
+<xs:element name="nome" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="usuario">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="nome" type="xs:string" minOccurs="0"/>
+<xs:element name="senha" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="criarReservaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarRestaurantesPorCidade">
+<xs:sequence>
+<xs:element name="cidade" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarRestaurantesPorCidadeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:restaurante" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarReservas">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarReservasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:reservaRestaurante" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pesquisarReserva">
+<xs:sequence>
+<xs:element name="data" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pesquisarReservaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:reservaRestaurante" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
