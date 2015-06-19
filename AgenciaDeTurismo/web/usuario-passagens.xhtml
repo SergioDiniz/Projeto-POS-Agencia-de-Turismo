@@ -37,7 +37,7 @@
                                     <th>Destino</th>
                                     <th>Preço</th>
                                 </tr> 
-                                <c:forEach var="passagem" items="${controladorPassagem.listarPassagens(hospede.email)}">
+                                <c:forEach var="passagem" items="${controladorPassagem.listarPassagens(controladorHospede.hospede.nome)}">
                                     <tr>
                                         <td>${passagem.voo.agencia.nome}</td>
                                         <td>${passagem.id}</td>

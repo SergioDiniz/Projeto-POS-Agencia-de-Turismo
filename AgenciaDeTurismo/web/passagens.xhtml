@@ -57,7 +57,7 @@
 
 
 
-                        <h:form rendered="${controladorReservaHotel.quartosPesquisa}">
+                        <h:form rendered="${controladorPassagem.vooPesquisa}">
 
                             <div class="row">
                                 <div class="">
@@ -77,12 +77,11 @@
 
 
 
-                                            <c:forEach var="voo" items="${voos}" varStatus="id" >
+                                            <c:forEach var="voo" items="${voosDisponiveis}" varStatus="id" >
                                                 <tr>
                                                     <td>${voo.agencia.nome}</td>
                                                     <td>${voo.id}</td>
-                                                    <td>${voo.preco}</td>
-                                                    <td>R$ ${quartopordata.preco}</td>
+                                                    <td>R$ ${voo.preco}</td>
                                                     <td align="right">
 
                                                         <!-- Button trigger modal -->
@@ -112,14 +111,11 @@
                                                                                         <th>Agencia</th>
                                                                                         <th>Nº de Voo</th>
                                                                                         <th>Preço</th>
-                                                                                        <th align="right">
-                                                                                        </th>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td>${voo.agencia.nome}</td>
                                                                                         <td>${voo.id}</td>
                                                                                         <td>${voo.preco}</td>
-                                                                                        <td>R$ ${voo.preco}</td>
                                                                                     </tr>
                                                                                 </table>
                                                                             </div>
@@ -130,7 +126,7 @@
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-default" data-dismiss="modal">cancelar</button>
-                                                                        <h:commandButton class="btn btn-conhecer" value="ALUGAR" action="#{controladorPassagem.comparPassagemIda(hospede.email, voo, hospede.nome)}" />                                                        
+                                                                        <h:commandButton class="btn btn-conhecer" value="ALUGAR" action="#{controladorPassagem.comparPassagemIda(hospede.email, voo, controladorHospede.hospede.nome)}" />                                                        
                                                                     </div>
                                                                 </div>
                                                             </div>

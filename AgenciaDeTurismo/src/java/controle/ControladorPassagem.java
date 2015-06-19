@@ -48,12 +48,12 @@ public class ControladorPassagem implements Serializable{
     public String buscarVoos(String origem){
         this.vooPesquisa = true;
         
-        List<Voo> voos = fachada.bucarVoos(origem, this.destino, XMLCalendarParaDate.toXMLGregorianCalendarPassagem(this.dataPassagem));
+        List<Voo> voos = fachada.bucarVoos(origem, this.destino, XMLCalendarParaDate.toXMLGregorianCalendar(this.dataPassagem));
         this.context = FacesContext.getCurrentInstance().getExternalContext();
         this.session = (HttpSession) this.context.getSession(false);
-        context.getSessionMap().put("voos", voos);
+        context.getSessionMap().put("voosDisponiveis", voos);
+       
         
-
         return "passagens.jsf?faces-redirect=true";
     }
  
