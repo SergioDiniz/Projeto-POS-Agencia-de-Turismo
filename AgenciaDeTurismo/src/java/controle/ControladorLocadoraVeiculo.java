@@ -67,9 +67,7 @@ public class ControladorLocadoraVeiculo implements Serializable {
   
         Reserva reserva = new Reserva();
         reserva.setCarro(this.carro);
-        Usuario usuario = new Usuario();
-        usuario.setNome(nomeUsuario);
-        reserva.setUsuario(usuario);
+        reserva.setEmail(nomeUsuario);
         reserva.setDataFim(XMLCalendarParaDate.toXMLGregorianCalendar(this.dataFim));
         reserva.setDataInicio(XMLCalendarParaDate.toXMLGregorianCalendar(this.dataInicio));
         reserva.setLocadora(this.locadora);
@@ -97,7 +95,7 @@ public class ControladorLocadoraVeiculo implements Serializable {
         
         for (Iterator<Reserva> iterator = reservasUsuario.iterator(); iterator.hasNext();) {
             Reserva reserva = iterator.next();
-            if (!reserva.getUsuario().getEmail().equals(emailUsuario)) {
+            if (!reserva.getEmail().equals(emailUsuario)) {
                 iterator.remove();
             }
         }

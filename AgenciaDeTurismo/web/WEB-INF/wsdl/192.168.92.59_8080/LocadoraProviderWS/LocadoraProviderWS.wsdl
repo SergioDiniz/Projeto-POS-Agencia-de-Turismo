@@ -4,29 +4,11 @@
 <xsd:import namespace="http://service.pos.com/" schemaLocation="http://192.168.92.59:8080/LocadoraProviderWS/LocadoraProviderWS?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="pesquisarReserva">
-<part name="parameters" element="tns:pesquisarReserva"/>
+<message name="criarReserva">
+<part name="parameters" element="tns:criarReserva"/>
 </message>
-<message name="pesquisarReservaResponse">
-<part name="parameters" element="tns:pesquisarReservaResponse"/>
-</message>
-<message name="buscarLocadorasPorCidade">
-<part name="parameters" element="tns:buscarLocadorasPorCidade"/>
-</message>
-<message name="buscarLocadorasPorCidadeResponse">
-<part name="parameters" element="tns:buscarLocadorasPorCidadeResponse"/>
-</message>
-<message name="listarCarrosPorLocadora">
-<part name="parameters" element="tns:listarCarrosPorLocadora"/>
-</message>
-<message name="listarCarrosPorLocadoraResponse">
-<part name="parameters" element="tns:listarCarrosPorLocadoraResponse"/>
-</message>
-<message name="listarReservas">
-<part name="parameters" element="tns:listarReservas"/>
-</message>
-<message name="listarReservasResponse">
-<part name="parameters" element="tns:listarReservasResponse"/>
+<message name="criarReservaResponse">
+<part name="parameters" element="tns:criarReservaResponse"/>
 </message>
 <message name="listarCarros">
 <part name="parameters" element="tns:listarCarros"/>
@@ -34,68 +16,59 @@
 <message name="listarCarrosResponse">
 <part name="parameters" element="tns:listarCarrosResponse"/>
 </message>
-<message name="criarReserva">
-<part name="parameters" element="tns:criarReserva"/>
+<message name="listarReservas">
+<part name="parameters" element="tns:listarReservas"/>
 </message>
-<message name="criarReservaResponse">
-<part name="parameters" element="tns:criarReservaResponse"/>
+<message name="listarReservasResponse">
+<part name="parameters" element="tns:listarReservasResponse"/>
+</message>
+<message name="pesquisarReserva">
+<part name="parameters" element="tns:pesquisarReserva"/>
+</message>
+<message name="pesquisarReservaResponse">
+<part name="parameters" element="tns:pesquisarReservaResponse"/>
+</message>
+<message name="listarCarrosPorLocadora">
+<part name="parameters" element="tns:listarCarrosPorLocadora"/>
+</message>
+<message name="listarCarrosPorLocadoraResponse">
+<part name="parameters" element="tns:listarCarrosPorLocadoraResponse"/>
+</message>
+<message name="buscarLocadorasPorCidade">
+<part name="parameters" element="tns:buscarLocadorasPorCidade"/>
+</message>
+<message name="buscarLocadorasPorCidadeResponse">
+<part name="parameters" element="tns:buscarLocadorasPorCidadeResponse"/>
 </message>
 <portType name="LocadoraProviderWS">
-<operation name="pesquisarReserva">
-<input wsam:Action="http://service.pos.com/LocadoraProviderWS/pesquisarReservaRequest" message="tns:pesquisarReserva"/>
-<output wsam:Action="http://service.pos.com/LocadoraProviderWS/pesquisarReservaResponse" message="tns:pesquisarReservaResponse"/>
-</operation>
-<operation name="buscarLocadorasPorCidade">
-<input wsam:Action="http://service.pos.com/LocadoraProviderWS/buscarLocadorasPorCidadeRequest" message="tns:buscarLocadorasPorCidade"/>
-<output wsam:Action="http://service.pos.com/LocadoraProviderWS/buscarLocadorasPorCidadeResponse" message="tns:buscarLocadorasPorCidadeResponse"/>
-</operation>
-<operation name="listarCarrosPorLocadora">
-<input wsam:Action="http://service.pos.com/LocadoraProviderWS/listarCarrosPorLocadoraRequest" message="tns:listarCarrosPorLocadora"/>
-<output wsam:Action="http://service.pos.com/LocadoraProviderWS/listarCarrosPorLocadoraResponse" message="tns:listarCarrosPorLocadoraResponse"/>
-</operation>
-<operation name="listarReservas">
-<input wsam:Action="http://service.pos.com/LocadoraProviderWS/listarReservasRequest" message="tns:listarReservas"/>
-<output wsam:Action="http://service.pos.com/LocadoraProviderWS/listarReservasResponse" message="tns:listarReservasResponse"/>
+<operation name="criarReserva">
+<input wsam:Action="http://service.pos.com/LocadoraProviderWS/criarReservaRequest" message="tns:criarReserva"/>
+<output wsam:Action="http://service.pos.com/LocadoraProviderWS/criarReservaResponse" message="tns:criarReservaResponse"/>
 </operation>
 <operation name="listarCarros">
 <input wsam:Action="http://service.pos.com/LocadoraProviderWS/listarCarrosRequest" message="tns:listarCarros"/>
 <output wsam:Action="http://service.pos.com/LocadoraProviderWS/listarCarrosResponse" message="tns:listarCarrosResponse"/>
 </operation>
-<operation name="criarReserva">
-<input wsam:Action="http://service.pos.com/LocadoraProviderWS/criarReservaRequest" message="tns:criarReserva"/>
-<output wsam:Action="http://service.pos.com/LocadoraProviderWS/criarReservaResponse" message="tns:criarReservaResponse"/>
+<operation name="listarReservas">
+<input wsam:Action="http://service.pos.com/LocadoraProviderWS/listarReservasRequest" message="tns:listarReservas"/>
+<output wsam:Action="http://service.pos.com/LocadoraProviderWS/listarReservasResponse" message="tns:listarReservasResponse"/>
+</operation>
+<operation name="pesquisarReserva">
+<input wsam:Action="http://service.pos.com/LocadoraProviderWS/pesquisarReservaRequest" message="tns:pesquisarReserva"/>
+<output wsam:Action="http://service.pos.com/LocadoraProviderWS/pesquisarReservaResponse" message="tns:pesquisarReservaResponse"/>
+</operation>
+<operation name="listarCarrosPorLocadora">
+<input wsam:Action="http://service.pos.com/LocadoraProviderWS/listarCarrosPorLocadoraRequest" message="tns:listarCarrosPorLocadora"/>
+<output wsam:Action="http://service.pos.com/LocadoraProviderWS/listarCarrosPorLocadoraResponse" message="tns:listarCarrosPorLocadoraResponse"/>
+</operation>
+<operation name="buscarLocadorasPorCidade">
+<input wsam:Action="http://service.pos.com/LocadoraProviderWS/buscarLocadorasPorCidadeRequest" message="tns:buscarLocadorasPorCidade"/>
+<output wsam:Action="http://service.pos.com/LocadoraProviderWS/buscarLocadorasPorCidadeResponse" message="tns:buscarLocadorasPorCidadeResponse"/>
 </operation>
 </portType>
 <binding name="LocadoraProviderWSPortBinding" type="tns:LocadoraProviderWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="pesquisarReserva">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="buscarLocadorasPorCidade">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="listarCarrosPorLocadora">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="listarReservas">
+<operation name="criarReserva">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -113,7 +86,34 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="criarReserva">
+<operation name="listarReservas">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="pesquisarReserva">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="listarCarrosPorLocadora">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="buscarLocadorasPorCidade">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
