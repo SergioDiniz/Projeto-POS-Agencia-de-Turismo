@@ -7,7 +7,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       >
     <h:head>
-        <title>Veiculos</title>
+        <title>Locadora</title>
     </h:head>
     <h:body>
         <div id="menu-topo">
@@ -24,30 +24,30 @@
                 <div class="col-md-8">
                     <div class="row">
                         <div id="nome-cidade">
-                            Ultimas reservas de Veículo
+                            Ultimas reservas de Carros em Locadoras
                         </div>
-                        
+
                         <div class="tabela-disponiveis">
                             <table class="table" align="center">
                                 <tr>
-                                    <th>Hotel</th>
-                                    <th>Quarto</th>
-                                    <th>Entrada</th>
-                                    <th>Saida</th>
+                                    <th>Agencia</th>
+                                    <th>Modelo</th>
+                                    <th>Placa</th>
                                     <th>Valor</th>
+                                    <th>Cidade</th>
                                 </tr> 
-                                <c:forEach var="hospede" items="${controladorHospede.reservasDoHospede()}">
+                                <c:forEach var="reserva" items="${controladorLocadoraVeiculo.listarReservasLocadora(hospede.nome)}">
                                     <tr>
-                                        <td>${hospede.hotel.nome}</td>
-                                        <td>${hospede.quarto.numero}</td>
-                                        <td>${controladorReservaHotel.toDate(hospede.dataReserva)}</td>
-                                        <td>${controladorReservaHotel.toDate(hospede.dataSaida)}</td>
-                                        <td>${hospede.valorReserva}</td>
+                                        <td>${reserva.locadora.nome}</td>
+                                        <td>${reserva.carro.modelo}</td>
+                                        <td>${reserva.carro.placa}</td>
+                                        <td>${reserva.carro.valor}</td>
+                                        <td>${reserva.locadora.cidade}</td>
                                     </tr> 
                                 </c:forEach>
                             </table>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

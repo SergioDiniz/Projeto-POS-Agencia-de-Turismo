@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Pesquisar Data</title>
+    </h:head>
+    <h:body>
+        <div id="menu-topo">
+            <ui:include src="cidade-topo.xhtml"/>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="menu-lateral">
+                        <ui:include src="cidade-lateral.xhtml"/>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div id="nome-cidade">
+                            Bem-vindo a ${controladorLocadoraVeiculo.locadora.nome}
+                        </div>
+
+                        <div class="disponiveis">
+                            Digite uma <b>data</b> para pesquisar carros disponiveis:
+                        </div>
+
+
+                        <h:form>
+
+                            <div class="row">
+                                <div class="">
+                                    <div class="disponiveis">
+                                        Lista de <b>Carros</b> disponiveis:
+                                    </div>
+
+                                    <div class="tabela-disponiveis quartos">
+                                        <table class="table" align="center">
+                                            <tr>
+                                                <th>${carro.modelo}</th>
+                                                <th>${carro.placa}</th>
+                                                <th>${carro.ano}</th>
+                                                <th>R$ ${carro.valor}</th>
+                                                <th align="right">
+                                                </th>
+                                            </tr>
+
+
+
+                                            <c:forEach var="carro" items="${controladorLocadoraVeiculo.listarCarrosPorLocadora()}" varStatus="id" >
+                                                <tr>
+                                                    <td>${carro.modelo}</td>
+                                                    <td>${carro.placa}</td>
+                                                    <td>${carro.ano}</td>
+                                                    <td>R$ ${carro.valor}</td>
+                                                    <td align="right">
+
+
+                                                        <!-- Button trigger modal -->
+                                                        <button type="button" class="btn btn-conhecer" data-toggle="modal" data-target="#myModal${id.index}">
+                                                            ALUGAR
+                                                        </button>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="myModal${id.index}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                                                    </div>
+                                                                    <div class="modal-body">
+
+                                                                        <div align="center">
+                                                                            Informações sobre o carro
+                                                                            <br/>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-offset-1 col-md-10">
+                                                                                <table class="table" align="center">
+                                                                                    <tr>
+                                                                                        <td>${carro.modelo}</td>
+                                                                                        <td>${carro.placa}</td>
+                                                                                        <td>${carro.ano}</td>
+                                                                                        <td>R$ ${carro.valor}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>${quartopordata.tipo}</td>
+                                                                                        <td>${quartopordata.qtdHospede}</td>
+                                                                                        <td>${quartopordata.numero}</td>
+                                                                                        <td>R$ ${quartopordata.preco}</td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                            <br/>
+                                                                            <div>informe a data para alugar*</div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-4">
+                                                                                <div class="form-group">
+                                                                                    Data de Entrada *
+                                                                                    <h:inputText value="#{controladorLocadoraVeiculo.dataInicio}" class="form-control input-lg" id="data-entrada" p:placeholder="Data de Entrada">
+                                                                                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                                                                                    </h:inputText>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <div class="form-group">
+                                                                                    Data de Entrega *
+                                                                                    <h:inputText value="#{controladorLocadoraVeiculo.dataFim}" class="form-control input-lg" id="data-saida" p:placeholder="Data de Entrega">
+                                                                                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                                                                                    </h:inputText>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+
+
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">cancelar</button>
+                                                                        <h:commandButton class="btn btn-conhecer" value="ALUGAR" action="#{controladorLocadoraVeiculo.criarReservaLocadora(carro, hospede.nome)}" />                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </h:form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </h:body>
+
+    <!-- Meu JavaScript -->
+    <script src="js/script.js"></script>
+</html>
+

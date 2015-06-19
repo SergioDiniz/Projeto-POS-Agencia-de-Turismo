@@ -8,4 +8,6 @@
     <system systemId="file:/D:/POS/Passagens/ServicosDePassagensWS_schema1.xsd" uri="wsdl/ServicosDePassagensWS_schema1.xsd"/>
     <system systemId="http://10.10.0.95:8080/WSReservaRestaurante/WSReservaRestaurante?WSDL" uri="wsdl/10.10.0.95_8080/WSReservaRestaurante/WSReservaRestaurante.wsdl"/>
     <system systemId="http://10.10.0.95:8080/WSReservaRestaurante/WSReservaRestaurante?xsd=1" uri="wsdl/10.10.0.95_8080/WSReservaRestaurante/WSReservaRestaurante.xsd_1.xsd"/>
+    <system systemId="file:/D:/POS/Veiculos/wsdl/Locadora.wsdl" uri="wsdl/Locadora.wsdl"/>
+    <system systemId="file:/D:/POS/Veiculos/wsdl/Locadora_schema1.xsd" uri="wsdl/Locadora_schema1.xsd"/>
 </catalog>

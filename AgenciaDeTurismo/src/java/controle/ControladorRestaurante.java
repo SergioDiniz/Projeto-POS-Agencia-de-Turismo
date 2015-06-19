@@ -85,10 +85,8 @@ public class ControladorRestaurante implements Serializable {
     }
 
     public List<ReservaRestaurante> listarReservas(String emailUsuario) {
-        System.out.println(emailUsuario);
+        
         List<ReservaRestaurante> todasReservas = fachada.listarReservas();
-
-        System.out.println(todasReservas.get(0).getUsuario().getEmail());
 
         for (Iterator<ReservaRestaurante> iterator = todasReservas.iterator(); iterator.hasNext();) {
             ReservaRestaurante restaurante = iterator.next();

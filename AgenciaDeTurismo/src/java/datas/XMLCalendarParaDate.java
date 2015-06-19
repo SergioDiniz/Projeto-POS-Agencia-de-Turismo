@@ -28,6 +28,20 @@ public class XMLCalendarParaDate {
         
         return xmlCalendar;
     }
+    
+    public static XMLGregorianCalendar toXMLGregorianCalendarPassagem(Date date) {
+        GregorianCalendar gCalendar = new GregorianCalendar();
+        gCalendar.setTime(date);
+        XMLGregorianCalendar xmlCalendar = null;
+        
+        try {
+            xmlCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(gCalendar);
+        } catch (DatatypeConfigurationException ex) {
+            Logger.getLogger(XMLCalendarParaDate.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return xmlCalendar;
+    }
 
     public static Date toDate(XMLGregorianCalendar calendar){
         

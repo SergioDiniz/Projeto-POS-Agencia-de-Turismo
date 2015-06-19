@@ -7,6 +7,7 @@ import ws.Hospede;
 import ws.Hotel;
 import ws.Quarto;
 import ws.WSInternoJPA_Service;
+import wse.locadora.Locadora_Service;
 import wse.passagem.ServicosDePassagensWS;
 import wse.restaurante.WSReservaRestaurante_Service;
 
@@ -16,6 +17,8 @@ import wse.restaurante.WSReservaRestaurante_Service;
  */
 @Stateless
 public class Fachada {
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/Locadora.wsdl")
+    private Locadora_Service service_3;
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/ServicosDePassagensWS.wsdl")
     private ServicosDePassagensWS service_2;
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/10.10.0.95_8080/WSReservaRestaurante/WSReservaRestaurante.wsdl")
@@ -195,11 +198,35 @@ public class Fachada {
     }
 
     private java.util.List<wse.restaurante.Restaurante> buscarRestaurantesPorCidade_1(java.lang.String cidade) {
-        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
-        // If the calling of port operations may lead to race condition some synchronization is required.
         wse.restaurante.WSReservaRestaurante port = service_1.getWSReservaRestaurantePort();
         return port.buscarRestaurantesPorCidade(cidade);
     }
+    
+    //
+    //
+    // Locadora de Veiculos
+
+    public java.util.List<wse.locadora.Locadora> buscarLocadorasPorCidade(java.lang.String cidade) {
+        wse.locadora.ExternoCarroWS port = service_3.getExternoCarroWSPort();
+        return port.buscarLocadorasPorCidade(cidade);
+    }
+
+    public java.util.List<wse.locadora.Carro> listarCarrosPorLocadora(wse.locadora.Locadora locadoraId) {
+        wse.locadora.ExternoCarroWS port = service_3.getExternoCarroWSPort();
+        return port.listarCarrosPorLocadora(locadoraId);
+    }
+
+    public boolean criarReservaLocadora(wse.locadora.Reserva reserva) {
+        wse.locadora.ExternoCarroWS port = service_3.getExternoCarroWSPort();
+        return port.criarReserva(reserva);
+    }
+
+    public java.util.List<wse.locadora.Reserva> listarReservasLocadora() {
+        wse.locadora.ExternoCarroWS port = service_3.getExternoCarroWSPort();
+        return port.listarReservas();
+    }
+    
+    
     
     
 }

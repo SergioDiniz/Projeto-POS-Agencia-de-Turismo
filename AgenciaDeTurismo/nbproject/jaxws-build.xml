@@ -74,5 +74,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/wse/restaurante"/>
         <delete dir="${build.generated.dir}/jax-wsCache/WSReservaRestaurante"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-WSInternoJPA, wsimport-client-ServicosDePassagensWS, wsimport-client-WSReservaRestaurante"/>
+    <target name="wsimport-client-Locadora" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/Locadora"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Locadora" destdir="${build.generated.dir}/jax-wsCache/Locadora" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/Locadora/wsdl/Locadora.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="file:/D:/POS/Veiculos/wsdl/Locadora.wsdl" xnocompile="true" xendorsed="true" package="wse.locadora">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/Locadora/wsdl/Locadora.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/Locadora"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/Locadora">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-Locadora" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/wse/locadora"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/Locadora"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-WSInternoJPA, wsimport-client-ServicosDePassagensWS, wsimport-client-WSReservaRestaurante, wsimport-client-Locadora"/>
 </project>
