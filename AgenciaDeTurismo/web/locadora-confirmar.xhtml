@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Locadora</title>
+    </h:head>
+    <h:body>
+        <div id="menu-topo">
+            <ui:include src="cidade-topo.xhtml"/>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="menu-lateral">
+                        <ui:include src="cidade-lateral.xhtml"/>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div id="nome-cidade">
+                            Bem-vindo a ${controladorLocadoraVeiculo.locadora.nome}
+                        </div>
+
+                        <div class="disponiveis">
+                            Informações sobre o <b>Carro:</b>
+                        </div>
+
+                        <h:form>
+
+                            <div class="row">
+                                <div class="">
+
+                                    <div class="row">
+                                        <div class="col-md-offset-1 col-md-10">
+                                            <table class="table" align="center">
+                                                <tr>
+                                                    <th>Modelo</th>
+                                                    <th>Placa</th>
+                                                    <th>Ano</th>
+                                                    <th>Valor</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>${controladorLocadoraVeiculo.carro.modelo}</td>
+                                                    <td>${controladorLocadoraVeiculo.carro.placa}</td>
+                                                    <td>${controladorLocadoraVeiculo.carro.ano}</td>
+                                                    <td>R$ ${controladorLocadoraVeiculo.carro.valor}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <div>informe a data para alugar*</div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                Data de Entrada *
+                                                <h:inputText value="#{controladorLocadoraVeiculo.dataInicio}"  id="dataI-${id.index}" class="form-control input-lg" p:placeholder="Data de Entrada">
+                                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                                </h:inputText>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                Data de Entrega *
+                                                <h:inputText value="#{controladorLocadoraVeiculo.dataFim}" id="dataE-${id.index}" class="form-control input-lg" p:placeholder="Data de Entrega">
+                                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                                </h:inputText>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h:commandButton class="btn btn-conhecer" value="ALUGAR" action="#{controladorLocadoraVeiculo.criarReservaLocadora(controladorHospede.hospede.email)}" />                                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </h:form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </h:body>
+
+    <!-- Meu JavaScript -->
+    <script src="js/script.js"></script>
+</html>
+

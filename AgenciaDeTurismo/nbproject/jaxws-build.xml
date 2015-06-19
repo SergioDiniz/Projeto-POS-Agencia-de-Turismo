@@ -58,22 +58,6 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/wse/restaurante"/>
         <delete dir="${build.generated.dir}/jax-wsCache/WSReservaRestaurante"/>
     </target>
-    <target name="wsimport-client-Locadora" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/Locadora"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Locadora" destdir="${build.generated.dir}/jax-wsCache/Locadora" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/Locadora/wsdl/Locadora.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="file:/D:/POS/Veiculos/wsdl/Locadora.wsdl" xnocompile="true" xendorsed="true" package="wse.locadora">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/Locadora/wsdl/Locadora.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/Locadora"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/Locadora">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-Locadora" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/wse/locadora"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/Locadora"/>
-    </target>
     <target name="wsimport-client-WSServices" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/WSServices"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSServices" destdir="${build.generated.dir}/jax-wsCache/WSServices" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/WSServices/wsdl/10.10.1.195_8080/ServicosDePassagensWS/WSServices.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://10.10.1.195:8080/ServicosDePassagensWS/WSServices?WSDL" xnocompile="true" xendorsed="true" package="wse.passagem">
@@ -90,5 +74,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/wse/passagem"/>
         <delete dir="${build.generated.dir}/jax-wsCache/WSServices"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-WSInternoJPA, wsimport-client-WSReservaRestaurante, wsimport-client-Locadora, wsimport-client-WSServices"/>
+    <target name="wsimport-client-LocadoraProviderWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/LocadoraProviderWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/LocadoraProviderWS" destdir="${build.generated.dir}/jax-wsCache/LocadoraProviderWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/LocadoraProviderWS/wsdl/192.168.92.59_8080/LocadoraProviderWS/LocadoraProviderWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://192.168.92.59:8080/LocadoraProviderWS/LocadoraProviderWS?WSDL" xnocompile="true" xendorsed="true" package="wse.locadora">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/LocadoraProviderWS/wsdl/192.168.92.59_8080/LocadoraProviderWS/LocadoraProviderWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/LocadoraProviderWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/LocadoraProviderWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-LocadoraProviderWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/wse/locadora"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/LocadoraProviderWS"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-WSInternoJPA, wsimport-client-WSReservaRestaurante, wsimport-client-WSServices, wsimport-client-LocadoraProviderWS"/>
 </project>

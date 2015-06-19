@@ -36,7 +36,7 @@
                                     <th>Valor</th>
                                     <th>Cidade</th>
                                 </tr> 
-                                <c:forEach var="reserva" items="${controladorLocadoraVeiculo.listarReservasLocadora(hospede.nome)}">
+                                <c:forEach var="reserva" items="${controladorLocadoraVeiculo.listarReservasLocadora(controladorHospede.hospede.email)}">
                                     <tr>
                                         <td>${reserva.locadora.nome}</td>
                                         <td>${reserva.carro.modelo}</td>

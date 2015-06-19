@@ -7,7 +7,7 @@ import ws.Hospede;
 import ws.Hotel;
 import ws.Quarto;
 import ws.WSInternoJPA_Service;
-import wse.locadora.Locadora_Service;
+import wse.locadora.*;
 import wse.passagem.ServicosDePassagensWS;
 import wse.restaurante.WSReservaRestaurante_Service;
 
@@ -17,10 +17,12 @@ import wse.restaurante.WSReservaRestaurante_Service;
  */
 @Stateless
 public class Fachada {
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/Locadora.wsdl")
-    private Locadora_Service service_3;
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/192.168.92.59_8080/LocadoraProviderWS/LocadoraProviderWS.wsdl")
+    private LocadoraProviderWS_Service service_3;
+    
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/10.10.1.195_8080/ServicosDePassagensWS/WSServices.wsdl")
     private ServicosDePassagensWS service_2;
+    
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/10.10.0.95_8080/WSReservaRestaurante/WSReservaRestaurante.wsdl")
     private WSReservaRestaurante_Service service_1;
 
@@ -206,27 +208,28 @@ public class Fachada {
     //
     // Locadora de Veiculos
 
+
     public java.util.List<wse.locadora.Locadora> buscarLocadorasPorCidade(java.lang.String cidade) {
-        wse.locadora.ExternoCarroWS port = service_3.getExternoCarroWSPort();
+        wse.locadora.LocadoraProviderWS port = service_3.getLocadoraProviderWSPort();
         return port.buscarLocadorasPorCidade(cidade);
     }
 
-    public java.util.List<wse.locadora.Carro> listarCarrosPorLocadora(wse.locadora.Locadora locadoraId) {
-        wse.locadora.ExternoCarroWS port = service_3.getExternoCarroWSPort();
+    public java.util.List<wse.locadora.Carro> listarCarrosPorLocadora(java.lang.String locadoraId) {
+        wse.locadora.LocadoraProviderWS port = service_3.getLocadoraProviderWSPort();
         return port.listarCarrosPorLocadora(locadoraId);
     }
 
     public boolean criarReservaLocadora(wse.locadora.Reserva reserva) {
-        wse.locadora.ExternoCarroWS port = service_3.getExternoCarroWSPort();
+        wse.locadora.LocadoraProviderWS port = service_3.getLocadoraProviderWSPort();
         return port.criarReserva(reserva);
     }
 
     public java.util.List<wse.locadora.Reserva> listarReservasLocadora() {
-        wse.locadora.ExternoCarroWS port = service_3.getExternoCarroWSPort();
+        wse.locadora.LocadoraProviderWS port = service_3.getLocadoraProviderWSPort();
         return port.listarReservas();
     }
-    
-    
+
+
     
     
 }

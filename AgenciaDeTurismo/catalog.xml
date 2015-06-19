@@ -13,4 +13,6 @@
     <system systemId="http://10.10.1.195:8080/ServicosDePassagensWS/WSServices" uri="src/conf/xml-resources/web-service-references/WSServices/wsdl/10.10.1.195_8080/servicosdepassagensws/wsservices.xml"/>
     <system systemId="http://10.10.1.195:8080/ServicosDePassagensWS/WSServices?WSDL" uri="src/conf/xml-resources/web-service-references/WSServices/wsdl/10.10.1.195_8080/ServicosDePassagensWS/WSServices.wsdl"/>
     <system systemId="http://10.10.1.195:8080/ServicosDePassagensWS/WSServices?xsd=1" uri="src/conf/xml-resources/web-service-references/WSServices/wsdl/10.10.1.195_8080/ServicosDePassagensWS/WSServices.xsd_1.xsd"/>
+    <system systemId="http://192.168.92.59:8080/LocadoraProviderWS/LocadoraProviderWS?WSDL" uri="src/conf/xml-resources/web-service-references/LocadoraProviderWS/wsdl/192.168.92.59_8080/LocadoraProviderWS/LocadoraProviderWS.wsdl"/>
+    <system systemId="http://192.168.92.59:8080/LocadoraProviderWS/LocadoraProviderWS?xsd=1" uri="src/conf/xml-resources/web-service-references/LocadoraProviderWS/wsdl/192.168.92.59_8080/LocadoraProviderWS/LocadoraProviderWS.xsd_1.xsd"/>
 </catalog>

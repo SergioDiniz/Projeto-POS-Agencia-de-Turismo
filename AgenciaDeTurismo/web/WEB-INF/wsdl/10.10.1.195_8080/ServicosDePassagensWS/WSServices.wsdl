@@ -106,7 +106,7 @@
 </binding>
 <service name="ServicosDePassagensWS">
 <port name="WSServicesPort" binding="tns:WSServicesPortBinding">
-<soap:address location="http://10.10.1.195:8080/ServicosDePassagensWS/WSServices"/>
+<soap:address location="http://192.168.92.50:8080/ServicosDePassagensWS/WSServices"/>
 </port>
 </service>
 </definitions>

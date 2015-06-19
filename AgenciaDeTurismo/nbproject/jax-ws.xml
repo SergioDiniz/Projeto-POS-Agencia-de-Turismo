@@ -74,42 +74,6 @@
         </wsimport-option>
       </wsimport-options>
     </client>
-    <client name="Locadora">
-      <wsdl-url>file:/D:/POS/Veiculos/wsdl/Locadora.wsdl</wsdl-url>
-      <local-wsdl-file>Locadora.wsdl</local-wsdl-file>
-      <package-name forceReplace="true">wse.locadora</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>fork</wsimport-option-name>
-          <wsimport-option-value>false</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>file:/D:/POS/Veiculos/wsdl/Locadora.wsdl</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xendorsed</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>package</wsimport-option-name>
-          <wsimport-option-value>wse.locadora</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </client>
     <client name="WSServices">
       <wsdl-url>http://10.10.1.195:8080/ServicosDePassagensWS/WSServices?WSDL</wsdl-url>
       <local-wsdl-file>10.10.1.195_8080/ServicosDePassagensWS/WSServices.wsdl</local-wsdl-file>
@@ -143,6 +107,42 @@
         <wsimport-option>
           <wsimport-option-name>package</wsimport-option-name>
           <wsimport-option-value>wse.passagem</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="LocadoraProviderWS">
+      <wsdl-url>http://192.168.92.59:8080/LocadoraProviderWS/LocadoraProviderWS?WSDL</wsdl-url>
+      <local-wsdl-file>192.168.92.59_8080/LocadoraProviderWS/LocadoraProviderWS.wsdl</local-wsdl-file>
+      <package-name forceReplace="true">wse.locadora</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://192.168.92.59:8080/LocadoraProviderWS/LocadoraProviderWS?WSDL</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>package</wsimport-option-name>
+          <wsimport-option-value>wse.locadora</wsimport-option-value>
         </wsimport-option>
       </wsimport-options>
     </client>

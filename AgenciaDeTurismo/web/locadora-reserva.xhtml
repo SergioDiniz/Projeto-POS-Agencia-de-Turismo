@@ -9,7 +9,7 @@
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Pesquisar Data</title>
+        <title>Locadora</title>
     </h:head>
     <h:body>
         <div id="menu-topo">
@@ -30,25 +30,21 @@
                         </div>
 
                         <div class="disponiveis">
-                            Digite uma <b>data</b> para pesquisar carros disponiveis:
+                            Lista de <b>Carros</b> disponiveis:
                         </div>
-
 
                         <h:form>
 
                             <div class="row">
                                 <div class="">
-                                    <div class="disponiveis">
-                                        Lista de <b>Carros</b> disponiveis:
-                                    </div>
 
                                     <div class="tabela-disponiveis quartos">
                                         <table class="table" align="center">
                                             <tr>
-                                                <th>${carro.modelo}</th>
-                                                <th>${carro.placa}</th>
-                                                <th>${carro.ano}</th>
-                                                <th>R$ ${carro.valor}</th>
+                                                <th>Modelo</th>
+                                                <th>Placa</th>
+                                                <th>Ano</th>
+                                                <th>Valor</th>
                                                 <th align="right">
                                                 </th>
                                             </tr>
@@ -65,9 +61,7 @@
 
 
                                                         <!-- Button trigger modal -->
-                                                        <button type="button" class="btn btn-conhecer" data-toggle="modal" data-target="#myModal${id.index}">
-                                                            ALUGAR
-                                                        </button>
+                                                        <h:commandButton class="btn btn-conhecer" value="SELECIONAR" action="#{controladorLocadoraVeiculo.selecionarCarro(carro)}" />
 
                                                         <!-- Modal -->
                                                         <div class="modal fade" id="myModal${id.index}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -88,27 +82,29 @@
                                                                             <div class="col-md-offset-1 col-md-10">
                                                                                 <table class="table" align="center">
                                                                                     <tr>
+                                                                                        <th>Modelo</th>
+                                                                                        <th>Placa</th>
+                                                                                        <th>Ano</th>
+                                                                                        <th>Valor</th>
+                                                                                        <th align="right">
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                    <tr>
                                                                                         <td>${carro.modelo}</td>
                                                                                         <td>${carro.placa}</td>
                                                                                         <td>${carro.ano}</td>
                                                                                         <td>R$ ${carro.valor}</td>
                                                                                     </tr>
-                                                                                    <tr>
-                                                                                        <td>${quartopordata.tipo}</td>
-                                                                                        <td>${quartopordata.qtdHospede}</td>
-                                                                                        <td>${quartopordata.numero}</td>
-                                                                                        <td>R$ ${quartopordata.preco}</td>
-                                                                                    </tr>
                                                                                 </table>
                                                                             </div>
                                                                         </div>
-                                                                            <br/>
-                                                                            <div>informe a data para alugar*</div>
+                                                                        <br/>
+                                                                        <div>informe a data para alugar*</div>
                                                                         <div class="row">
                                                                             <div class="col-md-4">
                                                                                 <div class="form-group">
                                                                                     Data de Entrada *
-                                                                                    <h:inputText value="#{controladorLocadoraVeiculo.dataInicio}" class="form-control input-lg" id="data-entrada" p:placeholder="Data de Entrada">
+                                                                                    <h:inputText value="#{controladorLocadoraVeiculo.dataInicio}"  id="dataI-${id.index}" class="form-control input-lg" p:placeholder="Data de Entrada">
                                                                                         <f:convertDateTime pattern="dd/MM/yyyy" />
                                                                                     </h:inputText>
                                                                                 </div>
@@ -116,7 +112,7 @@
                                                                             <div class="col-md-4">
                                                                                 <div class="form-group">
                                                                                     Data de Entrega *
-                                                                                    <h:inputText value="#{controladorLocadoraVeiculo.dataFim}" class="form-control input-lg" id="data-saida" p:placeholder="Data de Entrega">
+                                                                                    <h:inputText value="#{controladorLocadoraVeiculo.dataFim}" id="dataE-${id.index}" class="form-control input-lg" p:placeholder="Data de Entrega">
                                                                                         <f:convertDateTime pattern="dd/MM/yyyy" />
                                                                                     </h:inputText>
                                                                                 </div>
@@ -128,7 +124,7 @@
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-default" data-dismiss="modal">cancelar</button>
-                                                                        <h:commandButton class="btn btn-conhecer" value="ALUGAR" action="#{controladorLocadoraVeiculo.criarReservaLocadora(carro, hospede.nome)}" />                                                        
+                                                                        <h:commandButton class="btn btn-conhecer" value="ALUGAR" action="#{controladorLocadoraVeiculo.selecionarCarro(carro)}" />
                                                                     </div>
                                                                 </div>
                                                             </div>

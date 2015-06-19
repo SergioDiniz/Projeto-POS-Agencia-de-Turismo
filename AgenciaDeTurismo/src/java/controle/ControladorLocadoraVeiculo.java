@@ -39,9 +39,11 @@ public class ControladorLocadoraVeiculo implements Serializable {
     private Date dataFim;
     private Date dataInicio;
     private boolean pesquisaCarro;
+    private Carro carro;
 
     public ControladorLocadoraVeiculo() {
-
+        this.locadora = new Locadora();
+        this.carro =  new Carro();
     }
 
     public List<Locadora> buscarLocadorasPorCidade() {
@@ -58,27 +60,35 @@ public class ControladorLocadoraVeiculo implements Serializable {
     }
 
     public List<Carro> listarCarrosPorLocadora() {
-        return fachada.listarCarrosPorLocadora(this.locadora);
+        return fachada.listarCarrosPorLocadora(this.locadora.getCnpj());
     }
 
-    public String criarReservaLocadora(Carro carro, String nomeUsuario) {
+    public String criarReservaLocadora(String nomeUsuario) {
+  
         Reserva reserva = new Reserva();
-        reserva.setCarro(carro);
+        reserva.setCarro(this.carro);
         Usuario usuario = new Usuario();
         usuario.setNome(nomeUsuario);
         reserva.setUsuario(usuario);
-        reserva.setDataFim(XMLCalendarParaDate.toXMLGregorianCalendar(dataFim));
-        reserva.setDataInicio(XMLCalendarParaDate.toXMLGregorianCalendar(dataInicio));
+        reserva.setDataFim(XMLCalendarParaDate.toXMLGregorianCalendar(this.dataFim));
+        reserva.setDataInicio(XMLCalendarParaDate.toXMLGregorianCalendar(this.dataInicio));
         reserva.setLocadora(this.locadora);
 
         if (fachada.criarReservaLocadora(reserva)) {
             System.out.println("Veiculo Reservado");
+            this.carro = new Carro();
             return null;
         } else {
             System.out.println("falha ao reserva Veiculo");
             return null;
         }
+       
 
+    }
+    
+    public String selecionarCarro(Carro carro){
+        this.carro = carro;
+        return "locadora-confirmar.jsf?faces-redirect=true";
     }
 
     public List<Reserva> listarReservasLocadora(String emailUsuario) {
@@ -137,6 +147,14 @@ public class ControladorLocadoraVeiculo implements Serializable {
 
     public void setPesquisaCarro(boolean pesquisaCarro) {
         this.pesquisaCarro = pesquisaCarro;
+    }
+
+    public Carro getCarro() {
+        return carro;
+    }
+
+    public void setCarro(Carro carro) {
+        this.carro = carro;
     }
     
     
