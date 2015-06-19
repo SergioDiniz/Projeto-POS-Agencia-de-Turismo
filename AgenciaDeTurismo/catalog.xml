@@ -10,4 +10,7 @@
     <system systemId="http://10.10.0.95:8080/WSReservaRestaurante/WSReservaRestaurante?xsd=1" uri="src/conf/xml-resources/web-service-references/WSReservaRestaurante/wsdl/10.10.0.95_8080/WSReservaRestaurante/WSReservaRestaurante.xsd_1.xsd"/>
     <system systemId="file:/D:/POS/Veiculos/wsdl/Locadora.wsdl" uri="src/conf/xml-resources/web-service-references/Locadora/wsdl/Locadora.wsdl"/>
     <system systemId="file:/D:/POS/Veiculos/wsdl/Locadora_schema1.xsd" uri="src/conf/xml-resources/web-service-references/Locadora/wsdl/Locadora_schema1.xsd"/>
+    <system systemId="http://10.10.1.195:8080/ServicosDePassagensWS/WSServices" uri="src/conf/xml-resources/web-service-references/WSServices/wsdl/10.10.1.195_8080/servicosdepassagensws/wsservices.xml"/>
+    <system systemId="http://10.10.1.195:8080/ServicosDePassagensWS/WSServices?WSDL" uri="src/conf/xml-resources/web-service-references/WSServices/wsdl/10.10.1.195_8080/ServicosDePassagensWS/WSServices.wsdl"/>
+    <system systemId="http://10.10.1.195:8080/ServicosDePassagensWS/WSServices?xsd=1" uri="src/conf/xml-resources/web-service-references/WSServices/wsdl/10.10.1.195_8080/ServicosDePassagensWS/WSServices.xsd_1.xsd"/>
 </catalog>

@@ -19,7 +19,7 @@ import wse.restaurante.WSReservaRestaurante_Service;
 public class Fachada {
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/Locadora.wsdl")
     private Locadora_Service service_3;
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/ServicosDePassagensWS.wsdl")
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/10.10.1.195_8080/ServicosDePassagensWS/WSServices.wsdl")
     private ServicosDePassagensWS service_2;
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/10.10.0.95_8080/WSReservaRestaurante/WSReservaRestaurante.wsdl")
     private WSReservaRestaurante_Service service_1;

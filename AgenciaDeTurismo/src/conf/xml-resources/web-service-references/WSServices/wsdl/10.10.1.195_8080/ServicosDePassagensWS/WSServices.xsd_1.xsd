@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://webservices.wsprovider.br.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservices.wsprovider.br.com/">
+
+<xs:element name="bucarVoos" type="tns:bucarVoos"/>
+
+<xs:element name="bucarVoosResponse" type="tns:bucarVoosResponse"/>
+
+<xs:element name="cancelarPassagem" type="tns:cancelarPassagem"/>
+
+<xs:element name="cancelarPassagemResponse" type="tns:cancelarPassagemResponse"/>
+
+<xs:element name="comprarPassagemIda" type="tns:comprarPassagemIda"/>
+
+<xs:element name="comprarPassagemIdaResponse" type="tns:comprarPassagemIdaResponse"/>
+
+<xs:element name="comprarPassagemIdaVolta" type="tns:comprarPassagemIdaVolta"/>
+
+<xs:element name="comprarPassagemIdaVoltaResponse" type="tns:comprarPassagemIdaVoltaResponse"/>
+
+<xs:element name="listarPassagens" type="tns:listarPassagens"/>
+
+<xs:element name="listarPassagensResponse" type="tns:listarPassagensResponse"/>
+
+<xs:complexType name="comprarPassagemIdaVolta">
+<xs:sequence>
+<xs:element name="loginUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="vooIda" type="tns:voo" minOccurs="0"/>
+<xs:element name="vooIdaVolta" type="tns:voo" minOccurs="0"/>
+<xs:element name="nomePassageiro" type="xs:string" minOccurs="0"/>
+<xs:element name="sobreNomePassageiro" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="voo">
+<xs:sequence>
+<xs:element name="agencia" type="tns:agencia" minOccurs="0"/>
+<xs:element name="ativo" type="xs:boolean"/>
+<xs:element name="dataVoo" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="destino" type="tns:cidade" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="limiteVagas" type="xs:int" minOccurs="0"/>
+<xs:element name="origem" type="tns:cidade" minOccurs="0"/>
+<xs:element name="preco" type="xs:double" minOccurs="0"/>
+<xs:element name="qtdePassageiros" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agencia">
+<xs:sequence>
+<xs:element name="ativo" type="xs:boolean"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="nome" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cidade">
+<xs:sequence>
+<xs:element name="ativo" type="xs:boolean"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="nome" type="xs:string" minOccurs="0"/>
+<xs:element name="uf" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="comprarPassagemIdaVoltaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bucarVoos">
+<xs:sequence>
+<xs:element name="cidadeOrigem" type="xs:string" minOccurs="0"/>
+<xs:element name="cidadeDestino" type="xs:string" minOccurs="0"/>
+<xs:element name="data" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bucarVoosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:voo" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelarPassagem">
+<xs:sequence>
+<xs:element name="idPassagem" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelarPassagemResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="comprarPassagemIda">
+<xs:sequence>
+<xs:element name="loginUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="voo" type="tns:voo" minOccurs="0"/>
+<xs:element name="nomePassageiro" type="xs:string" minOccurs="0"/>
+<xs:element name="sobreNomePassageiro" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="comprarPassagemIdaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarPassagens">
+<xs:sequence>
+<xs:element name="loginUsuario" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarPassagensResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:passagem" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="passagem">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="loginUser" type="xs:string" minOccurs="0"/>
+<xs:element name="passageiro" type="tns:passageiro" minOccurs="0"/>
+<xs:element name="voo" type="tns:voo" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="passageiro">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="nome" type="xs:string" minOccurs="0"/>
+<xs:element name="sobreNome" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
